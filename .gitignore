@@ -16,3 +16,6 @@ logs/
 
 # Restos de FBref / seleniumbase
 downloaded_files/
+
+# Power BI: el .pbix se guarda en local, no en Git (binario pesado con datos)
+*.pbix
