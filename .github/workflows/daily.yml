@@ -2,11 +2,11 @@ name: Actualización diaria La Liga
 
 on:
   schedule:
-    - cron: "0 5 * * *"        # 05:00 UTC = 07:00 en Madrid (verano)
+    - cron: "0 5 * * *"        # 05:00 UTC = 07:00 en Madrid (verano) / 06:00 (invierno)
   workflow_dispatch:           # botón "Run workflow" para lanzarlo a mano
     inputs:
       sources:
-        description: "Fuentes (vacío = todas): footballdata clubelo understat transfermarkt fbref"
+        description: "Fuentes (vacío = todas): footballdata clubelo understat transfermarkt"
         required: false
         default: ""
 
@@ -23,6 +23,8 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0       # historial completo: necesario para el pull --rebase del final
 
       - uses: actions/setup-python@v5
         with:
