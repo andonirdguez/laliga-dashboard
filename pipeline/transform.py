@@ -1,0 +1,593 @@
+"""Capas SILVER y GOLD.
+
+silver: cada fuente limpia, tipada y con claves normalizadas (equipo_id, jugador_key).
+gold:   modelo estrella en CSV, listo para Power BI:
+        dim_equipo, dim_jugador, dim_fecha,
+        fact_partido, fact_equipo_partido, fact_equipo_temporada, fact_jugador_temporada, meta
+
+Es tolerante: si una fuente no existe en bronze, se omite lo que depende de ella y se avisa.
+Uso: python pipeline/transform.py
+"""
+from __future__ import annotations
+
+import sys
+from datetime import date, datetime, timezone
+
+import numpy as np
+import pandas as pd
+
+import config as C
+
+log = C.get_logger("transform")
+
+
+# --------------------------------------------------------------------------
+# Utilidades
+# --------------------------------------------------------------------------
+def find_col(df: pd.DataFrame, *cands: str) -> str | None:
+    """Primera columna que coincide exacta; si no, la primera que TERMINA en el candidato."""
+    cols = list(df.columns)
+    for c in cands:
+        if c in cols:
+            return c
+    for c in cands:
+        for col in cols:
+            if col.endswith("_" + c):
+                return col
+    return None
+
+
+def pick(df: pd.DataFrame, spec: dict[str, tuple[str, ...]], tabla: str) -> pd.DataFrame:
+    """Selecciona y renombra columnas según {nombre_destino: (candidatos...)}. Loguea las que falten."""
+    out, faltan = {}, []
+    for dest, cands in spec.items():
+        col = find_col(df, *cands)
+        if col is None:
+            faltan.append(dest)
+        else:
+            out[dest] = df[col]
+    if faltan:
+        log.warning("%s | columnas NO encontradas: %s | disponibles: %s", tabla, faltan, list(df.columns))
+    return pd.DataFrame(out)
+
+
+def to_num(s: pd.Series) -> pd.Series:
+    return pd.to_numeric(s.astype(str).str.replace(",", "", regex=False), errors="coerce")
+
+
+def pos_grupo(pos: str) -> str:
+    """FBref 'FW,MF' / Understat 'F M S' -> GK / DF / MF / FW (primera posición manda)."""
+    if pd.isna(pos) or not str(pos).strip():
+        return "ND"
+    p = str(pos).strip().upper()[:2]
+    if p.startswith("GK"):
+        return "GK"
+    if p.startswith("D"):
+        return "DF"
+    if p.startswith("M"):
+        return "MF"
+    if p.startswith(("F", "S", "A")):
+        return "FW"
+    return "ND"
+
+
+# --------------------------------------------------------------------------
+# SILVER
+# --------------------------------------------------------------------------
+def silver_partidos_fd() -> pd.DataFrame | None:
+    df = C.load_bronze("footballdata", "partidos")
+    if df is None:
+        log.warning("football-data no disponible en bronze")
+        return None
+    fecha = pd.to_datetime(df["Date"], dayfirst=True, errors="coerce")
+    odds = [("AvgH", "AvgD", "AvgA"), ("B365H", "B365D", "B365A"), ("PSH", "PSD", "PSA")]
+    oh = od = oa = None
+    for h, d_, a in odds:
+        if {h, d_, a}.issubset(df.columns):
+            oh, od, oa = (to_num(df[x]) for x in (h, d_, a))
+            log.info("football-data | cuotas usadas: %s/%s/%s", h, d_, a)
+            break
+    out = pd.DataFrame({
+        "fecha": fecha.dt.date,
+        "local": df["HomeTeam"], "visitante": df["AwayTeam"],
+        "goles_local": to_num(df["FTHG"]), "goles_visitante": to_num(df["FTAG"]),
+        "resultado": df["FTR"],
+        "tiros_local": to_num(df.get("HS")), "tiros_visitante": to_num(df.get("AS")),
+        "tiros_puerta_local": to_num(df.get("HST")), "tiros_puerta_visitante": to_num(df.get("AST")),
+        "corners_local": to_num(df.get("HC")), "corners_visitante": to_num(df.get("AC")),
+        "faltas_local": to_num(df.get("HF")), "faltas_visitante": to_num(df.get("AF")),
+        "amarillas_local": to_num(df.get("HY")), "amarillas_visitante": to_num(df.get("AY")),
+        "rojas_local": to_num(df.get("HR")), "rojas_visitante": to_num(df.get("AR")),
+        "cuota_local": oh, "cuota_empate": od, "cuota_visitante": oa,
+    })
+    out["equipo_local_id"] = out["local"].map(C.team_key)
+    out["equipo_visitante_id"] = out["visitante"].map(C.team_key)
+    C.save_silver(out, "partidos_footballdata")
+    return out
+
+
+def silver_partidos_us() -> pd.DataFrame | None:
+    df = C.load_bronze("understat", "partidos")
+    if df is None:
+        log.warning("Understat partidos no disponible en bronze")
+        return None
+    out = pick(df, {
+        "fecha": ("date",), "local": ("home_team",), "visitante": ("away_team",),
+        "xg_local": ("home_xg",), "xg_visitante": ("away_xg",),
+        "npxg_local": ("home_np_xg",), "npxg_visitante": ("away_np_xg",),
+        "ppda_local": ("home_ppda",), "ppda_visitante": ("away_ppda",),
+        "deep_local": ("home_deep_completions",), "deep_visitante": ("away_deep_completions",),
+    }, "understat.partidos")
+    out["fecha"] = pd.to_datetime(out["fecha"], errors="coerce").dt.date
+    for c in out.columns.difference(["fecha", "local", "visitante"]):
+        out[c] = to_num(out[c])
+    out["equipo_local_id"] = out["local"].map(C.team_key)
+    out["equipo_visitante_id"] = out["visitante"].map(C.team_key)
+    C.save_silver(out, "partidos_understat")
+    return out
+
+
+# Métricas de jugador por tabla FBref: destino -> (tabla, candidatos de columna aplanada)
+FBREF_PLAYER_SPEC: dict[str, tuple[str, tuple[str, ...]]] = {
+    "minutos": ("standard", ("playing_time_min",)),
+    "partidos": ("standard", ("playing_time_mp",)),
+    "titularidades": ("standard", ("playing_time_starts",)),
+    "goles": ("standard", ("performance_gls",)),
+    "asistencias": ("standard", ("performance_ast",)),
+    "goles_sin_penalti": ("standard", ("performance_g_pk",)),
+    "amarillas": ("standard", ("performance_crdy",)),
+    "rojas": ("standard", ("performance_crdr",)),
+    "xg": ("standard", ("expected_xg",)),
+    "npxg": ("standard", ("expected_npxg",)),
+    "xag": ("standard", ("expected_xag",)),
+    "conducciones_progresivas": ("standard", ("progression_prgc",)),
+    "pases_progresivos": ("standard", ("progression_prgp",)),
+    "recepciones_progresivas": ("standard", ("progression_prgr",)),
+    "tiros": ("shooting", ("standard_sh",)),
+    "tiros_puerta": ("shooting", ("standard_sot",)),
+    "pases_completados": ("passing", ("total_cmp",)),
+    "pases_intentados": ("passing", ("total_att",)),
+    "pases_clave": ("passing", ("kp",)),
+    "pases_ultimo_tercio": ("passing", ("1_3",)),
+    "pases_area": ("passing", ("ppa",)),
+    "sca": ("goal_shot_creation", ("sca_sca",)),
+    "gca": ("goal_shot_creation", ("gca_gca",)),
+    "entradas": ("defense", ("tackles_tkl",)),
+    "entradas_ganadas": ("defense", ("tackles_tklw",)),
+    "intercepciones": ("defense", ("int",)),
+    "bloqueos": ("defense", ("blocks_blocks",)),
+    "despejes": ("defense", ("clr",)),
+    "toques": ("possession", ("touches_touches",)),
+    "regates_intentados": ("possession", ("take_ons_att",)),
+    "regates_completados": ("possession", ("take_ons_succ",)),
+    "recuperaciones": ("misc", ("performance_recov",)),
+    "duelos_aereos_ganados": ("misc", ("aerial_duels_won",)),
+    "duelos_aereos_perdidos": ("misc", ("aerial_duels_lost",)),
+    "porterias_cero": ("keeper", ("performance_cs",)),
+    "paradas": ("keeper", ("performance_saves",)),
+    "tiros_puerta_recibidos": ("keeper", ("performance_sota",)),
+    "goles_encajados": ("keeper", ("performance_ga",)),
+}
+
+
+def silver_jugadores_fbref() -> pd.DataFrame | None:
+    base = C.load_bronze("fbref", "jugadores_standard")
+    if base is None:
+        log.warning("FBref jugadores no disponible en bronze")
+        return None
+    keys = pick(base, {"jugador": ("player",), "equipo": ("team",), "nacionalidad": ("nation",),
+                       "posicion": ("pos",), "nacimiento": ("born",)}, "fbref.standard")
+    keys = keys.reset_index(drop=True)
+    tablas: dict[str, pd.DataFrame] = {}
+    out = keys.copy()
+    for dest, (tabla, cands) in FBREF_PLAYER_SPEC.items():
+        if tabla not in tablas:
+            t = C.load_bronze("fbref", f"jugadores_{tabla}")
+            tablas[tabla] = t if t is not None else pd.DataFrame()
+        t = tablas[tabla]
+        if t.empty:
+            out[dest] = np.nan
+            continue
+        col = find_col(t, *cands)
+        if col is None:
+            log.warning("fbref | métrica '%s' no encontrada en jugadores_%s", dest, tabla)
+            out[dest] = np.nan
+            continue
+        pj, tm = find_col(t, "player"), find_col(t, "team")
+        m = t[[pj, tm, col]].rename(columns={pj: "jugador", tm: "equipo", col: dest})
+        m = m.drop_duplicates(["jugador", "equipo"])
+        out = out.merge(m, on=["jugador", "equipo"], how="left")
+    for tabla in sorted({t for t, _ in FBREF_PLAYER_SPEC.values()}):
+        if tablas[tabla].empty:
+            log.warning("fbref | tabla jugadores_%s no está en bronze: sus métricas quedan vacías", tabla)
+    for c in FBREF_PLAYER_SPEC:
+        out[c] = to_num(out[c])
+    out["nacimiento"] = to_num(out["nacimiento"]).astype("Int64")
+    out["nacionalidad"] = out["nacionalidad"].astype(str).str.split().str[-1]  # "es ESP" -> "ESP"
+    out["fuente"] = "fbref"
+    C.save_silver(out, "jugadores_fbref")
+    return out
+
+
+def silver_jugadores_understat() -> pd.DataFrame | None:
+    df = C.load_bronze("understat", "jugadores")
+    if df is None:
+        return None
+    out = pick(df, {
+        "jugador": ("player",), "equipo": ("team",), "posicion": ("position",),
+        "partidos": ("matches",), "minutos": ("minutes",), "goles": ("goals",), "asistencias": ("assists",),
+        "xg": ("xg",), "npxg": ("np_xg",), "xag": ("xa",), "tiros": ("shots",), "pases_clave": ("key_passes",),
+        "amarillas": ("yellow_cards",), "rojas": ("red_cards",),
+        "xg_chain": ("xg_chain",), "xg_buildup": ("xg_buildup",),
+    }, "understat.jugadores")
+    for c in out.columns.difference(["jugador", "equipo", "posicion"]):
+        out[c] = to_num(out[c])
+    out["fuente"] = "understat"
+    C.save_silver(out, "jugadores_understat")
+    return out
+
+
+def silver_transfermarkt() -> pd.DataFrame | None:
+    df = C.load_bronze("transfermarkt", "jugadores")
+    if df is None:
+        log.warning("Transfermarkt no disponible en bronze")
+        return None
+    out = pd.DataFrame({
+        "tm_player_id": df["player_id"],
+        "jugador_tm": df["name"],
+        "nacimiento": pd.to_datetime(df.get("date_of_birth"), errors="coerce").dt.year.astype("Int64"),
+        "equipo_tm": df.get("current_club_name"),
+        "valor_mercado_eur": to_num(df.get("market_value_in_eur")),
+        "valor_maximo_eur": to_num(df.get("highest_market_value_in_eur")),
+        "fin_contrato": pd.to_datetime(df.get("contract_expiration_date"), errors="coerce").dt.date,
+        "pie": df.get("foot"),
+        "altura_cm": to_num(df.get("height_in_cm")),
+        "imagen_url": df.get("image_url"),
+    })
+    out["equipo_id"] = out["equipo_tm"].map(C.team_key)
+    C.save_silver(out, "jugadores_transfermarkt")
+    return out
+
+
+def silver_elo() -> pd.DataFrame | None:
+    df = C.load_bronze("clubelo", "elo_historico")
+    if df is None:
+        log.warning("ClubElo no disponible en bronze")
+        return None
+    out = pd.DataFrame({
+        "fecha": pd.to_datetime(df["fecha_snapshot"]).dt.date,
+        "equipo_elo": df["Club"], "elo": to_num(df["Elo"]), "rank_elo_mundial": to_num(df["Rank"]),
+    })
+    out["equipo_id"] = out["equipo_elo"].map(C.team_key)
+    C.save_silver(out, "elo")
+    return out
+
+
+# --------------------------------------------------------------------------
+# GOLD
+# --------------------------------------------------------------------------
+def build_fact_partido(fd: pd.DataFrame | None, us: pd.DataFrame | None) -> pd.DataFrame | None:
+    if fd is None and us is None:
+        return None
+    if fd is None:
+        p = us.copy()
+    else:
+        p = fd.copy()
+        if us is not None:
+            cols_us = [c for c in us.columns if c not in ("local", "visitante")]
+            p = p.merge(us[cols_us], on=["fecha", "equipo_local_id", "equipo_visitante_id"], how="left")
+            sin_xg = p["xg_local"].isna().sum()
+            if sin_xg:
+                log.warning("fact_partido | %s partidos sin xG de Understat (fecha o equipo no cruzan)", sin_xg)
+    p = p.sort_values("fecha").reset_index(drop=True)
+    p["fecha"] = pd.to_datetime(p["fecha"])
+    p["partido_id"] = (p["fecha"].dt.strftime("%Y%m%d") + "_" + p["equipo_local_id"].map(C.slug)
+                       + "_" + p["equipo_visitante_id"].map(C.slug))
+    p["fecha_id"] = p["fecha"].dt.strftime("%Y%m%d").astype(int)
+    p["temporada"] = C.SEASON_LABEL
+
+    if {"cuota_local", "cuota_empate", "cuota_visitante"}.issubset(p.columns):
+        inv = 1 / p[["cuota_local", "cuota_empate", "cuota_visitante"]]
+        overround = inv.sum(axis=1)
+        p["prob_local"] = inv["cuota_local"] / overround
+        p["prob_empate"] = inv["cuota_empate"] / overround
+        p["prob_visitante"] = inv["cuota_visitante"] / overround
+        p["margen_casa"] = overround - 1
+        fav = inv.idxmax(axis=1).map({"cuota_local": "H", "cuota_empate": "D", "cuota_visitante": "A"})
+        p["gana_favorito"] = np.where(p["resultado"].isna(), np.nan, (fav == p["resultado"]).astype(float))
+
+    p = p.drop(columns=[c for c in ("local", "visitante") if c in p.columns])
+    first = ["partido_id", "fecha_id", "fecha", "temporada", "equipo_local_id", "equipo_visitante_id"]
+    return p[first + [c for c in p.columns if c not in first]]
+
+
+def build_fact_equipo_partido(fp: pd.DataFrame) -> pd.DataFrame:
+    """Una fila por equipo y partido + acumulados (para gráficos de evolución)."""
+    def lado(es_local: bool) -> pd.DataFrame:
+        a, b = ("local", "visitante") if es_local else ("visitante", "local")
+        d = pd.DataFrame({
+            "partido_id": fp["partido_id"], "fecha_id": fp["fecha_id"], "fecha": fp["fecha"],
+            "equipo_id": fp[f"equipo_{a}_id"], "rival_id": fp[f"equipo_{b}_id"],
+            "es_local": int(es_local),
+        })
+        pares = {"goles_favor": f"goles_{a}", "goles_contra": f"goles_{b}",
+                 "xg_favor": f"xg_{a}", "xg_contra": f"xg_{b}",
+                 "tiros": f"tiros_{a}", "tiros_contra": f"tiros_{b}",
+                 "tiros_puerta": f"tiros_puerta_{a}", "corners": f"corners_{a}",
+                 "amarillas": f"amarillas_{a}", "rojas": f"rojas_{a}",
+                 "ppda": f"ppda_{a}", "prob_victoria": f"prob_{a}"}
+        for dest, src in pares.items():
+            d[dest] = fp[src] if src in fp.columns else np.nan
+        return d
+
+    e = pd.concat([lado(True), lado(False)], ignore_index=True)
+    jugado = e["goles_favor"].notna() & e["goles_contra"].notna()
+    e["puntos"] = np.select([e["goles_favor"] > e["goles_contra"], e["goles_favor"] == e["goles_contra"]],
+                            [3, 1], 0).astype(float)
+    e.loc[~jugado, "puntos"] = np.nan
+    e["resultado"] = np.select([e["puntos"] == 3, e["puntos"] == 1, e["puntos"] == 0], ["V", "E", "D"], "")
+    e = e.sort_values(["equipo_id", "fecha"]).reset_index(drop=True)
+    e["jornada_equipo"] = e.groupby("equipo_id").cumcount() + 1  # nº de partido jugado por el equipo
+    g = e.groupby("equipo_id")
+    for c in ("puntos", "goles_favor", "goles_contra", "xg_favor", "xg_contra"):
+        e[f"{c}_acum"] = g[c].cumsum()
+    # Posición tras N partidos jugados (aproximación a "jornada"; ignora aplazados y el golaveraje particular)
+    e["dg_acum"] = e["goles_favor_acum"] - e["goles_contra_acum"]
+    e = e.sort_values(["jornada_equipo", "puntos_acum", "dg_acum", "goles_favor_acum"],
+                      ascending=[True, False, False, False])
+    e["posicion_jornada"] = e.groupby("jornada_equipo").cumcount() + 1
+    return e.sort_values(["fecha", "partido_id", "es_local"], ascending=[True, True, False]).reset_index(drop=True)
+
+
+def build_fact_equipo_temporada(fep: pd.DataFrame | None, elo: pd.DataFrame | None,
+                                tm: pd.DataFrame | None) -> pd.DataFrame | None:
+    if fep is None:
+        return None
+    j = fep[fep["puntos"].notna()]
+    t = j.groupby("equipo_id").agg(
+        pj=("partido_id", "count"),
+        victorias=("puntos", lambda s: (s == 3).sum()),
+        empates=("puntos", lambda s: (s == 1).sum()),
+        derrotas=("puntos", lambda s: (s == 0).sum()),
+        goles_favor=("goles_favor", "sum"), goles_contra=("goles_contra", "sum"),
+        puntos=("puntos", "sum"),
+        xg_favor=("xg_favor", "sum"), xg_contra=("xg_contra", "sum"),
+        tiros=("tiros", "sum"), tiros_contra=("tiros_contra", "sum"),
+        ppda_medio=("ppda", "mean"),
+    ).reset_index()
+    t["diferencia_goles"] = t["goles_favor"] - t["goles_contra"]
+    t["xg_diferencia"] = t["xg_favor"] - t["xg_contra"]
+    t["puntos_por_partido"] = t["puntos"] / t["pj"]
+    t = t.sort_values(["puntos", "diferencia_goles", "goles_favor"], ascending=False).reset_index(drop=True)
+    t["posicion"] = np.arange(1, len(t) + 1)
+    t["forma_ultimos5"] = t["equipo_id"].map(
+        j.sort_values("fecha").groupby("equipo_id")["resultado"].apply(lambda s: "".join(s.tail(5))))
+    if elo is not None:
+        ultimo = elo.sort_values("fecha").groupby("equipo_id").tail(1)[["equipo_id", "elo", "rank_elo_mundial"]]
+        t = t.merge(ultimo, on="equipo_id", how="left")
+    if tm is not None:
+        plantilla = tm.groupby("equipo_id").agg(valor_plantilla_eur=("valor_mercado_eur", "sum"),
+                                                 jugadores_plantilla=("tm_player_id", "count")).reset_index()
+        t = t.merge(plantilla, on="equipo_id", how="left")
+    t.insert(1, "temporada", C.SEASON_LABEL)
+    return t
+
+
+def add_market_expected_points(t: pd.DataFrame, fp: pd.DataFrame) -> pd.DataFrame:
+    if not {"prob_local", "prob_empate", "prob_visitante"}.issubset(fp.columns):
+        return t
+    j = fp[fp["goles_local"].notna()]
+    loc = pd.DataFrame({"equipo_id": j["equipo_local_id"], "xpts": 3 * j["prob_local"] + j["prob_empate"]})
+    vis = pd.DataFrame({"equipo_id": j["equipo_visitante_id"], "xpts": 3 * j["prob_visitante"] + j["prob_empate"]})
+    xp = pd.concat([loc, vis]).groupby("equipo_id")["xpts"].sum().rename("puntos_esperados_mercado")
+    t = t.merge(xp, on="equipo_id", how="left")
+    t["puntos_sobre_esperado"] = t["puntos"] - t["puntos_esperados_mercado"]
+    return t
+
+
+P90_METRICS = ["goles", "asistencias", "goles_sin_penalti", "xg", "npxg", "xag", "tiros", "tiros_puerta",
+               "pases_clave", "pases_progresivos", "conducciones_progresivas", "recepciones_progresivas",
+               "pases_ultimo_tercio", "pases_area", "sca", "gca", "entradas_ganadas", "intercepciones",
+               "bloqueos", "despejes", "regates_completados", "recuperaciones", "duelos_aereos_ganados",
+               "paradas", "xg_chain", "xg_buildup"]
+
+
+def build_jugadores(fb: pd.DataFrame | None, us: pd.DataFrame | None,
+                    tm: pd.DataFrame | None) -> tuple[pd.DataFrame | None, pd.DataFrame | None]:
+    base = fb if fb is not None else us
+    if base is None:
+        return None, None
+    log.info("jugadores | fuente base: %s", base["fuente"].iat[0])
+    j = base.copy()
+    j["equipo_id"] = j["equipo"].map(C.team_key)
+    j["posicion_grupo"] = j["posicion"].map(pos_grupo)
+    if "nacimiento" not in j.columns:
+        j["nacimiento"] = pd.array([pd.NA] * len(j), dtype="Int64")
+    j["jugador_key"] = j["jugador"].map(C.norm_key)
+    j["jugador_id"] = j["jugador_key"].str.replace(" ", "-") + j["nacimiento"].map(
+        lambda x: "" if pd.isna(x) else f"-{int(x)}")
+
+    # Si la base es FBref, completamos con xG chain/buildup de Understat
+    if fb is not None and us is not None:
+        u = us[["jugador", "equipo", "xg_chain", "xg_buildup"]].copy()
+        u["jugador_key"] = u["jugador"].map(C.norm_key)
+        u["equipo_id"] = u["equipo"].map(C.team_key)
+        j = j.merge(u[["jugador_key", "equipo_id", "xg_chain", "xg_buildup"]].drop_duplicates(
+            ["jugador_key", "equipo_id"]), on=["jugador_key", "equipo_id"], how="left")
+        log.info("jugadores | cruce FBref-Understat: %.0f%%", 100 * j["xg_chain"].notna().mean())
+
+    # ---- dim_jugador (+ Transfermarkt) ----
+    dim = (j.sort_values("minutos", ascending=False)
+             .drop_duplicates("jugador_id")
+             [["jugador_id", "jugador", "jugador_key", "nacimiento", "posicion", "posicion_grupo", "equipo_id"]
+              + (["nacionalidad"] if "nacionalidad" in j.columns else [])].copy())
+    if tm is not None:
+        t = tm.copy()
+        t["jugador_key"] = t["jugador_tm"].map(C.norm_key)
+        t["apellido"] = t["jugador_key"].str.split().str[-1]
+        dim["apellido"] = dim["jugador_key"].str.split().str[-1]
+        cols_tm = ["tm_player_id", "valor_mercado_eur", "valor_maximo_eur", "fin_contrato", "pie",
+                   "altura_cm", "imagen_url", "nacimiento_tm"]
+        t["nacimiento_tm"] = t["nacimiento"]
+        for c in cols_tm:
+            dim[c] = pd.Series([pd.NA] * len(dim), dtype="object")
+        # Cascada de cruces, del más fiable al menos; en cada paso solo claves únicas en Transfermarkt
+        pasos = [["jugador_key", "nacimiento"],   # nombre + año nacimiento (base FBref)
+                 ["apellido", "nacimiento"],      # "Vinícius Júnior" vs "Vinicius Junior", nombres cortos
+                 ["jugador_key", "equipo_id"],    # base Understat (sin año de nacimiento)
+                 ["apellido", "equipo_id"]]
+        for claves in pasos:
+            pend = dim["tm_player_id"].isna() & dim[claves].notna().all(axis=1)
+            if not pend.any():
+                continue
+            tu = t.dropna(subset=claves).drop_duplicates(claves, keep=False)
+            m = dim.loc[pend, ["jugador_id"] + claves].merge(tu[claves + cols_tm], on=claves, how="inner")
+            m = m.drop_duplicates("jugador_id", keep=False).set_index("jugador_id")[cols_tm]
+            dim = dim.set_index("jugador_id")
+            dim.loc[m.index, cols_tm] = m.values
+            dim = dim.reset_index()
+            log.info("dim_jugador | cruce TM por %s: +%s", "+".join(claves), len(m))
+        dim["nacimiento"] = dim["nacimiento"].astype("Float64").fillna(
+            pd.to_numeric(dim["nacimiento_tm"], errors="coerce")).astype("Int64")
+        for c in ("valor_mercado_eur", "valor_maximo_eur", "altura_cm"):
+            dim[c] = pd.to_numeric(dim[c], errors="coerce")
+        dim = dim.drop(columns=["apellido", "nacimiento_tm"])
+        tasa = dim["tm_player_id"].notna().mean()
+        log.info("dim_jugador | cruce con Transfermarkt: %.0f%% (%s de %s)", 100 * tasa,
+                 dim["tm_player_id"].notna().sum(), len(dim))
+        sin = dim[dim["tm_player_id"].isna()].head(15)["jugador"].tolist()
+        if sin:
+            log.info("dim_jugador | ejemplos sin cruzar con Transfermarkt: %s", sin)
+    # equipo_id fuera de la dimensión: el equipo va en el hecho (un jugador puede tener 2 en la temporada)
+    dim = dim.drop(columns=["jugador_key", "equipo_id"])
+    if "nacimiento" in dim.columns:
+        dim["edad"] = C.SEASON_START - dim["nacimiento"].astype("Float64")
+
+    # ---- fact_jugador_temporada: p90 + percentiles por posición ----
+    f = j.drop(columns=["jugador", "equipo", "posicion", "jugador_key", "nacionalidad", "nacimiento", "fuente"],
+               errors="ignore").copy()
+    f.insert(0, "temporada", C.SEASON_LABEL)
+    min90 = f["minutos"] / 90
+    for m in P90_METRICS:
+        if m in f.columns:
+            f[f"{m}_p90"] = np.where(f["minutos"] > 0, f[m] / min90, np.nan)
+    if {"pases_completados", "pases_intentados"}.issubset(f.columns):
+        f["pct_pases"] = f["pases_completados"] / f["pases_intentados"].replace(0, np.nan)
+    if {"regates_completados", "regates_intentados"}.issubset(f.columns):
+        f["pct_regates"] = f["regates_completados"] / f["regates_intentados"].replace(0, np.nan)
+    if {"goles_sin_penalti", "npxg"}.issubset(f.columns):
+        f["goles_menos_xg"] = f["goles_sin_penalti"] - f["npxg"]
+
+    # Jugadores traspasados dentro de La Liga tienen 2 filas (una por equipo); el percentil se hace
+    # sobre el total del jugador en la temporada y se asigna a ambas filas.
+    tot_cols = ["minutos"] + [m for m in P90_METRICS if m in f.columns]
+    tot = f.groupby(["jugador_id", "posicion_grupo"], as_index=False)[tot_cols].sum()
+    elegibles = tot["minutos"] >= C.MIN_MINUTES_PERCENTIL
+    f["elegible_percentil"] = f["jugador_id"].isin(tot.loc[elegibles, "jugador_id"]).astype(int)
+    pct = tot[elegibles][["jugador_id"]].copy()
+    for m in P90_METRICS:
+        if m in tot.columns and tot[m].notna().any():
+            v = tot.loc[elegibles, m] / (tot.loc[elegibles, "minutos"] / 90)
+            pct[f"{m}_p90_pctl"] = (v.groupby(tot.loc[elegibles, "posicion_grupo"]).rank(pct=True) * 100).round(1)
+    f = f.merge(pct, on="jugador_id", how="left")
+    first = ["temporada", "jugador_id", "equipo_id", "posicion_grupo"]
+    f = f[first + [c for c in f.columns if c not in first]]
+    return dim, f
+
+
+def build_dim_equipo(fuentes: dict[str, pd.Series], master: set[str]) -> pd.DataFrame:
+    """Un equipo por clave canónica. Nombre visible: el de la primera fuente disponible en este orden."""
+    filas = {}
+    for fuente, nombres in fuentes.items():
+        for n in pd.Series(nombres).dropna().unique():
+            k = C.team_key(n)
+            filas.setdefault(k, {"equipo_id": k, "equipo": n})
+            filas[k][f"nombre_{fuente}"] = n
+    dim = pd.DataFrame(filas.values())
+    if master:
+        extra = set(dim["equipo_id"]) - master
+        if extra:
+            log.warning("dim_equipo | claves que NO cruzan con los 20 equipos de la liga "
+                        "(añadir a TEAM_ALIASES en config.py): %s",
+                        {k: {c: v for c, v in filas[k].items() if c.startswith("nombre_")} for k in extra})
+        faltan = master - set(dim["equipo_id"])
+        if faltan:
+            log.warning("dim_equipo | equipos de la liga sin nombre en ninguna fuente: %s", faltan)
+        dim = dim[dim["equipo_id"].isin(master)]
+    return dim.sort_values("equipo").reset_index(drop=True)
+
+
+DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+         "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+def build_dim_fecha() -> pd.DataFrame:
+    r = pd.date_range(f"{C.SEASON_START}-07-01", f"{C.SEASON_END}-06-30", freq="D")
+    return pd.DataFrame({
+        "fecha_id": r.strftime("%Y%m%d").astype(int), "fecha": r.date,
+        "anio": r.year, "mes": r.month, "mes_nombre": [MESES[m - 1] for m in r.month],
+        "anio_mes": r.strftime("%Y-%m"), "orden_mes_temporada": ((r.month - 7) % 12) + 1,
+        "dia_semana": [DIAS[d] for d in r.dayofweek], "num_dia_semana": r.dayofweek + 1,
+        "es_fin_de_semana": (r.dayofweek >= 5).astype(int),
+        "semana_iso": r.isocalendar().week.astype(int).values, "temporada": C.SEASON_LABEL,
+    })
+
+
+# --------------------------------------------------------------------------
+def main() -> int:
+    log.info("=== TRANSFORM | temporada %s ===", C.SEASON_LABEL)
+    fd, us_p = silver_partidos_fd(), silver_partidos_us()
+    fb, us_j = silver_jugadores_fbref(), silver_jugadores_understat()
+    tm, elo = silver_transfermarkt(), silver_elo()
+
+    fp = build_fact_partido(fd, us_p)
+    if fp is not None:
+        # Los 20 equipos de los partidos son la lista maestra; se re-mapean las fuentes con ella
+        C.TEAM_MASTER.update(set(fp["equipo_local_id"]) | set(fp["equipo_visitante_id"]))
+        if tm is not None:
+            tm["equipo_id"] = tm["equipo_tm"].map(C.team_key)
+        if elo is not None:
+            elo["equipo_id"] = elo["equipo_elo"].map(C.team_key)
+    fep = build_fact_equipo_partido(fp) if fp is not None else None
+    fet = build_fact_equipo_temporada(fep, elo, tm)
+    if fet is not None and fp is not None:
+        fet = add_market_expected_points(fet, fp)
+    dim_j, fjt = build_jugadores(fb, us_j, tm)
+
+    master = set(fep["equipo_id"]) if fep is not None else set()
+    fuentes = {}
+    if fb is not None: fuentes["fbref"] = fb["equipo"]
+    if us_p is not None: fuentes["understat"] = pd.concat([us_p["local"], us_p["visitante"]])
+    elif us_j is not None: fuentes["understat"] = us_j["equipo"]
+    if fd is not None: fuentes["footballdata"] = pd.concat([fd["local"], fd["visitante"]])
+    if elo is not None: fuentes["clubelo"] = elo["equipo_elo"]
+    if tm is not None: fuentes["transfermarkt"] = tm["equipo_tm"]
+    dim_e = build_dim_equipo(fuentes, master) if fuentes else None
+
+    gold = {"dim_equipo": dim_e, "dim_jugador": dim_j, "dim_fecha": build_dim_fecha(),
+            "fact_partido": fp, "fact_equipo_partido": fep, "fact_equipo_temporada": fet,
+            "fact_jugador_temporada": fjt}
+    meta = []
+    for name, df in gold.items():
+        if df is None:
+            log.warning("gold | %s NO generada (falta su fuente)", name)
+            continue
+        C.save_gold(df, name)
+        meta.append({"tabla": name, "filas": len(df), "columnas": df.shape[1]})
+        log.info("gold | %-24s %6s filas  %3s columnas", name, len(df), df.shape[1])
+
+    ahora = datetime.now(timezone.utc)
+    m = pd.DataFrame(meta)
+    m["temporada"] = C.SEASON_LABEL
+    m["actualizado_utc"] = ahora.strftime("%Y-%m-%d %H:%M")
+    m["fuentes_disponibles"] = ", ".join(sorted(k for k, v in {
+        "fbref": fb, "understat": us_p if us_p is not None else us_j, "footballdata": fd,
+        "clubelo": elo, "transfermarkt": tm}.items() if v is not None))
+    C.save_gold(m, "meta")
+    log.info("=== FIN TRANSFORM ===")
+    return 0 if fp is not None or fjt is not None else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

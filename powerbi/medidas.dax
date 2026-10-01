@@ -1,0 +1,62 @@
+// =====================================================================
+// Tabla de medidas: crea una tabla vacía "_Medidas" y pega estas medidas.
+// Regla: nada de agregaciones implícitas; los ratios se calculan como
+// cociente de sumas (nunca media de ratios por fila).
+// Relaciones esperadas (1:* , filtro simple):
+//   dim_equipo[equipo_id]  -> fact_equipo_temporada / fact_equipo_partido / fact_jugador_temporada [equipo_id]
+//   dim_equipo[equipo_id]  -> fact_partido[equipo_local_id]      (activa)
+//   dim_equipo[equipo_id]  -> fact_partido[equipo_visitante_id]  (inactiva, USERELATIONSHIP)
+//   dim_jugador[jugador_id]-> fact_jugador_temporada[jugador_id]
+//   dim_fecha[fecha_id]    -> fact_partido[fecha_id], fact_equipo_partido[fecha_id]
+// =====================================================================
+
+// ---------- Equipo ----------
+Puntos = SUM ( fact_equipo_partido[puntos] )
+Partidos Jugados = CALCULATE ( COUNTROWS ( fact_equipo_partido ), NOT ISBLANK ( fact_equipo_partido[puntos] ) )
+Puntos por Partido = DIVIDE ( [Puntos], [Partidos Jugados] )
+Goles a Favor = SUM ( fact_equipo_partido[goles_favor] )
+Goles en Contra = SUM ( fact_equipo_partido[goles_contra] )
+Diferencia de Goles = [Goles a Favor] - [Goles en Contra]
+xG a Favor = SUM ( fact_equipo_partido[xg_favor] )
+xG en Contra = SUM ( fact_equipo_partido[xg_contra] )
+xG Diferencia = [xG a Favor] - [xG en Contra]
+Goles - xG = [Goles a Favor] - [xG a Favor]
+xG por Partido = DIVIDE ( [xG a Favor], [Partidos Jugados] )
+Victorias = CALCULATE ( COUNTROWS ( fact_equipo_partido ), fact_equipo_partido[puntos] = 3 )
+% Victorias = DIVIDE ( [Victorias], [Partidos Jugados] )
+
+Posición Actual = IF ( HASONEVALUE ( dim_equipo[equipo_id] ), MAX ( fact_equipo_temporada[posicion] ) )
+
+Puntos Esperados Mercado = SUM ( fact_equipo_temporada[puntos_esperados_mercado] )
+Puntos sobre Esperado = [Puntos] - [Puntos Esperados Mercado]
+
+Elo Actual = MAX ( fact_equipo_temporada[elo] )
+Valor Plantilla (M€) = DIVIDE ( SUM ( fact_equipo_temporada[valor_plantilla_eur] ), 1e6 )
+
+// ---------- Partido ----------
+Nº Partidos = COUNTROWS ( fact_partido )
+% Acierto Favorito = AVERAGE ( fact_partido[gana_favorito] )
+Goles por Partido = DIVIDE ( SUM ( fact_partido[goles_local] ) + SUM ( fact_partido[goles_visitante] ), [Nº Partidos] )
+Partidos como Visitante =
+CALCULATE ( COUNTROWS ( fact_partido ), USERELATIONSHIP ( dim_equipo[equipo_id], fact_partido[equipo_visitante_id] ) )
+
+// ---------- Jugador (p90 = suma de métrica / suma de minutos × 90) ----------
+Minutos = SUM ( fact_jugador_temporada[minutos] )
+Goles Jugador = SUM ( fact_jugador_temporada[goles] )
+Asistencias Jugador = SUM ( fact_jugador_temporada[asistencias] )
+xG Jugador = SUM ( fact_jugador_temporada[xg] )
+xAG Jugador = SUM ( fact_jugador_temporada[xag] )
+Goles p90 = DIVIDE ( [Goles Jugador], [Minutos] ) * 90
+xG p90 = DIVIDE ( [xG Jugador], [Minutos] ) * 90
+npxG + xAG p90 = DIVIDE ( SUM ( fact_jugador_temporada[npxg] ) + [xAG Jugador], [Minutos] ) * 90
+Pases Progresivos p90 = DIVIDE ( SUM ( fact_jugador_temporada[pases_progresivos] ), [Minutos] ) * 90
+Acciones Defensivas p90 = DIVIDE ( SUM ( fact_jugador_temporada[entradas_ganadas] ) + SUM ( fact_jugador_temporada[intercepciones] ), [Minutos] ) * 90
+
+// Percentil: viene calculado en Python (por posición, mín. 450'). En DAX solo se lee.
+Percentil xG p90 = MAX ( fact_jugador_temporada[xg_p90_pctl] )
+Percentil xAG p90 = MAX ( fact_jugador_temporada[xag_p90_pctl] )
+
+Valor Mercado (M€) = DIVIDE ( SUM ( dim_jugador[valor_mercado_eur] ), 1e6 )
+
+// ---------- Metadatos ----------
+Última Actualización = "Actualizado: " & MAX ( meta[actualizado_utc] ) & " UTC"

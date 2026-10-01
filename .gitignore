@@ -1,0 +1,15 @@
+# Entorno
+.venv/
+__pycache__/
+*.pyc
+.env
+kaggle.json
+
+# Datos: a Git SOLO sube data/gold (CSV pequeños que lee Power BI)
+data/bronze/
+data/silver/
+logs/
+
+# Power BI
+*.pbix.bak
+.pbi/
