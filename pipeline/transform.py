@@ -171,6 +171,8 @@ FBREF_PLAYER_SPEC: dict[str, tuple[str, tuple[str, ...]]] = {
 
 
 def silver_jugadores_fbref() -> pd.DataFrame | None:
+    if not C.USE_FBREF:
+        return None
     base = C.load_bronze("fbref", "jugadores_standard")
     if base is None:
         log.warning("FBref jugadores no disponible en bronze")
@@ -214,7 +216,7 @@ def silver_jugadores_understat() -> pd.DataFrame | None:
     if df is None:
         return None
     out = pick(df, {
-        "jugador": ("player",), "equipo": ("team",), "posicion": ("position",),
+        "jugador": ("player",), "equipo": ("team",), "posicion": ("position",), "us_player_id": ("player_id",),
         "partidos": ("matches",), "minutos": ("minutes",), "goles": ("goals",), "asistencias": ("assists",),
         "xg": ("xg",), "npxg": ("np_xg",), "xag": ("xa",), "tiros": ("shots",), "pases_clave": ("key_passes",),
         "amarillas": ("yellow_cards",), "rojas": ("red_cards",),
@@ -243,6 +245,8 @@ def silver_transfermarkt() -> pd.DataFrame | None:
         "pie": df.get("foot"),
         "altura_cm": to_num(df.get("height_in_cm")),
         "imagen_url": df.get("image_url"),
+        "nacionalidad_tm": df.get("country_of_citizenship"),
+        "competicion_tm": df.get("current_club_domestic_competition_id"),
     })
     out["equipo_id"] = out["equipo_tm"].map(C.team_key)
     C.save_silver(out, "jugadores_transfermarkt")
@@ -365,10 +369,6 @@ def build_fact_equipo_temporada(fep: pd.DataFrame | None, elo: pd.DataFrame | No
     if elo is not None:
         ultimo = elo.sort_values("fecha").groupby("equipo_id").tail(1)[["equipo_id", "elo", "rank_elo_mundial"]]
         t = t.merge(ultimo, on="equipo_id", how="left")
-    if tm is not None:
-        plantilla = tm.groupby("equipo_id").agg(valor_plantilla_eur=("valor_mercado_eur", "sum"),
-                                                 jugadores_plantilla=("tm_player_id", "count")).reset_index()
-        t = t.merge(plantilla, on="equipo_id", how="left")
     t.insert(1, "temporada", C.SEASON_LABEL)
     return t
 
@@ -385,6 +385,8 @@ def add_market_expected_points(t: pd.DataFrame, fp: pd.DataFrame) -> pd.DataFram
     return t
 
 
+UNDERSTAT_METRICS = ["xg", "npxg", "xag", "tiros", "pases_clave", "xg_chain", "xg_buildup"]
+
 P90_METRICS = ["goles", "asistencias", "goles_sin_penalti", "xg", "npxg", "xag", "tiros", "tiros_puerta",
                "pases_clave", "pases_progresivos", "conducciones_progresivas", "recepciones_progresivas",
                "pases_ultimo_tercio", "pases_area", "sca", "gca", "entradas_ganadas", "intercepciones",
@@ -394,7 +396,8 @@ P90_METRICS = ["goles", "asistencias", "goles_sin_penalti", "xg", "npxg", "xag",
 
 def build_jugadores(fb: pd.DataFrame | None, us: pd.DataFrame | None,
                     tm: pd.DataFrame | None) -> tuple[pd.DataFrame | None, pd.DataFrame | None]:
-    base = fb if fb is not None else us
+    # Understat es la base: no tiene captcha y trae xG. FBref solo se usa si no hay Understat.
+    base = us if us is not None else fb
     if base is None:
         return None, None
     log.info("jugadores | fuente base: %s", base["fuente"].iat[0])
@@ -404,30 +407,64 @@ def build_jugadores(fb: pd.DataFrame | None, us: pd.DataFrame | None,
     if "nacimiento" not in j.columns:
         j["nacimiento"] = pd.array([pd.NA] * len(j), dtype="Int64")
     j["jugador_key"] = j["jugador"].map(C.norm_key)
-    j["jugador_id"] = j["jugador_key"].str.replace(" ", "-") + j["nacimiento"].map(
+    if "us_player_id" in j.columns and j["us_player_id"].notna().all():
+        j["jugador_id"] = "us-" + j["us_player_id"].astype("Int64").astype(str)
+    else:
+        j["jugador_id"] = j["jugador_key"].str.replace(" ", "-") + j["nacimiento"].map(
         lambda x: "" if pd.isna(x) else f"-{int(x)}")
 
-    # Si la base es FBref, completamos con xG chain/buildup de Understat
-    if fb is not None and us is not None:
-        u = us[["jugador", "equipo", "xg_chain", "xg_buildup"]].copy()
+    # Base FBref (identidad, minutos, goles) + métricas de xG de Understat.
+    # FBref dejó de publicar las métricas Opta (xG, progresivos...), así que Understat las aporta.
+    if base is fb and us is not None:
+        us_cols = [c for c in UNDERSTAT_METRICS if c in us.columns]
+        u = us[["jugador", "equipo"] + us_cols].copy()
         u["jugador_key"] = u["jugador"].map(C.norm_key)
         u["equipo_id"] = u["equipo"].map(C.team_key)
-        j = j.merge(u[["jugador_key", "equipo_id", "xg_chain", "xg_buildup"]].drop_duplicates(
-            ["jugador_key", "equipo_id"]), on=["jugador_key", "equipo_id"], how="left")
-        log.info("jugadores | cruce FBref-Understat: %.0f%%", 100 * j["xg_chain"].notna().mean())
+        u["apellido"] = u["jugador_key"].str.split().str[-1]
+        j["apellido"] = j["jugador_key"].str.split().str[-1]
+        j["_us_ok"] = False
+        for c in us_cols:
+            if c not in j.columns:
+                j[c] = np.nan
+        # Cascada: nombre+equipo, apellido+equipo, primer nombre+equipo (claves únicas en ambos lados)
+        u["nombre1"] = u["jugador_key"].str.split().str[0]
+        j["nombre1"] = j["jugador_key"].str.split().str[0]
+        for claves in (["jugador_key", "equipo_id"], ["apellido", "equipo_id"], ["nombre1", "equipo_id"]):
+            pend = ~j["_us_ok"]
+            uu = u.drop_duplicates(claves, keep=False)
+            jj = j.loc[pend, claves].drop_duplicates(keep=False)
+            m = j.loc[pend, claves].reset_index().merge(jj, on=claves).merge(uu[claves + us_cols], on=claves)
+            if m.empty:
+                continue
+            m = m.set_index("index")
+            for c in us_cols:
+                j.loc[m.index, c] = j.loc[m.index, c].fillna(m[c]) if c in FBREF_PLAYER_SPEC else m[c]
+            j.loc[m.index, "_us_ok"] = True
+            log.info("jugadores | cruce FBref-Understat por %s: +%s", "+".join(claves), len(m))
+        con_min = j["minutos"].fillna(0) > 0
+        log.info("jugadores | con datos de Understat: %.0f%% (%.0f%% de los que han jugado)",
+                 100 * j["_us_ok"].mean(), 100 * j.loc[con_min, "_us_ok"].mean())
+        sin = j.loc[con_min & ~j["_us_ok"]].sort_values("minutos", ascending=False)
+        if len(sin):
+            log.info("jugadores | con minutos y sin cruzar con Understat (top 20): %s",
+                     list(zip(sin["jugador"].head(20), sin["equipo"].head(20))))
+        j = j.drop(columns=["_us_ok", "apellido", "nombre1"])
 
     # ---- dim_jugador (+ Transfermarkt) ----
     dim = (j.sort_values("minutos", ascending=False)
              .drop_duplicates("jugador_id")
              [["jugador_id", "jugador", "jugador_key", "nacimiento", "posicion", "posicion_grupo", "equipo_id"]
-              + (["nacionalidad"] if "nacionalidad" in j.columns else [])].copy())
+              + [c for c in ("nacionalidad", "us_player_id") if c in j.columns]].copy())
     if tm is not None:
         t = tm.copy()
         t["jugador_key"] = t["jugador_tm"].map(C.norm_key)
         t["apellido"] = t["jugador_key"].str.split().str[-1]
         dim["apellido"] = dim["jugador_key"].str.split().str[-1]
+        t["inicial"] = t["jugador_key"].str[:1]
+        # solo para nombres de 2+ palabras (un mononombre como "Chupe" no tiene inicial fiable)
+        dim["inicial"] = np.where(dim["jugador_key"].str.contains(" "), dim["jugador_key"].str[:1], None)
         cols_tm = ["tm_player_id", "valor_mercado_eur", "valor_maximo_eur", "fin_contrato", "pie",
-                   "altura_cm", "imagen_url", "nacimiento_tm"]
+                   "altura_cm", "imagen_url", "nacimiento_tm", "nacionalidad_tm"]
         t["nacimiento_tm"] = t["nacimiento"]
         for c in cols_tm:
             dim[c] = pd.Series([pd.NA] * len(dim), dtype="object")
@@ -435,7 +472,9 @@ def build_jugadores(fb: pd.DataFrame | None, us: pd.DataFrame | None,
         pasos = [["jugador_key", "nacimiento"],   # nombre + año nacimiento (base FBref)
                  ["apellido", "nacimiento"],      # "Vinícius Júnior" vs "Vinicius Junior", nombres cortos
                  ["jugador_key", "equipo_id"],    # base Understat (sin año de nacimiento)
-                 ["apellido", "equipo_id"]]
+                 ["apellido", "equipo_id"],
+                 ["jugador_key"],                 # fichajes / ascendidos: nombre único entre todos los activos
+                 ["apellido", "inicial"]]         # "Álex Grimaldo" ~ "Alejandro Grimaldo" (único entre activos)
         for claves in pasos:
             pend = dim["tm_player_id"].isna() & dim[claves].notna().all(axis=1)
             if not pend.any():
@@ -447,11 +486,31 @@ def build_jugadores(fb: pd.DataFrame | None, us: pd.DataFrame | None,
             dim.loc[m.index, cols_tm] = m.values
             dim = dim.reset_index()
             log.info("dim_jugador | cruce TM por %s: +%s", "+".join(claves), len(m))
+        # Último recurso: todas las palabras de un nombre contenidas en el otro ("Kylian Mbappe-Lottin" ~
+        # "Kylian Mbappé"), solo si hay un único candidato entre los jugadores en activo.
+        pend_idx = dim.index[dim["tm_player_id"].isna()]
+        tm_tokens = [(set(k.split()), i) for i, k in zip(t.index, t["jugador_key"]) if k]
+        usados = set(dim["tm_player_id"].dropna())
+        n_tok = 0
+        for idx in pend_idx:
+            toks = set(str(dim.at[idx, "jugador_key"]).split())
+            if len(toks) < 2:
+                continue
+            cands = [i for tk, i in tm_tokens if len(tk) >= 2 and (tk <= toks or toks <= tk)
+                     and t.at[i, "tm_player_id"] not in usados]
+            if len(cands) == 1:
+                dim.loc[idx, cols_tm] = t.loc[cands[0], cols_tm].values
+                n_tok += 1
+        log.info("dim_jugador | cruce TM por palabras del nombre: +%s", n_tok)
         dim["nacimiento"] = dim["nacimiento"].astype("Float64").fillna(
             pd.to_numeric(dim["nacimiento_tm"], errors="coerce")).astype("Int64")
         for c in ("valor_mercado_eur", "valor_maximo_eur", "altura_cm"):
             dim[c] = pd.to_numeric(dim[c], errors="coerce")
-        dim = dim.drop(columns=["apellido", "nacimiento_tm"])
+        if "nacionalidad" in dim.columns:
+            dim["nacionalidad"] = dim["nacionalidad"].fillna(dim["nacionalidad_tm"])
+        else:
+            dim["nacionalidad"] = dim["nacionalidad_tm"]
+        dim = dim.drop(columns=["apellido", "inicial", "nacimiento_tm", "nacionalidad_tm"])
         tasa = dim["tm_player_id"].notna().mean()
         log.info("dim_jugador | cruce con Transfermarkt: %.0f%% (%s de %s)", 100 * tasa,
                  dim["tm_player_id"].notna().sum(), len(dim))
@@ -464,7 +523,8 @@ def build_jugadores(fb: pd.DataFrame | None, us: pd.DataFrame | None,
         dim["edad"] = C.SEASON_START - dim["nacimiento"].astype("Float64")
 
     # ---- fact_jugador_temporada: p90 + percentiles por posición ----
-    f = j.drop(columns=["jugador", "equipo", "posicion", "jugador_key", "nacionalidad", "nacimiento", "fuente"],
+    f = j.drop(columns=["jugador", "equipo", "posicion", "jugador_key", "nacionalidad", "nacimiento", "fuente",
+                        "us_player_id"],
                errors="ignore").copy()
     f.insert(0, "temporada", C.SEASON_LABEL)
     min90 = f["minutos"] / 90
@@ -555,6 +615,16 @@ def main() -> int:
         fet = add_market_expected_points(fet, fp)
     dim_j, fjt = build_jugadores(fb, us_j, tm)
 
+    # Valor de plantilla = suma del valor TM de los jugadores que han jugado en el equipo ESTA temporada
+    # (según Understat), no el club que diga Transfermarkt, que puede ir retrasado.
+    if fet is not None and dim_j is not None and fjt is not None and "valor_mercado_eur" in dim_j.columns:
+        vp = (fjt[["jugador_id", "equipo_id"]].drop_duplicates()
+              .merge(dim_j[["jugador_id", "valor_mercado_eur"]], on="jugador_id", how="left")
+              .groupby("equipo_id").agg(valor_plantilla_eur=("valor_mercado_eur", "sum"),
+                                        jugadores_usados=("jugador_id", "count"),
+                                        jugadores_con_valor=("valor_mercado_eur", "count")).reset_index())
+        fet = fet.merge(vp, on="equipo_id", how="left")
+
     master = set(fep["equipo_id"]) if fep is not None else set()
     fuentes = {}
     if fb is not None: fuentes["fbref"] = fb["equipo"]
@@ -562,7 +632,6 @@ def main() -> int:
     elif us_j is not None: fuentes["understat"] = us_j["equipo"]
     if fd is not None: fuentes["footballdata"] = pd.concat([fd["local"], fd["visitante"]])
     if elo is not None: fuentes["clubelo"] = elo["equipo_elo"]
-    if tm is not None: fuentes["transfermarkt"] = tm["equipo_tm"]
     dim_e = build_dim_equipo(fuentes, master) if fuentes else None
 
     gold = {"dim_equipo": dim_e, "dim_jugador": dim_j, "dim_fecha": build_dim_fecha(),

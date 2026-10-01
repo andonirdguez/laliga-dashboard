@@ -14,7 +14,7 @@ import argparse
 import io
 import sys
 import time
-from datetime import date
+from datetime import date, timedelta
 
 import pandas as pd
 import requests
@@ -46,10 +46,19 @@ def _flatten(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _get(url: str) -> bytes:
-    r = requests.get(url, headers=C.HTTP_HEADERS, timeout=60)
-    r.raise_for_status()
-    return r.content
+def _get(url: str, intentos: int = 3, espera: int = 10) -> bytes:
+    """GET con reintentos: las webs pequeñas (ClubElo) devuelven 5xx a ratos."""
+    for i in range(1, intentos + 1):
+        try:
+            r = requests.get(url, headers=C.HTTP_HEADERS, timeout=60)
+            r.raise_for_status()
+            return r.content
+        except requests.RequestException as e:
+            if i == intentos:
+                raise
+            log.warning("GET %s falló (%s). Reintento %s/%s en %ss", url, e, i, intentos - 1, espera)
+            time.sleep(espera * i)
+    raise RuntimeError("inalcanzable")
 
 
 # --------------------------------------------------------------------------
@@ -68,9 +77,20 @@ def ingest_footballdata(no_cache: bool) -> None:
 # 2. ClubElo — Elo diario de todos los clubes, filtramos España (riesgo 0)
 # --------------------------------------------------------------------------
 def ingest_clubelo(no_cache: bool) -> None:
-    hoy = date.today().isoformat()
-    raw = _get(C.CLUBELO_URL.format(fecha=hoy))
-    df = pd.read_csv(io.BytesIO(raw))
+    # Si hoy no responde, probamos los días anteriores (el Elo cambia poco de un día a otro)
+    df, hoy = None, None
+    for dias_atras in range(0, 4):
+        fecha = (date.today() - timedelta(days=dias_atras)).isoformat()
+        try:
+            raw = _get(C.CLUBELO_URL.format(fecha=fecha), intentos=2)
+            df, hoy = pd.read_csv(io.BytesIO(raw)), fecha
+            break
+        except requests.RequestException as e:
+            log.warning("clubelo | %s no disponible: %s", fecha, e)
+    if df is None:
+        raise RuntimeError("ClubElo no responde para ninguno de los últimos 4 días")
+    if hoy != date.today().isoformat():
+        log.warning("clubelo | usando el Elo de %s (hoy no disponible)", hoy)
     df = df[(df["Country"] == "ESP") & (df["Level"] == 1)].copy()
     df["fecha_snapshot"] = hoy
     C.save_bronze(df, "clubelo", "elo_hoy")
@@ -118,13 +138,20 @@ def ingest_transfermarkt(no_cache: bool) -> None:
         z = tmp / f"{name}.zip"
         return pd.read_csv(z if z.exists() else tmp / name)
 
+    # Guardamos TODOS los jugadores en activo (cualquier liga), no solo La Liga: así cruzan los fichajes
+    # de verano y los jugadores de los recién ascendidos aunque el dataset de Kaggle vaya retrasado.
     players = _read("players.csv")
-    players = players[players["current_club_domestic_competition_id"] == C.TM_COMPETITION]
+    ult = int(players.loc[players["current_club_domestic_competition_id"] == C.TM_COMPETITION, "last_season"].max())
+    players = players[players["last_season"] >= ult - 1]
     C.save_bronze(players, "transfermarkt", "jugadores")
-    log.info("transfermarkt | jugadores La Liga: %s", len(players))
+    log.info("transfermarkt | jugadores en activo (last_season>=%s): %s | de La Liga: %s",
+             ult - 1, len(players), (players["current_club_domestic_competition_id"] == C.TM_COMPETITION).sum())
+    if ult < C.SEASON_START:
+        log.warning("transfermarkt | el dataset de Kaggle aún va por la temporada %s (la actual es %s): "
+                    "valores y plantillas pueden estar desfasados", ult, C.SEASON_START)
 
     clubs = _read("clubs.csv")
-    clubs = clubs[clubs["domestic_competition_id"] == C.TM_COMPETITION]
+    clubs = clubs[(clubs["domestic_competition_id"] == C.TM_COMPETITION) & (clubs["last_season"] == ult)]
     C.save_bronze(clubs, "transfermarkt", "clubes")
     log.info("transfermarkt | clubes La Liga: %s", len(clubs))
 
@@ -168,11 +195,14 @@ SOURCES = {
     "transfermarkt": ingest_transfermarkt,
     "fbref": ingest_fbref,
 }
+DEFAULT_SOURCES = ["footballdata", "clubelo", "understat", "transfermarkt"]
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--source", nargs="+", choices=list(SOURCES), default=list(SOURCES))
+    # FBref queda fuera por defecto: exige resolver un captcha de Cloudflare a mano y ya no publica
+    # las métricas avanzadas. Sigue disponible con --source fbref para pruebas puntuales.
+    ap.add_argument("--source", nargs="+", choices=list(SOURCES), default=DEFAULT_SOURCES)
     ap.add_argument("--no-cache", action="store_true", help="fuerza re-descarga en soccerdata")
     args = ap.parse_args()
 

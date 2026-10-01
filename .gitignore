@@ -13,3 +13,6 @@ logs/
 # Power BI
 *.pbix.bak
 .pbi/
+
+# Restos de FBref / seleniumbase
+downloaded_files/

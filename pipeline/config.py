@@ -47,11 +47,15 @@ KAGGLE_DATASET = "davidcariboo/player-scores"
 KAGGLE_FILES = ["players.csv", "clubs.csv"]
 TM_COMPETITION = "ES1"  # La Liga en Transfermarkt
 
-FBREF_PLAYER_STATS = ["standard", "shooting", "passing", "goal_shot_creation",
-                      "defense", "possession", "misc", "keeper"]
-FBREF_TEAM_STATS = ["standard", "shooting", "possession"]
+# FBref dejó de publicar las tablas de Opta (shooting, passing, defense, possession, gca):
+# solo pedimos las básicas. El xG de jugador sale de Understat.
+FBREF_PLAYER_STATS = ["standard", "keeper", "misc"]
+FBREF_TEAM_STATS = ["standard"]
 
-MIN_MINUTES_PERCENTIL = 450  # mínimo de minutos para entrar en percentiles
+MIN_MINUTES_PERCENTIL = 450
+
+# FBref fuera del pipeline (captcha de Cloudflare + sin métricas Opta). True solo para pruebas manuales.
+USE_FBREF = False  # mínimo de minutos para entrar en percentiles
 
 HTTP_HEADERS = {"User-Agent": "Mozilla/5.0 (laliga-dashboard; proyecto personal sin fines comerciales)"}
 
@@ -128,7 +132,8 @@ TEAM_ALIASES = {
     "castellon": "castellon", "ceuta": "ceuta", "andorra": "andorra",
     # Nombres legales de Transfermarkt (tras quitar palabras genéricas)
     "espanyol barcelona": "espanyol", "atletico osasuna": "osasuna", "rayo vallecano madrid": "rayo vallecano",
-    "rc deportivo": "deportivo", "sporting gijon": "sporting", "racing santander": "racing",
+    "rc deportivo": "deportivo", "dep coruna": "deportivo", "a coruna": "deportivo",
+    "racing sant": "racing", "sporting gijon": "sporting", "racing santander": "racing",
 }
 
 
@@ -144,6 +149,8 @@ def save_bronze(df: pd.DataFrame, source: str, name: str) -> Path:
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / f"{name}.parquet"
     df.to_parquet(path, index=False)
+    # Muestra legible en CSV para revisar a ojo (bronze no va a Git)
+    df.head(300).to_csv(folder / f"{name}.muestra.csv", index=False, encoding="utf-8")
     hist = HISTORY / date.today().isoformat() / source
     hist.mkdir(parents=True, exist_ok=True)
     df.to_parquet(hist / f"{name}.parquet", index=False)
