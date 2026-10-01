@@ -1,0 +1,190 @@
+{
+  "name": "Andoni Rodríguez · Fútbol",
+  "dataColors": [
+    "#54A14F",
+    "#FFDE59",
+    "#9EAAE9",
+    "#83B97F",
+    "#1E1E1E",
+    "#7ED957",
+    "#999999",
+    "#FF914D",
+    "#2E6B2B",
+    "#C9D2F5"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#000000",
+  "tableAccent": "#54A14F",
+  "foregroundNeutralSecondary": "#999999",
+  "foregroundNeutralTertiary": "#C6C6C6",
+  "backgroundLight": "#F0F0F0",
+  "backgroundNeutral": "#E4E4E4",
+  "hyperlink": "#2E6B2B",
+  "visitedHyperlink": "#2E6B2B",
+  "good": "#54A14F",
+  "neutral": "#FFDE59",
+  "bad": "#FF3131",
+  "maximum": "#54A14F",
+  "center": "#FFFFFF",
+  "minimum": "#FF3131",
+  "null": "#C6C6C6",
+  "textClasses": {
+    "callout": { "fontSize": 28, "fontFace": "Segoe UI Black", "color": "#000000" },
+    "title": { "fontSize": 12, "fontFace": "Segoe UI Bold", "color": "#000000" },
+    "header": { "fontSize": 12, "fontFace": "Segoe UI Semibold", "color": "#000000" },
+    "label": { "fontSize": 10, "fontFace": "Segoe UI", "color": "#1E1E1E" },
+    "largeTitle": { "fontSize": 20, "fontFace": "Segoe UI Black", "color": "#000000" },
+    "smallLightLabel": { "fontSize": 9, "fontFace": "Segoe UI", "color": "#999999" }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F0F0F0" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#F0F0F0" } }, "transparency": 0 }]
+      }
+    },
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#E0E0E0" } }, "radius": 10 }],
+        "dropShadow": [{ "show": false }],
+        "padding": [{ "top": 10, "bottom": 10, "left": 12, "right": 12 }],
+        "title": [{
+          "show": true,
+          "fontColor": { "solid": { "color": "#000000" } },
+          "fontSize": 12,
+          "fontFamily": "Segoe UI Bold",
+          "alignment": "left"
+        }],
+        "subTitle": [{
+          "fontColor": { "solid": { "color": "#999999" } },
+          "fontSize": 9,
+          "fontFamily": "Segoe UI"
+        }],
+        "visualHeader": [{
+          "foreground": { "solid": { "color": "#999999" } },
+          "border": { "solid": { "color": "#FFFFFF" } },
+          "background": { "solid": { "color": "#FFFFFF" } }
+        }],
+        "categoryAxis": [{
+          "labelColor": { "solid": { "color": "#1E1E1E" } },
+          "fontSize": 9,
+          "fontFamily": "Segoe UI",
+          "gridlineShow": false,
+          "titleColor": { "solid": { "color": "#999999" } }
+        }],
+        "valueAxis": [{
+          "labelColor": { "solid": { "color": "#999999" } },
+          "fontSize": 9,
+          "fontFamily": "Segoe UI",
+          "gridlineShow": true,
+          "gridlineColor": { "solid": { "color": "#E4E4E4" } },
+          "gridlineThickness": 1,
+          "titleColor": { "solid": { "color": "#999999" } }
+        }],
+        "legend": [{
+          "show": true,
+          "position": "Top",
+          "labelColor": { "solid": { "color": "#1E1E1E" } },
+          "fontSize": 9,
+          "fontFamily": "Segoe UI"
+        }],
+        "labels": [{
+          "color": { "solid": { "color": "#1E1E1E" } },
+          "fontSize": 9,
+          "fontFamily": "Segoe UI Semibold"
+        }]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [{ "color": { "solid": { "color": "#000000" } }, "fontSize": 28, "fontFamily": "Segoe UI Black" }],
+        "categoryLabels": [{ "show": true, "color": { "solid": { "color": "#999999" } }, "fontSize": 10, "fontFamily": "Segoe UI" }]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "grid": [{
+          "gridVertical": false,
+          "gridHorizontal": true,
+          "gridHorizontalColor": { "solid": { "color": "#E4E4E4" } },
+          "outlineColor": { "solid": { "color": "#E4E4E4" } },
+          "rowPadding": 4
+        }],
+        "columnHeaders": [{
+          "fontColor": { "solid": { "color": "#FFFFFF" } },
+          "backColor": { "solid": { "color": "#54A14F" } },
+          "fontFamily": "Segoe UI Bold",
+          "fontSize": 10
+        }],
+        "values": [{
+          "fontColorPrimary": { "solid": { "color": "#000000" } },
+          "backColorPrimary": { "solid": { "color": "#FFFFFF" } },
+          "fontColorSecondary": { "solid": { "color": "#000000" } },
+          "backColorSecondary": { "solid": { "color": "#F7F7F7" } },
+          "fontFamily": "Segoe UI",
+          "fontSize": 10
+        }],
+        "total": [{
+          "fontColor": { "solid": { "color": "#000000" } },
+          "backColor": { "solid": { "color": "#E4E4E4" } },
+          "fontFamily": "Segoe UI Bold"
+        }]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "columnHeaders": [{
+          "fontColor": { "solid": { "color": "#FFFFFF" } },
+          "backColor": { "solid": { "color": "#54A14F" } },
+          "fontFamily": "Segoe UI Bold",
+          "fontSize": 10
+        }],
+        "rowHeaders": [{
+          "fontColor": { "solid": { "color": "#000000" } },
+          "fontFamily": "Segoe UI Semibold",
+          "fontSize": 10
+        }],
+        "values": [{
+          "backColorPrimary": { "solid": { "color": "#FFFFFF" } },
+          "backColorSecondary": { "solid": { "color": "#F7F7F7" } },
+          "fontFamily": "Segoe UI",
+          "fontSize": 10
+        }]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [{ "fontColor": { "solid": { "color": "#000000" } }, "fontFamily": "Segoe UI Bold", "textSize": 10 }],
+        "items": [{ "fontColor": { "solid": { "color": "#1E1E1E" } }, "fontFamily": "Segoe UI", "textSize": 10 }]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "lineStyles": [{ "strokeWidth": 3, "showMarker": true, "markerSize": 4 }]
+      }
+    },
+    "textbox": {
+      "*": {
+        "background": [{ "show": false }],
+        "border": [{ "show": false }]
+      }
+    },
+    "image": {
+      "*": {
+        "background": [{ "show": false }],
+        "border": [{ "show": false }]
+      }
+    },
+    "shape": {
+      "*": {
+        "border": [{ "show": false }]
+      }
+    },
+    "actionButton": {
+      "*": {
+        "border": [{ "show": false }]
+      }
+    }
+  }
+}

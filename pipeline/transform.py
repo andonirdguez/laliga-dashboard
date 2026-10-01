@@ -672,9 +672,26 @@ def _enlace_partido(fp: pd.DataFrame) -> pd.DataFrame:
             .dropna(subset=["us_game_id"]).drop_duplicates("us_game_id"))
 
 
-def build_fact_tiro(tiros: pd.DataFrame | None, fp: pd.DataFrame | None) -> pd.DataFrame | None:
+def build_fact_tiro(tiros: pd.DataFrame | None, fp: pd.DataFrame | None,
+                    jp: pd.DataFrame | None = None) -> pd.DataFrame | None:
     if tiros is None or fp is None or "us_game_id" not in fp.columns:
         return None
+    # El assist_player_id de Understat NO es el id del jugador (es un id interno del pase).
+    # Identificamos al asistente por su nombre entre los jugadores de su equipo en ese mismo partido.
+    if jp is not None and "asistente" in tiros.columns:
+        clave = jp[["us_game_id", "equipo", "jugador", "us_player_id"]].dropna(subset=["jugador"]).copy()
+        clave["_k"] = clave["jugador"].map(C.norm_key)
+        clave = clave.drop_duplicates(["us_game_id", "equipo", "_k"], keep=False)
+        tiros = tiros.copy()
+        tiros["_k"] = tiros["asistente"].map(C.norm_key)
+        tiros = tiros.drop(columns="us_asistente_id", errors="ignore").merge(
+            clave[["us_game_id", "equipo", "_k", "us_player_id"]].rename(columns={"us_player_id": "us_asistente_id"}),
+            on=["us_game_id", "equipo", "_k"], how="left").drop(columns="_k")
+        con = tiros["asistente"].notna() & (tiros["asistente"].astype(str).str.strip() != "")
+        log.info("fact_tiro | asistentes identificados: %s de %s tiros asistidos",
+                 tiros.loc[con, "us_asistente_id"].notna().sum(), con.sum())
+    elif "us_asistente_id" in tiros.columns:
+        tiros = tiros.assign(us_asistente_id=np.nan)
     t = tiros.drop(columns="temporada").merge(_enlace_partido(fp), on="us_game_id", how="inner")
     t["equipo_id"] = t["equipo"].map(C.team_key)
     t["rival_id"] = np.where(t["equipo_id"] == t["equipo_local_id"], t["equipo_visitante_id"], t["equipo_local_id"])
@@ -824,7 +841,7 @@ def main() -> int:
             sin = dim_e.loc[dim_e["estadio"].isna(), "equipo"].tolist()
             if sin:
                 log.warning("dim_equipo | sin datos de estadio (Wikidata): %s", sin)
-    ftiro = build_fact_tiro(tiros, fp)
+    ftiro = build_fact_tiro(tiros, fp, jp)
     fjp = build_fact_jugador_partido(jp, fp)
     if ftiro is not None:
         log.info("fact_tiro | %s tiros | goles: %s | xG total: %.1f", len(ftiro), ftiro["es_gol"].sum(), ftiro["xg"].sum())
