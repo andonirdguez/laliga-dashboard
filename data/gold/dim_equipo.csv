@@ -1,21 +1,24 @@
-equipo_id,equipo,nombre_understat,nombre_footballdata
-alaves,Alaves,Alaves,Alaves
-athletic,Athletic Club,Athletic Club,Ath Bilbao
-atletico madrid,Atletico Madrid,Atletico Madrid,Ath Madrid
-barcelona,Barcelona,Barcelona,Barcelona
-celta,Celta Vigo,Celta Vigo,Celta
-deportivo,Deportivo La Coruna,Deportivo La Coruna,La Coruna
-elche,Elche,Elche,Elche
-espanyol,Espanyol,Espanyol,Espanol
-getafe,Getafe,Getafe,Getafe
-levante,Levante,Levante,Levante
-malaga,Malaga,Malaga,Malaga
-osasuna,Osasuna,Osasuna,Osasuna
-racing,Racing Santander,Racing Santander,Santander
-rayo vallecano,Rayo Vallecano,Rayo Vallecano,Vallecano
-betis,Real Betis,Real Betis,Betis
-madrid,Real Madrid,Real Madrid,Real Madrid
-sociedad,Real Sociedad,Real Sociedad,Sociedad
-sevilla,Sevilla,Sevilla,Sevilla
-valencia,Valencia,Valencia,Valencia
-villarreal,Villarreal,Villarreal,Villarreal
+equipo_id,equipo,nombre_understat,nombre_footballdata,en_temporada_actual
+alaves,Alaves,Alaves,Alaves,1
+athletic,Athletic Club,Athletic Club,Ath Bilbao,1
+atletico madrid,Atletico Madrid,Atletico Madrid,Ath Madrid,1
+barcelona,Barcelona,Barcelona,Barcelona,1
+celta,Celta Vigo,Celta Vigo,Celta,1
+deportivo,Deportivo La Coruna,Deportivo La Coruna,La Coruna,1
+elche,Elche,Elche,Elche,1
+espanyol,Espanyol,Espanyol,Espanol,1
+getafe,Getafe,Getafe,Getafe,1
+girona,Girona,Girona,Girona,0
+levante,Levante,Levante,Levante,1
+malaga,Malaga,Malaga,Malaga,1
+mallorca,Mallorca,Mallorca,Mallorca,0
+osasuna,Osasuna,Osasuna,Osasuna,1
+racing,Racing Santander,Racing Santander,Santander,1
+rayo vallecano,Rayo Vallecano,Rayo Vallecano,Vallecano,1
+betis,Real Betis,Real Betis,Betis,1
+madrid,Real Madrid,Real Madrid,Real Madrid,1
+oviedo,Real Oviedo,Real Oviedo,Oviedo,0
+sociedad,Real Sociedad,Real Sociedad,Sociedad,1
+sevilla,Sevilla,Sevilla,Sevilla,1
+valencia,Valencia,Valencia,Valencia,1
+villarreal,Villarreal,Villarreal,Villarreal,1

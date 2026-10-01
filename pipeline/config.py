@@ -33,15 +33,28 @@ def current_season(today: date | None = None) -> tuple[int, int]:
     return start, start + 1
 
 
+def season_label(start: int) -> str:
+    return f"{start}-{str(start + 1)[-2:]}"                         # 2026-27
+
+
+def season_code(start: int) -> str:
+    return f"{str(start)[-2:]}{str(start + 1)[-2:]}"                # 2627 (soccerdata / football-data)
+
+
 SEASON_START, SEASON_END = current_season()
-SEASON_LABEL = f"{SEASON_START}-{str(SEASON_END)[-2:]}"              # 2026-27
-SEASON_CODE = f"{str(SEASON_START)[-2:]}{str(SEASON_END)[-2:]}"      # 2627 (soccerdata / football-data)
+SEASON_LABEL = season_label(SEASON_START)
+SEASON_CODE = season_code(SEASON_START)
+
+# Temporadas que se procesan cada día: la actual + N anteriores completas.
+# football-data y Understat tardan segundos por temporada, así que no hace falta cachear el histórico.
+TEMPORADAS_ANTERIORES = 1
+SEASONS = [SEASON_START - i for i in range(TEMPORADAS_ANTERIORES, -1, -1)]   # [2025, 2026]
 
 # --------------------------------------------------------------------------
 # Fuentes
 # --------------------------------------------------------------------------
 LEAGUE_SD = "ESP-La Liga"  # clave de soccerdata
-FOOTBALL_DATA_URL = f"https://www.football-data.co.uk/mmz4281/{SEASON_CODE}/SP1.csv"
+FOOTBALL_DATA_URL = "https://www.football-data.co.uk/mmz4281/{code}/SP1.csv"
 CLUBELO_URL = "http://api.clubelo.com/{fecha}"
 KAGGLE_DATASET = "davidcariboo/player-scores"
 KAGGLE_FILES = ["players.csv", "clubs.csv"]

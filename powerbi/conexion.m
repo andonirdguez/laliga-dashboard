@@ -27,6 +27,14 @@ let
 in
     Tipos
 
+// ---- Consulta: dim_temporada ----
+let
+    Fuente = fnGold("dim_temporada.csv"),
+    Tipos  = Table.TransformColumnTypes(Fuente, {{"temporada", type text}, {"anio_inicio", Int64.Type},
+                                                 {"es_temporada_actual", Int64.Type}}, "en-US")
+in
+    Tipos
+
 // ---- Consulta: dim_fecha ----
 let
     Fuente = fnGold("dim_fecha.csv"),
@@ -45,7 +53,7 @@ let
     Texto   = {"partido_id", "jugador_id", "equipo_id", "equipo_local_id", "equipo_visitante_id",
                "rival_id", "temporada", "resultado", "posicion_grupo", "forma_ultimos5",
                "jugador", "posicion", "nacionalidad", "pie", "imagen_url", "tabla",
-               "actualizado_utc", "fuentes_disponibles", "tm_player_id"},
+               "actualizado_utc", "fuentes_disponibles", "tm_player_id", "temporadas"},
     Fechas  = {"fecha", "fin_contrato"},
     Enteros = {"fecha_id"},
     Cols    = Table.ColumnNames(Fuente),

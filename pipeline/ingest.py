@@ -65,12 +65,14 @@ def _get(url: str, intentos: int = 3, espera: int = 10) -> bytes:
 # 1. football-data.co.uk — resultados, tiros, córners, tarjetas, cuotas (riesgo 0)
 # --------------------------------------------------------------------------
 def ingest_footballdata(no_cache: bool) -> None:
-    raw = _get(C.FOOTBALL_DATA_URL)
-    df = pd.read_csv(io.BytesIO(raw), encoding="latin-1")
-    df = df.dropna(how="all")
-    df = df[df["HomeTeam"].notna()]
-    C.save_bronze(df, "footballdata", "partidos")
-    log.info("footballdata | partidos: %s filas, %s columnas", len(df), df.shape[1])
+    for s in C.SEASONS:
+        code = C.season_code(s)
+        raw = _get(C.FOOTBALL_DATA_URL.format(code=code))
+        df = pd.read_csv(io.BytesIO(raw), encoding="latin-1")
+        df = df.dropna(how="all")
+        df = df[df["HomeTeam"].notna()]
+        C.save_bronze(df, "footballdata", f"partidos_{code}")
+        log.info("footballdata | %s | partidos: %s filas, %s columnas", C.season_label(s), len(df), df.shape[1])
 
 
 # --------------------------------------------------------------------------
@@ -110,14 +112,17 @@ def ingest_clubelo(no_cache: bool) -> None:
 def ingest_understat(no_cache: bool) -> None:
     import soccerdata as sd
 
-    us = sd.Understat(leagues=C.LEAGUE_SD, seasons=C.SEASON_CODE, no_cache=no_cache)
-    partidos = _flatten(us.read_team_match_stats())
-    C.save_bronze(partidos, "understat", "partidos")
-    log.info("understat | partidos: %s filas | columnas: %s", len(partidos), list(partidos.columns))
+    for s in C.SEASONS:
+        code = C.season_code(s)
+        # Temporadas cerradas: la caché de soccerdata vale (no cambian). La actual se fuerza a refrescar.
+        us = sd.Understat(leagues=C.LEAGUE_SD, seasons=code, no_cache=no_cache or s == C.SEASON_START)
+        partidos = _flatten(us.read_team_match_stats())
+        C.save_bronze(partidos, "understat", f"partidos_{code}")
+        log.info("understat | %s | partidos: %s filas", C.season_label(s), len(partidos))
 
-    jugadores = _flatten(us.read_player_season_stats())
-    C.save_bronze(jugadores, "understat", "jugadores")
-    log.info("understat | jugadores: %s filas | columnas: %s", len(jugadores), list(jugadores.columns))
+        jugadores = _flatten(us.read_player_season_stats())
+        C.save_bronze(jugadores, "understat", f"jugadores_{code}")
+        log.info("understat | %s | jugadores: %s filas", C.season_label(s), len(jugadores))
 
 
 # --------------------------------------------------------------------------
@@ -206,7 +211,7 @@ def main() -> int:
     ap.add_argument("--no-cache", action="store_true", help="fuerza re-descarga en soccerdata")
     args = ap.parse_args()
 
-    log.info("=== INGESTA | temporada %s (%s) | fuentes: %s ===", C.SEASON_LABEL, C.SEASON_CODE, args.source)
+    log.info("=== INGESTA | temporadas %s | fuentes: %s ===", [C.season_label(s) for s in C.SEASONS], args.source)
     ok, ko = [], []
     for name in args.source:
         t0 = time.time()

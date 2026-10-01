@@ -1,8 +1,9 @@
-tabla,filas,columnas,temporada,actualizado_utc,fuentes_disponibles
-dim_equipo,20,4,2026-27,2026-10-01 09:57,"footballdata, transfermarkt, understat"
-dim_jugador,461,15,2026-27,2026-10-01 09:57,"footballdata, transfermarkt, understat"
-dim_fecha,365,12,2026-27,2026-10-01 09:57,"footballdata, transfermarkt, understat"
-fact_partido,69,37,2026-27,2026-10-01 09:57,"footballdata, transfermarkt, understat"
-fact_equipo_partido,138,28,2026-27,2026-10-01 09:57,"footballdata, transfermarkt, understat"
-fact_equipo_temporada,20,24,2026-27,2026-10-01 09:57,"footballdata, transfermarkt, understat"
-fact_jugador_temporada,461,36,2026-27,2026-10-01 09:57,"footballdata, transfermarkt, understat"
+tabla,filas,columnas,temporadas,actualizado_utc,fuentes_disponibles
+dim_temporada,2,3,"2025-26, 2026-27",2026-10-01 10:06,"footballdata, transfermarkt, understat"
+dim_equipo,23,5,"2025-26, 2026-27",2026-10-01 10:06,"footballdata, transfermarkt, understat"
+dim_jugador,752,15,"2025-26, 2026-27",2026-10-01 10:06,"footballdata, transfermarkt, understat"
+dim_fecha,730,12,"2025-26, 2026-27",2026-10-01 10:06,"footballdata, transfermarkt, understat"
+fact_partido,449,37,"2025-26, 2026-27",2026-10-01 10:06,"footballdata, transfermarkt, understat"
+fact_equipo_partido,898,29,"2025-26, 2026-27",2026-10-01 10:06,"footballdata, transfermarkt, understat"
+fact_equipo_temporada,40,25,"2025-26, 2026-27",2026-10-01 10:06,"footballdata, transfermarkt, understat"
+fact_jugador_temporada,1061,36,"2025-26, 2026-27",2026-10-01 10:06,"footballdata, transfermarkt, understat"
