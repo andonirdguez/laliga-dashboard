@@ -44,8 +44,7 @@ jobs:
 
       - name: Ingesta (bronze)
         env:
-          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
-          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           if [ -n "${{ github.event.inputs.sources }}" ]; then
             python pipeline/ingest.py --source ${{ github.event.inputs.sources }}
