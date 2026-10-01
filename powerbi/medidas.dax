@@ -9,6 +9,9 @@
 //   dim_jugador[jugador_id]-> fact_jugador_temporada[jugador_id]
 //   dim_fecha[fecha_id]    -> fact_partido[fecha_id], fact_equipo_partido[fecha_id]
 //   dim_temporada[temporada] -> fact_equipo_temporada / fact_jugador_temporada [temporada]
+//   dim_equipo[equipo_id]  -> fact_tiro[equipo_id], fact_jugador_partido[equipo_id]
+//   dim_jugador[jugador_id]-> fact_tiro[jugador_id], fact_jugador_partido[jugador_id]
+//   dim_fecha[fecha_id]    -> fact_tiro[fecha_id], fact_jugador_partido[fecha_id]
 //   (la temporada de partidos se filtra vía dim_fecha[temporada]; usa un segmentador de dim_temporada
 //    sincronizado o filtra dim_fecha por la misma temporada)
 // =====================================================================

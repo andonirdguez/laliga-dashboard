@@ -65,12 +65,24 @@ TM_COMPETITION = "ES1"  # La Liga en Transfermarkt
 FBREF_PLAYER_STATS = ["standard", "keeper", "misc"]
 FBREF_TEAM_STATS = ["standard"]
 
-MIN_MINUTES_PERCENTIL = 450
+MIN_MINUTES_PERCENTIL = 450  # mínimo de minutos para entrar en percentiles
 
 # FBref fuera del pipeline (captcha de Cloudflare + sin métricas Opta). True solo para pruebas manuales.
-USE_FBREF = False  # mínimo de minutos para entrar en percentiles
+USE_FBREF = False
+
+# Wikidata: datos de club y estadio (licencia CC0). Si la búsqueda automática elige mal un club,
+# fija aquí su QID (ej. "betis": "Q8723").
+WIKIDATA_QID_MANUAL: dict[str, str] = {
+    "espanyol": "Q8780",   # RCD Espanyol (primer equipo); la búsqueda devolvía el filial
+}
+# Correcciones de ciudad cuando Wikidata da un edificio o un barrio en vez del municipio
+CIUDAD_MANUAL: dict[str, str] = {
+    "athletic": "Bilbao",  # Wikidata: sede = Palacio de Ibaigane
+}
 
 HTTP_HEADERS = {"User-Agent": "Mozilla/5.0 (laliga-dashboard; proyecto personal sin fines comerciales)"}
+# Wikidata exige un User-Agent que identifique el proyecto y un contacto; si no, limita (error 429).
+WIKIDATA_HEADERS = {"User-Agent": "laliga-dashboard/1.0 (https://github.com/andonirdguez/laliga-dashboard)"}
 
 
 # --------------------------------------------------------------------------
@@ -157,16 +169,17 @@ def slug(s: str) -> str:
 # --------------------------------------------------------------------------
 # IO
 # --------------------------------------------------------------------------
-def save_bronze(df: pd.DataFrame, source: str, name: str) -> Path:
+def save_bronze(df: pd.DataFrame, source: str, name: str, historico: bool = False) -> Path:
     folder = BRONZE / source
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / f"{name}.parquet"
     df.to_parquet(path, index=False)
     # Muestra legible en CSV para revisar a ojo (bronze no va a Git)
     df.head(300).to_csv(folder / f"{name}.muestra.csv", index=False, encoding="utf-8")
-    hist = HISTORY / date.today().isoformat() / source
-    hist.mkdir(parents=True, exist_ok=True)
-    df.to_parquet(hist / f"{name}.parquet", index=False)
+    if historico:  # foto diaria (solo para tablas pequeñas que cambian y no se reconstruyen)
+        hist = HISTORY / date.today().isoformat() / source
+        hist.mkdir(parents=True, exist_ok=True)
+        df.to_parquet(hist / f"{name}.parquet", index=False)
     return path
 
 

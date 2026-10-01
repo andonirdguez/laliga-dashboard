@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import io
+import re
 import sys
 import time
 from datetime import date, timedelta
@@ -95,7 +96,7 @@ def ingest_clubelo(no_cache: bool) -> None:
         log.warning("clubelo | usando el Elo de %s (hoy no disponible)", hoy)
     df = df[(df["Country"] == "ESP") & (df["Level"] == 1)].copy()
     df["fecha_snapshot"] = hoy
-    C.save_bronze(df, "clubelo", "elo_hoy")
+    C.save_bronze(df, "clubelo", "elo_hoy", historico=True)
     log.info("clubelo | elo_hoy: %s equipos", len(df))
 
     # Histórico acumulado para poder pintar evolución (se reconstruye con los snapshots diarios)
@@ -123,6 +124,143 @@ def ingest_understat(no_cache: bool) -> None:
         jugadores = _flatten(us.read_player_season_stats())
         C.save_bronze(jugadores, "understat", f"jugadores_{code}")
         log.info("understat | %s | jugadores: %s filas", C.season_label(s), len(jugadores))
+
+        # Tiros y stats de jugador por partido: una página por partido -> incremental.
+        # Solo se descargan los partidos jugados que aún no tenemos guardados en bronze.
+        gid = next((c for c in ("game_id", "game") if c in partidos.columns), None)
+        gcol_goles = next((c for c in ("home_goals",) if c in partidos.columns), None)
+        jugados = partidos[partidos[gcol_goles].notna()] if gcol_goles else partidos
+        ids_jugados = set(pd.to_numeric(jugados[gid], errors="coerce").dropna().astype(int))
+        for nombre, metodo in (("tiros", us.read_shot_events), ("jugadores_partido", us.read_player_match_stats)):
+            previo = C.load_bronze("understat", f"{nombre}_{code}")
+            hechos = set()
+            if previo is not None and "game_id" in previo.columns:
+                hechos = set(pd.to_numeric(previo["game_id"], errors="coerce").dropna().astype(int))
+            pendientes = sorted(ids_jugados - hechos)
+            if not pendientes:
+                log.info("understat | %s | %s: al día (%s partidos)", C.season_label(s), nombre, len(hechos))
+                continue
+            nuevos = _flatten(metodo(match_id=pendientes))
+            total = pd.concat([previo, nuevos], ignore_index=True) if previo is not None else nuevos
+            C.save_bronze(total, "understat", f"{nombre}_{code}")
+            log.info("understat | %s | %s: +%s partidos (%s filas nuevas, %s en total) | columnas: %s",
+                     C.season_label(s), nombre, len(pendientes), len(nuevos), len(total), list(nuevos.columns))
+
+
+# --------------------------------------------------------------------------
+# Wikidata — estadio, capacidad, coordenadas, fundación (CC0). Se guarda y solo se buscan clubes nuevos.
+# --------------------------------------------------------------------------
+WD_API = "https://www.wikidata.org/w/api.php"
+WD_SPARQL = "https://query.wikidata.org/sparql"
+
+
+def _wd_get(url: str, params: dict, intentos: int = 4) -> dict:
+    """GET a Wikidata respetando su límite: si devuelve 429 espera lo que indique Retry-After."""
+    for i in range(1, intentos + 1):
+        r = requests.get(url, params=params, timeout=60,
+                         headers={**C.WIKIDATA_HEADERS, "Accept": "application/json"})
+        if r.status_code == 429 and i < intentos:
+            espera = int(r.headers.get("Retry-After", "10")) + 2
+            log.warning("wikidata | límite de peticiones, espero %ss", espera)
+            time.sleep(espera)
+            continue
+        r.raise_for_status()
+        return r.json()
+    raise RuntimeError("inalcanzable")
+
+
+def _wd_buscar_club(nombre: str) -> str | None:
+    """Busca el QID del club por nombre: primer resultado cuya descripción sea de club de fútbol.
+    Prueba variantes porque "Valencia" a secas devuelve antes la ciudad que el club."""
+    for texto in (nombre, f"{nombre} CF", f"{nombre} FC", f"Real {nombre}", f"Club {nombre}"):
+        for lang in ("es", "en"):
+            time.sleep(1.0)
+            res = _wd_get(WD_API, {"action": "wbsearchentities", "search": texto, "language": lang,
+                                   "type": "item", "limit": 10, "format": "json"})
+            for it in res.get("search", []):
+                desc = (it.get("description") or "").lower()
+                label = (it.get("label") or "").strip()
+                es_club = ("club" in desc or "team" in desc or "equipo" in desc) and ("fútbol" in desc or "football" in desc)
+                # Fuera filiales, reservas, cantera y femeninos: queremos el primer equipo
+                descartar = any(w in desc for w in ("femenino", "women", "filial", "reserv", "dependiente", "juvenil",
+                                                    "youth", "academy", "cantera", "b team", " b ")) \
+                    or label.endswith(" B") or " B " in f" {label} "
+                if es_club and not descartar:
+                    return it["id"]
+    return None
+
+
+def ingest_wikidata(no_cache: bool) -> None:
+    # Equipos de todas las temporadas, según los partidos de Understat ya descargados
+    nombres = {}
+    for s in C.SEASONS:
+        p = C.load_bronze("understat", f"partidos_{C.season_code(s)}")
+        if p is not None:
+            for n in pd.concat([p["home_team"], p["away_team"]]).dropna().unique():
+                nombres.setdefault(C.team_key(n), n)
+    if not nombres:
+        raise RuntimeError("Ejecuta antes la ingesta de Understat (de ahí salen los equipos)")
+
+    previo = C.load_bronze("wikidata", "clubes")
+    hechos = set(previo["equipo_id"]) if previo is not None and not no_cache else set()
+    pendientes = {k: v for k, v in nombres.items() if k not in hechos}
+    if not pendientes:
+        log.info("wikidata | al día (%s clubes)", len(hechos))
+        return
+
+    qids = {}
+    for k, n in pendientes.items():
+        q = C.WIKIDATA_QID_MANUAL.get(k) or _wd_buscar_club(n)
+        if q:
+            qids[q] = k
+        else:
+            log.warning("wikidata | no encuentro el club '%s' (añádelo a WIKIDATA_QID_MANUAL)", n)
+    if not qids:
+        return
+
+    valores = " ".join(f"wd:{q}" for q in qids)
+    consulta = f"""
+    SELECT ?club ?clubLabel ?fundacion ?estadioLabel ?capacidad ?coords ?ciudadLabel ?sedeLabel ?fin ?rango WHERE {{
+      VALUES ?club {{ {valores} }}
+      OPTIONAL {{ ?club wdt:P571 ?fundacion. }}
+      OPTIONAL {{ ?club wdt:P159 ?sede. }}
+      OPTIONAL {{ ?club p:P115 ?st. ?st ps:P115 ?estadio; wikibase:rank ?rango.
+                 OPTIONAL {{ ?st pq:P582 ?fin. }}
+                 OPTIONAL {{ ?estadio wdt:P1083 ?capacidad. }}
+                 OPTIONAL {{ ?estadio wdt:P625 ?coords. }}
+                 OPTIONAL {{ ?estadio wdt:P131 ?ciudad. }} }}
+      SERVICE wikibase:label {{ bd:serviceParam wikibase:language "es,en". }}
+    }}"""
+    res = _wd_get(WD_SPARQL, {"query": consulta, "format": "json"})
+    filas = []
+    for b in res["results"]["bindings"]:
+        v = {k: x["value"] for k, x in b.items()}
+        q = v["club"].rsplit("/", 1)[-1]
+        lon = lat = None
+        if "coords" in v and v["coords"].startswith("Point("):
+            lon, lat = (float(x) for x in v["coords"][6:-1].split())
+        filas.append({"equipo_id": qids.get(q), "wikidata_id": q, "club_wikidata": v.get("clubLabel"),
+                      "anio_fundacion": int(v["fundacion"][:4]) if v.get("fundacion", "")[:4].isdigit() else None,
+                      "estadio": v.get("estadioLabel"), "capacidad": float(v["capacidad"]) if "capacidad" in v else None,
+                      "latitud": lat, "longitud": lon,
+                      "_historico": int("fin" in v),
+                      "_preferente": int(v.get("rango", "").endswith("PreferredRank")),
+                      # Ciudad = sede del club (P159); si no hay, el municipio del estadio. Sin etiqueta -> vacío.
+                      "ciudad": next((x for x in (v.get("sedeLabel"), v.get("ciudadLabel"))
+                                      if x and not re.fullmatch(r"Q\d+", x)), None)})
+    nuevos = pd.DataFrame(filas)
+    # Varias fechas de fundación (refundaciones, fusiones): nos quedamos con la más antigua
+    nuevos["anio_fundacion"] = nuevos.groupby("equipo_id")["anio_fundacion"].transform("min")
+    # Wikidata guarda todos los estadios del club (también los derribados, p. ej. Sarriá). Elegimos el actual:
+    # sin fecha de fin, luego el marcado como preferente y, a igualdad, el de mayor capacidad.
+    nuevos = (nuevos.sort_values(["_historico", "_preferente", "capacidad"], ascending=[True, False, False],
+                                 na_position="last")
+              .drop_duplicates("equipo_id").drop(columns=["_historico", "_preferente"]))
+    total = pd.concat([previo, nuevos], ignore_index=True) if previo is not None and not no_cache else nuevos
+    total = total.drop_duplicates("equipo_id", keep="last")
+    C.save_bronze(total, "wikidata", "clubes")
+    log.info("wikidata | +%s clubes (%s en total): %s", len(nuevos), len(total),
+             dict(zip(nuevos["equipo_id"], nuevos["estadio"])))
 
 
 # --------------------------------------------------------------------------
@@ -198,9 +336,10 @@ SOURCES = {
     "clubelo": ingest_clubelo,
     "understat": ingest_understat,
     "transfermarkt": ingest_transfermarkt,
+    "wikidata": ingest_wikidata,
     "fbref": ingest_fbref,
 }
-DEFAULT_SOURCES = ["footballdata", "clubelo", "understat", "transfermarkt"]
+DEFAULT_SOURCES = ["footballdata", "clubelo", "understat", "transfermarkt", "wikidata"]
 
 
 def main() -> int:

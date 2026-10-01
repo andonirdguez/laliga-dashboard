@@ -1,24 +1,24 @@
-equipo_id,equipo,nombre_understat,nombre_footballdata,en_temporada_actual
-alaves,Alaves,Alaves,Alaves,1
-athletic,Athletic Club,Athletic Club,Ath Bilbao,1
-atletico madrid,Atletico Madrid,Atletico Madrid,Ath Madrid,1
-barcelona,Barcelona,Barcelona,Barcelona,1
-celta,Celta Vigo,Celta Vigo,Celta,1
-deportivo,Deportivo La Coruna,Deportivo La Coruna,La Coruna,1
-elche,Elche,Elche,Elche,1
-espanyol,Espanyol,Espanyol,Espanol,1
-getafe,Getafe,Getafe,Getafe,1
-girona,Girona,Girona,Girona,0
-levante,Levante,Levante,Levante,1
-malaga,Malaga,Malaga,Malaga,1
-mallorca,Mallorca,Mallorca,Mallorca,0
-osasuna,Osasuna,Osasuna,Osasuna,1
-racing,Racing Santander,Racing Santander,Santander,1
-rayo vallecano,Rayo Vallecano,Rayo Vallecano,Vallecano,1
-betis,Real Betis,Real Betis,Betis,1
-madrid,Real Madrid,Real Madrid,Real Madrid,1
-oviedo,Real Oviedo,Real Oviedo,Oviedo,0
-sociedad,Real Sociedad,Real Sociedad,Sociedad,1
-sevilla,Sevilla,Sevilla,Sevilla,1
-valencia,Valencia,Valencia,Valencia,1
-villarreal,Villarreal,Villarreal,Villarreal,1
+equipo_id,equipo,nombre_understat,nombre_footballdata,en_temporada_actual,wikidata_id,anio_fundacion,estadio,capacidad,latitud,longitud,ciudad
+alaves,Alaves,Alaves,Alaves,1,Q223620,1921,Estadio de Mendizorroza,19840.0000,42.8371,-2.6880,Vitoria
+athletic,Athletic Club,Athletic Club,Ath Bilbao,1,Q8687,1898,Estadio de San Mamés,53289.0000,43.2642,-2.9494,Bilbao
+atletico madrid,Atletico Madrid,Atletico Madrid,Ath Madrid,1,Q8701,1903,Estadio Metropolitano,70813.0000,40.4361,-3.5994,Madrid
+barcelona,Barcelona,Barcelona,Barcelona,1,Q7156,1899,Camp Nou,105000.0000,41.3808,2.1228,Barcelona
+celta,Celta Vigo,Celta Vigo,Celta,1,Q8749,1923,Estadio Abanca Balaídos,24870.0000,42.2119,-8.7403,Vigo
+deportivo,Deportivo La Coruna,Deportivo La Coruna,La Coruna,1,Q8760,1906,Estadio de Abanca Riazor,32490.0000,43.3687,-8.4174,La Coruña
+elche,Elche,Elche,Elche,1,Q10512,1923,Estadio Manuel Martínez Valero,31388.0000,38.2669,-0.6633,Elche
+espanyol,Espanyol,Espanyol,Espanol,1,Q8780,1900,RCDE Stadium,40500.0000,41.3479,2.0757,Cornellá de Llobregat
+getafe,Getafe,Getafe,Getafe,1,Q8806,1983,Coliseum (Getafe),16500.0000,40.3256,-3.7147,Getafe
+girona,Girona,Girona,Girona,0,Q11945,1930,Estadio Montilivi,14624.0000,41.9614,2.8286,Gerona
+levante,Levante,Levante,Levante,1,Q8823,1909,Estadio Ciudad de Valencia,26354.0000,39.4947,-0.3642,Valencia
+malaga,Malaga,Malaga,Malaga,1,Q8857,1904,Estadio La Rosaleda,30778.0000,36.7341,-4.4264,Málaga
+mallorca,Mallorca,Mallorca,Mallorca,0,Q8835,1916,Estado Mallorca Son Moix,25736.0000,39.5900,2.6300,Palma de Mallorca
+osasuna,Osasuna,Osasuna,Osasuna,1,Q10286,1920,Estadio El Sadar,23576.0000,42.7967,-1.6369,Pamplona
+racing,Racing Santander,Racing Santander,Santander,1,Q12236,1913,Campos de Sport de El Sardinero,21700.0000,43.4764,-3.7933,Santander
+rayo vallecano,Rayo Vallecano,Rayo Vallecano,Vallecano,1,Q10300,1924,Campo de Fútbol de Vallecas,14708.0000,40.3919,-3.6590,Madrid
+betis,Real Betis,Real Betis,Betis,1,Q8723,1907,Estadio Benito Villamarín,60721.0000,37.3564,-5.9816,Sevilla
+madrid,Real Madrid,Real Madrid,Real Madrid,1,Q8682,1902,Estadio Santiago Bernabéu,83186.0000,40.4531,-3.6883,Madrid
+oviedo,Real Oviedo,Real Oviedo,Oviedo,0,Q271574,1926,Estadio Carlos Tartiere,30500.0000,43.3608,-5.8702,Oviedo
+sociedad,Real Sociedad,Real Sociedad,Sociedad,1,Q10315,1909,Estadio Municipal de Anoeta,40000.0000,43.3014,-1.9736,San Sebastián
+sevilla,Sevilla,Sevilla,Sevilla,1,Q10329,1905,Estadio Ramón Sánchez-Pizjuán,43751.0000,37.3839,-5.9705,Sevilla
+valencia,Valencia,Valencia,Valencia,1,Q10333,1919,Campo de Mestalla,49430.0000,39.4747,-0.3583,Valencia
+villarreal,Villarreal,Villarreal,Villarreal,1,Q12297,1923,Estadio de la Cerámica,24891.0000,39.9442,-0.1036,Villarreal
