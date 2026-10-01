@@ -9,12 +9,15 @@
 // =====================================================================
 
 // ---- Consulta: pRepo  (parámetro; cambia TU_USUARIO) ----
-"TU_USUARIO/laliga-dashboard/main/data/gold/" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+"andonirdguez/laliga-dashboard/main/data/gold/" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
 
 // ---- Consulta: fnGold ----
+// 'v' cambia en cada refresh para saltarse la caché de raw.githubusercontent.com (puede servir
+// la versión anterior durante varios minutos tras un push). La URL base sigue siendo fija.
 (archivo as text) as table =>
 let
-    Origen   = Web.Contents("https://raw.githubusercontent.com", [RelativePath = pRepo & archivo]),
+    Version  = Text.From(Number.Round(Duration.TotalSeconds(DateTimeZone.UtcNow() - #datetimezone(2020, 1, 1, 0, 0, 0, 0, 0)))),
+    Origen   = Web.Contents("https://raw.githubusercontent.com", [RelativePath = pRepo & archivo, Query = [v = Version]]),
     Csv      = Csv.Document(Origen, [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
     Cabecera = Table.PromoteHeaders(Csv, [PromoteAllScalars = true])
 in
