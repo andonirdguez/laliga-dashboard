@@ -1,13 +1,16 @@
 jugador_id,jugador,nacimiento,posicion,posicion_grupo,us_player_id,tm_player_id,valor_mercado_eur,valor_maximo_eur,fin_contrato,pie,altura_cm,imagen_url,nacionalidad,edad
 us-9839,Leo Román,1998,GK,GK,9839,836251,450000.0000,700000.0000,2027-12-31,left,186.0000,https://img.a.transfermarkt.technology/portrait/header/836251-1771937311.jpg?lm=1,Paraguay,28.0000
-us-11383,Renato Veiga,2003,D,DF,11383,805714,25000000.0000,25000000.0000,2032-06-30,left,188.0000,https://img.a.transfermarkt.technology/portrait/header/805714-1749414999.jpg?lm=1,Portugal,23.0000
 us-10940,Giacomo Quagliata,,D S,DF,10940,,,,,,,,,
+us-11383,Renato Veiga,2003,D,DF,11383,805714,25000000.0000,25000000.0000,2032-06-30,left,188.0000,https://img.a.transfermarkt.technology/portrait/header/805714-1749414999.jpg?lm=1,Portugal,23.0000
+us-9247,Mario Soriano,,M S,MF,9247,,,,,,,,,
+us-4052,Ximo Navarro,,D,DF,4052,,,,,,,,,
 us-6075,Antonio Sivera,1996,GK,GK,6075,298197,6000000.0000,6000000.0000,2027-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/298197-1713856039.jpg?lm=1,Spain,30.0000
 us-2261,Jan Oblak,1993,GK,GK,2261,121483,15000000.0000,100000000.0000,2028-06-30,right,188.0000,https://img.a.transfermarkt.technology/portrait/header/121483-1719350076.jpg?lm=1,Slovenia,33.0000
 us-1830,Ionut Radu,1997,GK,GK,1830,303657,9000000.0000,15000000.0000,2029-06-30,right,188.0000,https://img.a.transfermarkt.technology/portrait/header/303657-1699432718.jpg?lm=1,Romania,29.0000
 us-9793,Matías Dituro,1987,GK,GK,9793,144128,100000.0000,1000000.0000,2027-06-30,right,191.0000,https://img.a.transfermarkt.technology/portrait/header/144128-1695219400.png?lm=1,Argentina,39.0000
 us-8972,Victor Chust,2000,D,DF,8972,495625,3500000.0000,4000000.0000,2029-06-30,both,184.0000,https://img.a.transfermarkt.technology/portrait/header/495625-1725990797.jpg?lm=1,Spain,26.0000
 us-2415,David Soria,1993,GK,GK,2415,226012,2800000.0000,18000000.0000,2030-06-30,right,192.0000,https://img.a.transfermarkt.technology/portrait/header/226012-1696863038.jpg?lm=1,Spain,33.0000
+us-2385,Mat Ryan,1992,GK,GK,2385,128969,1800000.0000,10000000.0000,,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/128969-1668505563.jpg?lm=1,Australia,34.0000
 us-14724,Alfonso Herrero,,GK,GK,14724,,,,,,,,,
 us-14727,Ángel Recio,,D,DF,14727,,,,,,,,,
 us-9824,Julen Agirrezabala,2000,GK,GK,9824,625014,9000000.0000,15000000.0000,2027-06-30,left,187.0000,https://img.a.transfermarkt.technology/portrait/header/625014-1709674945.png?lm=1,Spain,26.0000
@@ -19,19 +22,20 @@ us-9218,Juan Iglesias,1998,D,DF,9218,390688,5000000.0000,5000000.0000,2030-06-30
 us-8165,Lucien Agoume,2002,M,MF,8165,569384,15000000.0000,15000000.0000,2028-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/569384-1656577561.jpg?lm=1,France,24.0000
 us-375,Odisseas Vlachodimos,1994,GK,GK,375,124419,3000000.0000,18000000.0000,2027-06-30,right,191.0000,https://img.a.transfermarkt.technology/portrait/header/124419-1706829687.jpg?lm=1,Greece,32.0000
 us-2619,Stole Dimitrievski,1993,GK,GK,2619,165467,2000000.0000,4000000.0000,2028-06-30,right,188.0000,https://img.a.transfermarkt.technology/portrait/header/165467-1541150592.jpg?lm=1,North Macedonia,33.0000
+us-10319,Adrián De la Fuente,,D,DF,10319,,,,,,,,,
+us-7605,Manuel Sánchez,2000,D,DF,7605,618809,6000000.0000,10000000.0000,2028-06-30,left,171.0000,https://img.a.transfermarkt.technology/portrait/header/618809-1673281847.jpg?lm=1,Spain,26.0000
 us-13350,Roberto Fernández,2002,F,FW,13350,720518,10000000.0000,10000000.0000,2031-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/720518-1732827310.jpg?lm=1,Spain,24.0000
 us-6151,Djené Dakonam,1991,D,DF,6151,221150,1400000.0000,30000000.0000,2027-06-30,right,178.0000,https://img.a.transfermarkt.technology/portrait/header/221150-1669364811.jpg?lm=1,Togo,35.0000
 us-8696,Pape Alassane Gueye,1999,M S,MF,8696,485963,40000000.0000,40000000.0000,2028-06-30,left,189.0000,https://img.a.transfermarkt.technology/portrait/header/485963-1768814767.jpg?lm=1,Senegal,27.0000
-us-4052,Ximo Navarro,,D,DF,4052,,,,,,,,,
 us-6656,Sergio Gómez,2000,D,DF,6656,366930,15000000.0000,20000000.0000,2030-06-30,left,173.0000,https://img.a.transfermarkt.technology/portrait/header/366930-1727678534.jpg?lm=1,Spain,26.0000
 us-11527,Lamine Yamal,2007,F M,FW,11527,937958,200000000.0000,200000000.0000,2031-06-30,left,183.0000,https://img.a.transfermarkt.technology/portrait/header/937958-1773173768.jpg?lm=1,Spain,19.0000
 us-10364,Nahuel Tenaglia,1996,D,DF,10364,533568,3000000.0000,5200000.0000,2029-06-30,right,181.0000,https://img.a.transfermarkt.technology/portrait/header/533568-1647530141.jpg?lm=1,Argentina,30.0000
-us-9247,Mario Soriano,,M S,MF,9247,,,,,,,,,
 us-10857,Pablo Ibáñez,1998,M,MF,10857,785353,4000000.0000,4000000.0000,2030-06-30,right,179.0000,https://img.a.transfermarkt.technology/portrait/header/785353-1680676751.jpg?lm=1,Spain,28.0000
 us-12642,Yoel Lago,2004,D S,DF,12642,939374,4000000.0000,4000000.0000,2029-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/939374-1758827211.jpg?lm=1,Spain,22.0000
 us-2551,Pepelu,1998,D M,DF,2551,328480,8000000.0000,22000000.0000,2028-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/328480-1713971066.jpg?lm=1,Spain,28.0000
 us-10322,Javier Guerra,2003,F M,FW,10322,834764,25000000.0000,25000000.0000,2029-06-30,right,187.0000,https://img.a.transfermarkt.technology/portrait/header/834764-1696188716.jpg?lm=1,Spain,23.0000
 us-8230,German Valera,2002,D F M,DF,8230,548188,6000000.0000,6000000.0000,2027-06-30,left,170.0000,https://img.a.transfermarkt.technology/portrait/header/548188-1588605205.jpg?lm=1,Spain,24.0000
+us-14708,Bil Nsongo,,F M S,FW,14708,,,,,,,,,
 us-6241,Federico Valverde,1998,M,MF,6241,369081,90000000.0000,130000000.0000,2029-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/369081-1731018042.jpg?lm=1,Uruguay,28.0000
 us-14730,David Larrubia,,F M S,FW,14730,,,,,,,,,
 us-11282,Lorenzo Amatucci,,M S,MF,11282,,,,,,,,,
@@ -48,7 +52,7 @@ us-14074,Javi Hernández,2004,F M,FW,14074,946279,,,2028-06-30,left,175.0000,htt
 us-8921,Iñigo Vicente,,M S,MF,8921,,,,,,,,,
 us-14687,Jorge Salinas,2000,D S,DF,14687,819590,2000000.0000,3000000.0000,2028-06-30,left,178.0000,https://img.a.transfermarkt.technology/portrait/header/819590-1744371555.jpg?lm=1,Spain,26.0000
 us-6224,Marko Dmitrovic,1992,GK,GK,6224,94308,700000.0000,12000000.0000,2028-06-30,left,189.0000,https://img.a.transfermarkt.technology/portrait/header/94308-1669364494.jpg?lm=1,Serbia,34.0000
-us-2385,Mat Ryan,1992,GK,GK,2385,128969,1800000.0000,10000000.0000,,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/128969-1668505563.jpg?lm=1,Australia,34.0000
+us-13767,Roger Brugué,1996,F M,FW,13767,557057,2000000.0000,2000000.0000,2028-06-30,left,174.0000,https://img.a.transfermarkt.technology/portrait/header/557057-1701787446.jpg?lm=1,Spain,30.0000
 us-7604,Alejandro Catena,1994,D,DF,7604,449796,2600000.0000,8000000.0000,2028-06-30,right,194.0000,https://img.a.transfermarkt.technology/portrait/header/449796-1732220159.jpg?lm=1,Spain,32.0000
 us-5073,Florian Lejeune,1991,D,DF,5073,127108,1800000.0000,8000000.0000,2028-06-30,right,190.0000,https://img.a.transfermarkt.technology/portrait/header/127108-1496825998.jpg?lm=1,France,35.0000
 us-9815,Pathé Ciss,1994,D M,DF,9815,525578,1800000.0000,4000000.0000,2027-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/525578-1775761248.jpg?lm=1,Senegal,32.0000
@@ -58,13 +62,14 @@ us-2555,Remiro,1995,GK,GK,2555,212862,9000000.0000,25000000.0000,2027-06-30,righ
 us-10947,Ramón Terrats,2000,M,MF,10947,783396,3000000.0000,4000000.0000,2029-06-30,left,181.0000,https://img.a.transfermarkt.technology/portrait/header/783396-1726231968.jpg?lm=1,Spain,26.0000
 us-8824,Jude Bellingham,2003,M S,MF,8824,581678,130000000.0000,180000000.0000,2029-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/581678-1748102891.jpg?lm=1,England,23.0000
 us-11866,Álex Grimaldo,1995,D,DF,11866,193082,20000000.0000,45000000.0000,2030-06-30,left,171.0000,https://img.a.transfermarkt.technology/portrait/header/193082-1689710805.jpg?lm=1,Spain,31.0000
-us-10319,Adrián De la Fuente,,D,DF,10319,,,,,,,,,
-us-7605,Manuel Sánchez,2000,D,DF,7605,618809,6000000.0000,10000000.0000,2028-06-30,left,171.0000,https://img.a.transfermarkt.technology/portrait/header/618809-1673281847.jpg?lm=1,Spain,26.0000
+us-9466,Jon Ander Olasagasti,2000,M S,MF,9466,625660,2500000.0000,4000000.0000,2028-06-30,left,176.0000,https://img.a.transfermarkt.technology/portrait/header/625660-1695238891.jpg?lm=1,Spain,26.0000
 us-10875,Omar El Hilali,2003,D,DF,10875,822331,15000000.0000,15000000.0000,2027-06-30,right,183.0000,https://img.a.transfermarkt.technology/portrait/header/822331-1683211692.jpg?lm=1,Morocco,23.0000
 us-12790,Abel Bretones,2000,D S,DF,12790,658115,3500000.0000,4500000.0000,2029-06-30,left,188.0000,https://img.a.transfermarkt.technology/portrait/header/658115-1690301272.jpg?lm=1,Spain,26.0000
+us-8764,Oriol Rey,1998,M S,MF,8764,293388,1800000.0000,2000000.0000,2027-06-30,left,177.0000,https://img.a.transfermarkt.technology/portrait/header/293388-1726053851.jpg?lm=1,Spain,28.0000
 us-2280,Jonny,,D,DF,2280,,,,,,,,,
 us-14686,Álvaro Mantilla,,D,DF,14686,,,,,,,,,
-us-9466,Jon Ander Olasagasti,2000,M,MF,9466,625660,2500000.0000,4000000.0000,2028-06-30,left,176.0000,https://img.a.transfermarkt.technology/portrait/header/625660-1695238891.jpg?lm=1,Spain,26.0000
+us-2278,Giménez,,D S,DF,2278,,,,,,,,,
+us-10163,Luismi Cruz,,M S,MF,10163,,,,,,,,,
 us-9280,Antonio Blanco,2000,M S,MF,9280,495621,10000000.0000,10000000.0000,2027-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/495621-1705337231.jpg?lm=1,Spain,26.0000
 us-12182,Jon Aramburu,2002,D,DF,12182,661145,15000000.0000,15000000.0000,2030-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/661145-1719915615.jpg?lm=1,Venezuela,24.0000
 us-492,Héctor Bellerín,1995,D S,DF,492,191217,2400000.0000,40000000.0000,2028-06-30,right,178.0000,https://img.a.transfermarkt.technology/portrait/header/191217-1773344002.jpg?lm=1,Spain,31.0000
@@ -77,11 +82,11 @@ us-9001,Martín Satriano,2001,F M S,FW,9001,640109,10000000.0000,10000000.0000,2
 us-9243,Ilaix Moriba,2003,M S,MF,9243,617074,15000000.0000,25000000.0000,2029-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/617074-1758827372.jpg?lm=1,Guinea,23.0000
 us-13620,Miguel Román,2002,M S,MF,13620,892932,15000000.0000,15000000.0000,2028-06-30,right,178.0000,https://img.a.transfermarkt.technology/portrait/header/892932-1769759183.jpg?lm=1,Spain,24.0000
 us-8026,Raphinha,1996,F,FW,8026,411295,70000000.0000,90000000.0000,2028-06-30,left,176.0000,https://img.a.transfermarkt.technology/portrait/header/411295-1729754479.png?lm=1,Brazil,30.0000
-us-14708,Bil Nsongo,,F M S,FW,14708,,,,,,,,,
 us-12160,Alberto Moleiro,2003,F M S,FW,12160,733576,50000000.0000,50000000.0000,2030-06-30,right,171.0000,https://img.a.transfermarkt.technology/portrait/header/733576-1737365948.jpg?lm=1,Spain,23.0000
 us-4091,Unai López,1995,M,MF,4091,192009,2500000.0000,12000000.0000,2029-06-30,right,170.0000,https://img.a.transfermarkt.technology/portrait/header/192009-1726662500.jpg?lm=1,Spain,31.0000
 us-8066,Arnaut Danjuma Groeneveld,1997,F M S,FW,8066,355861,3000000.0000,50000000.0000,2028-06-30,right,178.0000,https://img.a.transfermarkt.technology/portrait/header/355861-1674657323.jpg?lm=1,Netherlands,29.0000
 us-13761,Filip Ugrinic,1999,M S,MF,13761,394236,6000000.0000,7000000.0000,2029-06-30,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/394236-1700817304.png?lm=1,Switzerland,27.0000
+us-9275,Iván Romero,2001,F S,FW,9275,628886,8000000.0000,8000000.0000,2028-06-30,right,173.0000,https://img.a.transfermarkt.technology/portrait/header/628886-1756192561.jpg?lm=1,Spain,25.0000
 us-14392,Ángel Pérez,2002,D S,DF,14392,1124136,3000000.0000,3000000.0000,2030-06-30,right,183.0000,https://img.a.transfermarkt.technology/portrait/header/1124136-1757571837.png?lm=1,Spain,24.0000
 us-13600,Andrés Castrín,2003,D S,DF,13600,719999,6000000.0000,6000000.0000,2027-06-30,right,188.0000,https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1,Spain,23.0000
 us-9810,Fran García,1999,D S,DF,9810,341264,10000000.0000,18000000.0000,2030-06-30,left,169.0000,https://img.a.transfermarkt.technology/portrait/header/341264-1688119965.jpg?lm=1,Spain,27.0000
@@ -105,11 +110,8 @@ us-11094,Antony,2000,F M S,FW,11094,602105,40000000.0000,75000000.0000,2030-06-3
 us-7071,Álvaro García,1992,F M S,FW,7071,257062,1500000.0000,6000000.0000,2028-06-30,both,167.0000,https://img.a.transfermarkt.technology/portrait/header/257062-1762775114.jpg?lm=1,Spain,34.0000
 us-5185,Unai Simón,1997,GK,GK,5185,262396,22000000.0000,30000000.0000,2029-06-30,right,190.0000,https://img.a.transfermarkt.technology/portrait/header/262396-1709674901.png?lm=1,Spain,29.0000
 us-14706,Lucas Noubi,2005,D,DF,14706,743379,3000000.0000,3000000.0000,2029-06-30,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/743379-1663871275.jpg?lm=1,Belgium,21.0000
-us-10163,Luismi Cruz,,M S,MF,10163,,,,,,,,,
-us-13767,Roger Brugué,1996,F M,FW,13767,557057,2000000.0000,2000000.0000,2028-06-30,left,174.0000,https://img.a.transfermarkt.technology/portrait/header/557057-1701787446.jpg?lm=1,Spain,30.0000
 us-7515,Andrei Ratiu,1998,D,DF,7515,527966,18000000.0000,18000000.0000,2030-06-30,right,183.0000,https://img.a.transfermarkt.technology/portrait/header/527966-1765462531.jpg?lm=1,Romania,28.0000
 us-10334,Kike Salas,2002,D,DF,10334,766583,14000000.0000,14000000.0000,2029-06-30,left,188.0000,https://img.a.transfermarkt.technology/portrait/header/766583-1736865960.jpg?lm=1,Spain,24.0000
-us-8764,Oriol Rey,1998,M S,MF,8764,293388,1800000.0000,2000000.0000,2027-06-30,left,177.0000,https://img.a.transfermarkt.technology/portrait/header/293388-1726053851.jpg?lm=1,Spain,28.0000
 us-14129,Xavi Espart,2007,D,DF,14129,1018912,5000000.0000,5000000.0000,2028-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/1018912-1768246502.jpg?lm=1,Spain,19.0000
 us-6954,Juan Camilo Hernández,1999,F S,FW,6954,459463,18000000.0000,18000000.0000,2030-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/459463-1773344529.jpg?lm=1,Colombia,27.0000
 us-6219,Enes Ünal,1997,F S,FW,6219,251106,7000000.0000,25000000.0000,2028-06-30,right,187.0000,https://img.a.transfermarkt.technology/portrait/header/251106-1669365680.jpg?lm=1,Türkiye,29.0000
@@ -123,7 +125,6 @@ us-7779,Oihan Sancet,2000,M,MF,7779,571020,25000000.0000,60000000.0000,2032-06-3
 us-5086,Marc Roca,1996,M,MF,5086,336869,4000000.0000,30000000.0000,2029-06-30,left,184.0000,https://img.a.transfermarkt.technology/portrait/header/336869-1773344159.jpg?lm=1,Spain,30.0000
 us-2234,Mikel Oyarzabal,1997,F M S,FW,2234,351478,25000000.0000,70000000.0000,2028-06-30,left,181.0000,https://img.a.transfermarkt.technology/portrait/header/351478-1749415304.jpg?lm=1,Spain,29.0000
 us-3237,Aissa Mandi,1991,D,DF,3237,80293,1000000.0000,20000000.0000,,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/80293-1780325909.jpg?lm=1,Algeria,35.0000
-us-2278,Giménez,,D S,DF,2278,,,,,,,,,
 us-14731,Dani Lorenzo,,M S,MF,14731,,,,,,,,,
 us-7313,Lee Kang-In,2001,F M S,FW,7313,557149,28000000.0000,30000000.0000,2028-06-30,left,174.0000,https://img.a.transfermarkt.technology/portrait/header/557149-1703978046.jpg?lm=1,"Korea, South",25.0000
 us-11540,Carlos Dotor,,F M S,FW,11540,,,,,,,,,
@@ -136,7 +137,6 @@ us-8150,Anthony Gordon,2001,F M S,FW,8150,503733,65000000.0000,65000000.0000,203
 us-7529,Iván Martín,1999,M S,MF,7529,341278,5000000.0000,15000000.0000,2028-06-30,left,178.0000,https://img.a.transfermarkt.technology/portrait/header/341278-1703177977.jpg?lm=1,Spain,27.0000
 us-11395,Iker Muñoz,2002,M S,MF,11395,710677,2000000.0000,5000000.0000,2030-06-30,right,180.0000,https://img.a.transfermarkt.technology/portrait/header/710677-1697557434.jpg?lm=1,Spain,24.0000
 us-7528,Sergio Camello,2001,F S,FW,7528,505674,3000000.0000,10000000.0000,2027-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/505674-1775761676.jpg?lm=1,Spain,25.0000
-us-9275,Iván Romero,2001,F S,FW,9275,628886,8000000.0000,8000000.0000,2028-06-30,right,173.0000,https://img.a.transfermarkt.technology/portrait/header/628886-1756192561.jpg?lm=1,Spain,25.0000
 us-2498,Aymeric Laporte,1994,D S,DF,2498,176553,8000000.0000,75000000.0000,2028-06-30,left,191.0000,https://img.a.transfermarkt.technology/portrait/header/176553-1685546335.jpg?lm=1,Spain,32.0000
 us-11822,Fermín López,2003,M S,MF,11822,636703,100000000.0000,100000000.0000,2031-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/636703-1698086824.jpg?lm=1,Spain,23.0000
 us-14726,Einar Galilea,,D,DF,14726,,,,,,,,,
@@ -146,6 +146,7 @@ us-8187,Georges Mikautadze,2000,F S,FW,8187,729814,30000000.0000,30000000.0000,2
 us-12643,Javier Rueda,2002,D S,DF,12643,652331,6000000.0000,6000000.0000,2029-06-30,right,177.0000,https://img.a.transfermarkt.technology/portrait/header/652331-1773949798.jpg?lm=1,Spain,24.0000
 us-8549,Ferrán Jutglà,1999,F S,FW,8549,599231,10000000.0000,14000000.0000,2029-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/599231-1666292299.jpg?lm=1,Spain,27.0000
 us-8122,Sergio Carreira,2000,D S,DF,8122,545647,12000000.0000,12000000.0000,2029-06-30,right,170.0000,https://img.a.transfermarkt.technology/portrait/header/545647-1773950983.jpg?lm=1,Spain,26.0000
+us-14707,Bright Ede,2007,D S,DF,14707,1177033,600000.0000,2000000.0000,2031-06-30,left,193.0000,https://img.a.transfermarkt.technology/portrait/header/1177033-1752826490.JPG?lm=1,Poland,19.0000
 us-7258,Joaquín Muñoz,,M S,MF,7258,,,,,,,,,
 us-2183,Rubén García,1993,M S,MF,2183,213260,1600000.0000,10000000.0000,2027-06-30,left,172.0000,https://img.a.transfermarkt.technology/portrait/header/213260-1583310204.jpg?lm=1,Spain,33.0000
 us-7888,Nemanja Gudelj,1991,D M S,DF,7888,74294,2000000.0000,7000000.0000,,right,187.0000,https://img.a.transfermarkt.technology/portrait/header/74294-1718893660.jpg?lm=1,Serbia,35.0000
@@ -153,6 +154,7 @@ us-14683,Robbie Ure,2004,F S,FW,14683,783373,2200000.0000,2200000.0000,2029-12-3
 us-2505,José Gayá,1995,D S,DF,2505,221322,4000000.0000,50000000.0000,2027-06-30,left,172.0000,https://img.a.transfermarkt.technology/portrait/header/221322-1605193468.jpg?lm=1,Spain,31.0000
 us-8895,Tete Morente,1996,D F M S,DF,8895,339816,1800000.0000,3000000.0000,2028-06-30,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/339816-1730123532.jpg?lm=1,Spain,30.0000
 us-6168,Leandro Cabrera,1991,D,DF,6168,102423,900000.0000,10000000.0000,2027-06-30,left,190.0000,https://img.a.transfermarkt.technology/portrait/header/102423-1747343579.jpg?lm=1,Uruguay,35.0000
+us-14701,Enzo Bardeli,,M S,MF,14701,,,,,,,,,
 us-7859,Sergio Herrera,1993,GK,GK,7859,248738,2800000.0000,8000000.0000,2028-06-30,right,192.0000,https://img.a.transfermarkt.technology/portrait/header/248738-1732220099.jpg?lm=1,Spain,33.0000
 us-7070,Santiago Comesaña,1996,M S,MF,7070,380598,8000000.0000,8000000.0000,2028-06-30,both,188.0000,https://img.a.transfermarkt.technology/portrait/header/380598-1726231263.jpg?lm=1,Spain,30.0000
 us-11924,Clemens Riedel,2003,D S,DF,11924,692070,4000000.0000,5000000.0000,2029-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/692070-1752059844.jpg?lm=1,Germany,23.0000
@@ -165,9 +167,11 @@ us-12190,Arda Güler,2005,M S,MF,12190,861410,90000000.0000,90000000.0000,2029-0
 us-2496,Rodri,1996,M S,MF,2496,357565,50000000.0000,130000000.0000,2027-06-30,right,190.0000,https://img.a.transfermarkt.technology/portrait/header/357565-1682587890.jpg?lm=1,Spain,30.0000
 us-6149,Unai Núñez,1997,D,DF,6149,338285,3500000.0000,20000000.0000,2029-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/338285-1753679771.jpg?lm=1,Spain,29.0000
 us-12005,Pau Cubarsí,2007,D,DF,12005,962110,80000000.0000,80000000.0000,2029-06-30,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/962110-1712779232.jpg?lm=1,Spain,19.0000
+us-14715,Riki Rodríguez,,M S,MF,14715,,,,,,,,,
 us-11349,Mario Martín,2004,M,MF,11349,948273,10000000.0000,10000000.0000,2030-06-30,right,177.0000,https://img.a.transfermarkt.technology/portrait/header/948273-1707861820.jpg?lm=1,Spain,22.0000
 us-9840,Denzel Dumfries,1996,D S,DF,9840,321528,25000000.0000,35000000.0000,2030-06-30,right,188.0000,https://img.a.transfermarkt.technology/portrait/header/321528-1746042223.jpg?lm=1,Netherlands,30.0000
 us-11744,Sergi Cardona,1999,D,DF,11744,678406,9000000.0000,10000000.0000,2027-06-30,both,186.0000,https://img.a.transfermarkt.technology/portrait/header/678406-1697540707.jpg?lm=1,Spain,27.0000
+us-14393,Thiago Fernández,2004,F M S,FW,14393,1127730,4500000.0000,7000000.0000,2031-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/1127730-1720647640.jpg?lm=1,Argentina,22.0000
 us-1003,Pablo Maffeo,1997,D S,DF,1003,251876,3000000.0000,10000000.0000,2029-06-30,right,172.0000,https://img.a.transfermarkt.technology/portrait/header/251876-1699449290.jpg?lm=1,Argentina,29.0000
 us-6400,Antonio Martínez,1997,F S,FW,6400,302371,7500000.0000,7500000.0000,2028-06-30,right,187.0000,https://img.a.transfermarkt.technology/portrait/header/302371-1606396665.png?lm=1,Spain,29.0000
 us-14936,Nathan Saliba,2004,M S,MF,14936,842420,7500000.0000,7500000.0000,2029-06-30,right,174.0000,https://img.a.transfermarkt.technology/portrait/header/842420-1740597560.jpg?lm=1,Canada,22.0000
@@ -191,8 +195,7 @@ us-2120,Gerard Moreno,1992,F S,FW,2120,177467,2500000.0000,40000000.0000,2027-06
 us-8002,Rodrigo Riquelme,2000,M S,MF,8002,461617,4000000.0000,25000000.0000,2030-06-30,right,174.0000,https://img.a.transfermarkt.technology/portrait/header/461617-1701212385.jpg?lm=1,Spain,26.0000
 us-8183,Pablo Martínez,1998,M S,MF,8183,568835,3000000.0000,3000000.0000,,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/568835-1632129599.jpg?lm=1,Spain,28.0000
 us-8107,Jorge De Frutos,1997,F M,FW,8107,455181,12000000.0000,15000000.0000,2028-06-30,right,173.0000,https://img.a.transfermarkt.technology/portrait/header/455181-1756820871.jpg?lm=1,Spain,29.0000
-us-14701,Enzo Bardeli,,M S,MF,14701,,,,,,,,,
-us-14707,Bright Ede,2007,D S,DF,14707,1177033,600000.0000,2000000.0000,2031-06-30,left,193.0000,https://img.a.transfermarkt.technology/portrait/header/1177033-1752826490.JPG?lm=1,Poland,19.0000
+us-13772,Nacho Pérez,2008,D S,DF,13772,1371830,300000.0000,300000.0000,2028-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/1371830-1783119841.jpg?lm=1,Spain,18.0000
 us-9811,Óscar Valentín,1994,M S,MF,9811,517753,2000000.0000,5000000.0000,2027-06-30,right,177.0000,https://img.a.transfermarkt.technology/portrait/header/517753-1765909833.jpg?lm=1,Spain,32.0000
 us-6945,Youssouf Fofana,1999,M S,MF,6945,569598,23000000.0000,30000000.0000,2028-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/569598-1725528517.jpg?lm=1,France,27.0000
 us-14777,Beñat Gerenabarrena,,M S,MF,14777,,,,,,,,,
@@ -210,20 +213,19 @@ us-13836,Álvaro Núñez,2000,D,DF,13836,626953,4000000.0000,6000000.0000,2030-0
 us-11959,Matteo Prati,2003,M S,MF,11959,876298,5500000.0000,10000000.0000,2028-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/876298-1686214955.jpg?lm=1,Italy,23.0000
 us-13561,Yan Diomande,2006,M S,MF,13561,1390649,90000000.0000,90000000.0000,2030-06-30,right,180.0000,https://img.a.transfermarkt.technology/portrait/header/1390649-1759779499.jpg?lm=1,Cote d'Ivoire,20.0000
 us-10494,Pablo Barrios Rivas,2003,M S,MF,10494,775605,55000000.0000,60000000.0000,2030-06-30,right,181.0000,https://img.a.transfermarkt.technology/portrait/header/775605-1699431384.jpg?lm=1,Spain,23.0000
+us-14924,Yeremay Hernández,,F M S,FW,14924,,,,,,,,,
 us-12914,Pau Navarro,2005,D,DF,12914,1061336,15000000.0000,15000000.0000,2030-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/1061336-1734596703.jpg?lm=1,Spain,21.0000
 us-10078,Hugo Álvarez,2003,D F S,DF,10078,892929,8000000.0000,10000000.0000,2028-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/892929-1715867247.jpg?lm=1,Spain,23.0000
+us-257,Jeremy Toljan,1994,D S,DF,257,129674,2000000.0000,6000000.0000,2027-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/129674-1692277806.jpg?lm=1,Germany,32.0000
 us-9768,Jesús Areso,1999,D S,DF,9768,488626,5000000.0000,12000000.0000,2031-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/488626-1675800186.jpg?lm=1,Spain,27.0000
-us-14715,Riki Rodríguez,,M S,MF,14715,,,,,,,,,
 us-10903,Morten Hjulmand,1999,M S,MF,10903,461496,45000000.0000,50000000.0000,2031-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/461496-1725633200.jpg?lm=1,Denmark,27.0000
 us-9217,Jesús Vázquez,2003,D S,DF,9217,623024,4000000.0000,5000000.0000,2028-06-30,left,182.0000,https://img.a.transfermarkt.technology/portrait/header/623024-1644238446.jpg?lm=1,Spain,23.0000
 us-5110,Mariano,,F S,FW,5110,,,,,,,,,
 us-13560,Iván Azón,2002,F M S,FW,13560,633306,3000000.0000,3000000.0000,2029-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/633306-1732367699.jpg?lm=1,Spain,24.0000
 us-2198,Moi Gómez,1994,M S,MF,2198,175449,1500000.0000,10000000.0000,2027-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/175449-1664970613.jpg?lm=1,Spain,32.0000
 us-5666,Mouctar Diakhaby,1996,D S,DF,5666,346289,1500000.0000,30000000.0000,2027-06-30,right,192.0000,https://img.a.transfermarkt.technology/portrait/header/346289-1709636432.jpg?lm=1,Guinea,30.0000
-us-257,Jeremy Toljan,1994,D S,DF,257,129674,2000000.0000,6000000.0000,2027-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/129674-1692277806.jpg?lm=1,Germany,32.0000
 us-6637,Hugo Duro,1999,F S,FW,6637,573775,12000000.0000,16000000.0000,2028-06-30,left,177.0000,https://img.a.transfermarkt.technology/portrait/header/573775-1683213249.jpg?lm=1,Spain,27.0000
 us-13003,Santiago Mouriño,2002,D S,DF,13003,953901,20000000.0000,20000000.0000,2030-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/953901-1691396102.jpg?lm=1,Uruguay,24.0000
-us-14393,Thiago Fernández,2004,F M S,FW,14393,1127730,4500000.0000,7000000.0000,2031-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/1127730-1720647640.jpg?lm=1,Argentina,22.0000
 us-10095,Abdessamad Ezzalzouli,2001,F M S,FW,10095,724520,40000000.0000,40000000.0000,2029-06-30,right,177.0000,https://img.a.transfermarkt.technology/portrait/header/724520-1758782814.jpg?lm=1,Morocco,25.0000
 us-10870,Williot Swedberg,2004,F S,FW,10870,764859,20000000.0000,20000000.0000,2029-06-30,right,187.0000,https://img.a.transfermarkt.technology/portrait/header/764859-1765193019.jpg?lm=1,Sweden,22.0000
 us-2453,Marc Bartra,1991,D S,DF,2453,99922,900000.0000,22000000.0000,2027-06-30,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/99922-1724053472.jpg?lm=1,Spain,35.0000
@@ -242,7 +244,6 @@ us-13048,Orri Óskarsson,2004,F S,FW,13048,660438,20000000.0000,20000000.0000,20
 us-7050,Lucas Torró,1994,M S,MF,7050,213670,2500000.0000,8000000.0000,2027-06-30,right,190.0000,https://img.a.transfermarkt.technology/portrait/header/213670-1732219931.jpg?lm=1,Spain,32.0000
 us-13313,Nicolás Valentini,2001,D S,DF,13313,860992,3000000.0000,6000000.0000,2029-06-30,left,187.0000,https://img.a.transfermarkt.technology/portrait/header/860992-1711028718.jpg?lm=1,Argentina,25.0000
 us-12323,Johnny Cardoso,2001,M S,MF,12323,689505,20000000.0000,25000000.0000,2030-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/689505-1742036970.jpg?lm=1,United States,25.0000
-us-13772,Nacho Pérez,2008,D S,DF,13772,1371830,300000.0000,300000.0000,2028-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/1371830-1783119841.jpg?lm=1,Spain,18.0000
 us-9444,Felix Correia,2001,M,MF,9444,479648,10000000.0000,10000000.0000,2029-06-30,right,178.0000,https://img.a.transfermarkt.technology/portrait/header/479648-1710239596.jpg?lm=1,Portugal,25.0000
 us-7385,Javi Galán,1994,D S,DF,7385,448628,1800000.0000,12000000.0000,2028-06-30,left,172.0000,https://img.a.transfermarkt.technology/portrait/header/448628-1706112804.jpg?lm=1,Spain,32.0000
 us-11154,Pablo Durán,2001,F S,FW,11154,905997,4000000.0000,4000000.0000,2028-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/905997-1761577329.jpg?lm=1,Spain,25.0000
@@ -251,6 +252,7 @@ us-8292,Dani Olmo,1998,M S,MF,8292,293385,60000000.0000,60000000.0000,2030-06-30
 us-14801,Ryunosuke Sato,2006,M S,MF,14801,948169,2000000.0000,2000000.0000,2028-06-30,right,171.0000,https://img.a.transfermarkt.technology/portrait/header/948169-1772965432.JPG?lm=1,Japan,20.0000
 us-12820,Marc Bernal,2007,M S,MF,12820,1018920,30000000.0000,30000000.0000,2029-06-30,left,193.0000,https://img.a.transfermarkt.technology/portrait/header/1018920-1724052540.jpg?lm=1,Spain,19.0000
 us-10300,Jeanuël Belocian,2005,D S,DF,10300,919515,12000000.0000,20000000.0000,2029-06-30,left,186.0000,https://img.a.transfermarkt.technology/portrait/header/919515-1727378177.jpg?lm=1,France,21.0000
+us-11834,Adrià Alti,,D M S,DF,11834,,,,,,,,,
 us-8948,Aitor Paredes,2000,D S,DF,8948,591916,7500000.0000,22000000.0000,2029-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/591916-1709675052.png?lm=1,Spain,26.0000
 us-9755,Inigo Ruiz de Galarreta,1993,M S,MF,9755,126751,2000000.0000,5000000.0000,2027-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/126751-1709675810.png?lm=1,Spain,33.0000
 us-12297,David Otorbi,2007,M S,MF,12297,1009766,500000.0000,500000.0000,2028-06-30,right,180.0000,https://img.a.transfermarkt.technology/portrait/header/1009766-1724053276.jpg?lm=1,Spain,19.0000
@@ -259,8 +261,6 @@ us-3635,Bernardo Silva,1994,M S,MF,3635,241641,22000000.0000,100000000.0000,2028
 us-8500,Víctor García,1997,M S,MF,8500,590690,1500000.0000,1500000.0000,2027-06-30,right,180.0000,https://img.a.transfermarkt.technology/portrait/header/590690-1702510605.png?lm=1,Spain,29.0000
 us-13376,Pablo García,,M S,MF,13376,,,,,,,,,
 us-5091,Alex Berenguer,1995,M S,MF,5091,338425,4000000.0000,15000000.0000,2027-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/338425-1709676212.png?lm=1,Spain,31.0000
-us-14924,Yeremay Hernández,,M S,MF,14924,,,,,,,,,
-us-11834,Adrià Alti,,D M S,DF,11834,,,,,,,,,
 us-13837,David Affengruber,2001,D,DF,13837,452483,20000000.0000,20000000.0000,2027-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/452483-1779272314.jpg?lm=1,Austria,25.0000
 us-4193,Aitor Fernández,1991,GK,GK,4193,118997,500000.0000,10000000.0000,2027-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/118997-1683281584.jpg?lm=1,Spain,35.0000
 us-11869,Gustavo Puerta,2003,M,MF,11869,936981,10000000.0000,10000000.0000,2029-06-30,right,173.0000,https://img.a.transfermarkt.technology/portrait/header/936981-1695368256.jpg?lm=1,Colombia,23.0000
@@ -270,6 +270,7 @@ us-13482,Luken Beitia,2004,D,DF,13482,964190,300000.0000,300000.0000,2029-06-30,
 us-6560,Aurelien Tchouameni,2000,M S,MF,6560,413112,70000000.0000,100000000.0000,2028-06-30,right,188.0000,https://img.a.transfermarkt.technology/portrait/header/413112-1668500754.jpg?lm=1,France,26.0000
 us-9814,Andrés Martín,1997,M S,MF,9814,251878,5000000.0000,20000000.0000,2027-06-30,left,178.0000,https://img.a.transfermarkt.technology/portrait/header/251878-1730126148.jpg?lm=1,Spain,29.0000
 us-8425,Giorgi Kochorashvili,1999,M S,MF,8425,405564,4000000.0000,6000000.0000,2030-06-30,right,178.0000,https://img.a.transfermarkt.technology/portrait/header/405564-1759133137.jpg?lm=1,Georgia,27.0000
+us-14712,Diego Villares,,M S,MF,14712,,,,,,,,,
 us-9465,Beñat Turrientes,2002,M S,MF,9465,634431,10000000.0000,20000000.0000,2030-06-30,right,181.0000,https://img.a.transfermarkt.technology/portrait/header/634431-1702416501.jpg?lm=1,Spain,24.0000
 us-13845,Valentín Gómez,2003,D S,DF,13845,985383,12000000.0000,12000000.0000,2030-06-30,left,181.0000,https://img.a.transfermarkt.technology/portrait/header/985383-1758783099.jpg?lm=1,Argentina,23.0000
 us-1791,Trent Alexander-Arnold,1998,D S,DF,1791,314353,60000000.0000,110000000.0000,2031-06-30,right,180.0000,https://img.a.transfermarkt.technology/portrait/header/314353-1701680958.jpg?lm=1,England,28.0000
@@ -281,12 +282,12 @@ us-5173,Asier Villalibre,1997,F S,FW,5173,251897,2500000.0000,4500000.0000,2026-
 us-10576,Álvaro Fernández,1998,D S,DF,10576,453704,2500000.0000,4000000.0000,2027-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/453704-1694431085.jpg?lm=1,Spain,28.0000
 us-10082,Hugo Gonzalez,2003,F,FW,10082,707279,300000.0000,300000.0000,2028-06-30,right,177.0000,https://img.a.transfermarkt.technology/portrait/header/707279-1698962824.jpg?lm=1,Spain,23.0000
 us-10949,Arnau Martinez,2003,D S,DF,10949,826224,10000000.0000,15000000.0000,2027-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/826224-1701444094.jpg?lm=1,Spain,23.0000
+us-12620,Jonathan Asp Jensen,2006,F M S,FW,12620,856274,4000000.0000,4000000.0000,2028-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/856274-1739807845.jpg?lm=1,Denmark,20.0000
 us-14691,Facu González,,D S,DF,14691,,,,,,,,,
 us-7359,Eduardo Camavinga,2002,M S,MF,7359,640428,50000000.0000,100000000.0000,2029-06-30,left,182.0000,https://img.a.transfermarkt.technology/portrait/header/640428-1668500874.jpg?lm=1,France,24.0000
 us-10121,Ilias Akhomach,2004,F M S,FW,10121,709969,12000000.0000,15000000.0000,2028-06-30,left,175.0000,https://img.a.transfermarkt.technology/portrait/header/709969-1636472170.jpg?lm=1,Morocco,22.0000
 us-6759,Juan Cruz,,F M S,FW,6759,,,,,,,,,
 us-11253,Mamadou Sarr,2005,D,DF,11253,910905,22000000.0000,25000000.0000,2033-06-30,right,194.0000,https://img.a.transfermarkt.technology/portrait/header/910905-1773787147.jpg?lm=1,Senegal,21.0000
-us-12620,Jonathan Asp Jensen,2006,F M S,FW,12620,856274,4000000.0000,4000000.0000,2028-06-30,right,182.0000,https://img.a.transfermarkt.technology/portrait/header/856274-1739807845.jpg?lm=1,Denmark,20.0000
 us-10772,Karim Adeyemi,2002,F M S,FW,10772,496094,40000000.0000,60000000.0000,2027-06-30,left,180.0000,https://img.a.transfermarkt.technology/portrait/header/496094-1712859708.jpg?lm=1,Germany,24.0000
 us-5140,Kike Barja,1997,M S,MF,5140,298575,1500000.0000,4000000.0000,2028-06-30,right,179.0000,https://img.a.transfermarkt.technology/portrait/header/298575-1583310743.jpg?lm=1,Spain,29.0000
 us-12180,Javier Rodríguez,,D S,DF,12180,,,,,,,,,
@@ -300,10 +301,12 @@ us-14802,Aliou Dieng,1997,M S,MF,14802,410427,,,2026-06-30,right,184.0000,https:
 us-13727,Quilindschy Hartman,2001,D M S,DF,13727,514285,16000000.0000,23000000.0000,2027-06-30,left,183.0000,https://img.a.transfermarkt.technology/portrait/header/514285-1723820103.jpg?lm=1,Netherlands,25.0000
 us-13123,Peio Canales,2005,M S,MF,13123,1056966,,,2026-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/1056966-1709678026.png?lm=1,Spain,21.0000
 us-2290,Iago Aspas,1987,F S,FW,2290,72047,1600000.0000,25000000.0000,2027-06-30,left,176.0000,https://img.a.transfermarkt.technology/portrait/header/72047-1758827533.jpg?lm=1,Spain,39.0000
+us-13035,Daniel Requena,2004,F M S,FW,13035,945709,400000.0000,400000.0000,2026-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1,Spain,22.0000
+us-14917,Ifeanyi Ndukwe,2008,D S,DF,14917,1167696,3000000.0000,3000000.0000,2031-06-30,both,198.0000,https://img.a.transfermarkt.technology/portrait/header/1167696-1763036837.jpg?lm=1,Austria,18.0000
 us-2163,Diego Llorente,1993,D,DF,2163,246291,2500000.0000,25000000.0000,2028-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/246291-1675246130.jpg?lm=1,Spain,33.0000
+us-14714,Miguel Loureiro,,D S,DF,14714,,,,,,,,,
 us-7655,Carl Starfelt,1995,D S,DF,7655,258987,4500000.0000,6500000.0000,2027-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/258987-1758827268.jpg?lm=1,Sweden,31.0000
 us-8636,Jonathan Christian David,2000,F S,FW,8636,533738,30000000.0000,60000000.0000,2030-06-30,both,178.0000,https://img.a.transfermarkt.technology/portrait/header/533738-1760114012.jpg?lm=1,Canada,26.0000
-us-14714,Miguel Loureiro,,D S,DF,14714,,,,,,,,,
 us-14916,Unai Santos,2005,D,DF,14916,1065454,,,2028-06-30,left,180.0000,https://img.a.transfermarkt.technology/portrait/header/1065454-1732220488.jpg?lm=1,Spain,21.0000
 us-10143,Bryan Zaragoza,2001,M S,MF,10143,713644,8000000.0000,12000000.0000,2029-06-30,right,164.0000,https://img.a.transfermarkt.technology/portrait/header/713644-1714503809.jpg?lm=1,Spain,25.0000
 us-12263,Mikel Jauregizar,2003,M S,MF,12263,938729,30000000.0000,35000000.0000,2031-06-30,right,177.0000,https://img.a.transfermarkt.technology/portrait/header/938729-1709675994.png?lm=1,Spain,23.0000
@@ -322,6 +325,7 @@ us-15028,Gnangoro,,M S,MF,15028,,,,,,,,,
 us-8694,Chidera Ejuke,1998,F S,FW,8694,500067,4000000.0000,9000000.0000,2027-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/500067-1706264992.jpg?lm=1,Nigeria,28.0000
 us-11057,André Almeida,2000,M S,MF,11057,375382,6000000.0000,20000000.0000,2029-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/375382-1547563680.png?lm=1,Portugal,26.0000
 us-2353,Pedro Bigas,1990,D S,DF,2353,203043,300000.0000,5000000.0000,2027-06-30,left,181.0000,https://img.a.transfermarkt.technology/portrait/header/203043-1447321397.jpg?lm=1,Spain,36.0000
+us-900,Adama Traoré,,S,FW,900,,,,,,,,,
 us-15064,Sebastián Cáceres,1999,D,DF,15064,532389,4500000.0000,7000000.0000,2027-06-30,right,180.0000,https://img.a.transfermarkt.technology/portrait/header/532389-1774479408.jpg?lm=1,Uruguay,27.0000
 us-14452,Aaron Mayol,2008,M,MF,14452,1515724,,,2029-06-30,,,https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1,Spain,18.0000
 us-7020,Gorka Guruzeta,1996,F S,FW,7020,340205,5000000.0000,18000000.0000,2028-06-30,right,188.0000,https://img.a.transfermarkt.technology/portrait/header/340205-1709676375.png?lm=1,Spain,30.0000
@@ -330,7 +334,6 @@ us-10067,Rubén Sánchez,2006,D S,DF,10067,1186244,,,2027-06-30,left,,https://im
 us-8145,Troy Parrott,2002,F S,FW,8145,552655,25000000.0000,25000000.0000,2029-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/552655-1721657549.jpg?lm=1,Ireland,24.0000
 us-14710,David Mella,,M S,MF,14710,,,,,,,,,
 us-12994,Gabriel Moscardo,2005,M S,MF,12994,1086636,7000000.0000,15000000.0000,2027-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/1086636-1724752763.png?lm=1,Brazil,21.0000
-us-14712,Diego Villares,,M S,MF,14712,,,,,,,,,
 us-10352,Johaneko Louis Jean,1995,D S,DF,10352,371231,550000.0000,2000000.0000,2026-12-31,left,187.0000,https://img.a.transfermarkt.technology/portrait/header/371231-1687403938.jpg?lm=1,Brazil,31.0000
 us-6749,Mujaid Sadick,2000,D S,DF,6749,497663,5000000.0000,8000000.0000,2028-06-30,right,183.0000,https://img.a.transfermarkt.technology/portrait/header/497663-1714036674.png?lm=1,Spain,26.0000
 us-8584,Raul Moro,2002,M S,MF,8584,624942,3500000.0000,7500000.0000,2031-06-30,right,169.0000,https://img.a.transfermarkt.technology/portrait/header/624942-1750837010.jpg?lm=1,Spain,24.0000
@@ -340,7 +343,6 @@ us-13361,Jones El Abdellaoui,2006,D F S,DF,13361,960571,8000000.0000,8000000.000
 us-11826,Carlos Benavídez,,M S,MF,11826,,,,,,,,,
 us-8424,Aimar Oroz,2001,F M S,FW,8424,634131,7500000.0000,15000000.0000,2029-06-30,right,177.0000,https://img.a.transfermarkt.technology/portrait/header/634131-1732220023.jpg?lm=1,Spain,25.0000
 us-9813,Randy Nteka,1997,F S,FW,9813,560483,1000000.0000,4000000.0000,2028-06-30,left,189.0000,https://img.a.transfermarkt.technology/portrait/header/560483-1600680162.jpg?lm=1,Angola,29.0000
-us-900,Adama Traoré,,S,FW,900,,,,,,,,,
 us-12298,Augusto Batalla,1996,GK,GK,12298,275218,6000000.0000,6000000.0000,2030-06-30,right,185.0000,https://img.a.transfermarkt.technology/portrait/header/275218-1775761484.jpg?lm=1,Argentina,30.0000
 us-6485,Júnior Firpo,1996,D,DF,6485,374139,3500000.0000,25000000.0000,2028-06-30,left,184.0000,https://img.a.transfermarkt.technology/portrait/header/374139-1724939835.jpg?lm=1,Dominican Republic,30.0000
 us-1450,Umar Sadiq,1997,F S,FW,1450,337715,4000000.0000,18000000.0000,2028-06-30,right,191.0000,https://img.a.transfermarkt.technology/portrait/header/337715-1728040426.jpg?lm=1,Nigeria,29.0000
@@ -355,10 +357,9 @@ us-13278,Youssef Lekhedim,,S,FW,13278,,,,,,,,,
 us-9804,Gavi,2004,M S,MF,9804,646740,30000000.0000,90000000.0000,2030-06-30,right,173.0000,https://img.a.transfermarkt.technology/portrait/header/646740-1682685701.jpg?lm=1,Spain,22.0000
 us-10944,Fran Pérez,2002,M S,MF,10944,622988,2500000.0000,8000000.0000,2029-06-30,right,176.0000,https://img.a.transfermarkt.technology/portrait/header/622988-1683212780.jpg?lm=1,Spain,24.0000
 us-14324,Iker Luque,2005,M S,MF,14324,1179482,,,2028-06-30,right,168.0000,https://img.a.transfermarkt.technology/portrait/header/1179482-1731933191.jpg?lm=1,Spain,21.0000
-us-13035,Daniel Requena,2004,F S,FW,13035,945709,400000.0000,400000.0000,2026-06-30,right,186.0000,https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1,Spain,22.0000
-us-14917,Ifeanyi Ndukwe,2008,D S,DF,14917,1167696,3000000.0000,3000000.0000,2031-06-30,both,198.0000,https://img.a.transfermarkt.technology/portrait/header/1167696-1763036837.jpg?lm=1,Austria,18.0000
 us-13936,Jon Gorrotxategi,2002,M S,MF,13936,711374,25000000.0000,25000000.0000,2030-06-30,right,177.0000,https://img.a.transfermarkt.technology/portrait/header/711374-1727113195.jpg?lm=1,Spain,24.0000
 us-13374,Ángel Ortiz,2004,D,DF,13374,933908,4000000.0000,4000000.0000,2029-06-30,right,167.0000,https://img.a.transfermarkt.technology/portrait/header/933908-1758782759.jpg?lm=1,Spain,22.0000
+us-14342,Petar Ratkov,2003,F S,FW,14342,846254,9000000.0000,10000000.0000,2030-06-30,right,193.0000,https://img.a.transfermarkt.technology/portrait/header/846254-1770273673.jpg?lm=1,Serbia,23.0000
 us-14688,Sergio Martínez,1992,M,MF,14688,598769,2800000.0000,3500000.0000,2028-12-31,left,176.0000,https://img.a.transfermarkt.technology/portrait/header/598769-1724351256.png?lm=1,Argentina,34.0000
 us-13788,Davinchi,2007,D S,DF,13788,1268764,1000000.0000,1000000.0000,2028-06-30,left,182.0000,https://img.a.transfermarkt.technology/portrait/header/1268764-1732577167.jpg?lm=1,Spain,19.0000
 us-13694,Jozhua Vertrouwd,2004,D,DF,13694,765467,2000000.0000,3000000.0000,2026-06-30,left,187.0000,https://img.a.transfermarkt.technology/portrait/header/765467-1691072211.jpg?lm=1,Netherlands,22.0000
@@ -375,7 +376,6 @@ us-14983,Yanis Musuayi,,F S,FW,14983,,,,,,,,,
 us-5543,Gabriel Jesus,1997,F S,FW,5543,363205,17000000.0000,80000000.0000,2027-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/363205-1669711141.jpg?lm=1,Brazil,29.0000
 us-5065,Diego Rico,1993,D,DF,5065,249513,1000000.0000,10000000.0000,,left,183.0000,https://img.a.transfermarkt.technology/portrait/header/249513-1697221474.jpg?lm=1,Spain,33.0000
 us-12189,Hugo Rincón,2003,D S,DF,12189,834487,3500000.0000,3500000.0000,2028-06-30,right,183.0000,https://img.a.transfermarkt.technology/portrait/header/834487-1709677097.png?lm=1,Spain,23.0000
-us-14342,Petar Ratkov,2003,F S,FW,14342,846254,9000000.0000,10000000.0000,2030-06-30,right,193.0000,https://img.a.transfermarkt.technology/portrait/header/846254-1770273673.jpg?lm=1,Serbia,23.0000
 us-12903,Rafael Bauza,2005,M S,MF,12903,1178721,,,2028-06-30,right,183.0000,https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1,Spain,21.0000
 us-9381,Saba Sazonov,2002,D S,DF,9381,655456,800000.0000,3000000.0000,,right,194.0000,https://img.a.transfermarkt.technology/portrait/header/655456-1695386095.jpg?lm=1,Georgia,24.0000
 us-7546,Harvey Elliott,2003,S,FW,7546,565822,20000000.0000,35000000.0000,2027-06-30,left,170.0000,https://img.a.transfermarkt.technology/portrait/header/565822-1665128076.jpg?lm=1,England,23.0000
@@ -403,6 +403,7 @@ us-14709,Zakaria Eddahchouri,,S,FW,14709,,,,,,,,,
 us-2446,Dani Ceballos,1996,S,FW,2446,319745,7000000.0000,45000000.0000,,right,179.0000,https://img.a.transfermarkt.technology/portrait/header/319745-1723666162.jpg?lm=1,Spain,30.0000
 us-15033,Couhaib Driouech,2002,S,FW,15033,593837,7500000.0000,7500000.0000,2029-06-30,right,175.0000,https://img.a.transfermarkt.technology/portrait/header/593837-1658861367.jpg?lm=1,Morocco,24.0000
 us-2543,Borja Iglesias,1993,S,FW,2543,278359,2800000.0000,28000000.0000,2027-06-30,right,187.0000,https://img.a.transfermarkt.technology/portrait/header/278359-1686661509.jpg?lm=1,Spain,33.0000
+us-1040,Angelino,1997,D S,DF,1040,277179,4500000.0000,35000000.0000,2028-06-30,left,171.0000,https://img.a.transfermarkt.technology/portrait/header/277179-1706626191.jpg?lm=1,Spain,29.0000
 us-11185,Pablo Marín,2003,D,DF,11185,907813,7000000.0000,8000000.0000,2029-06-30,right,178.0000,https://img.a.transfermarkt.technology/portrait/header/907813-1683212131.jpg?lm=1,Spain,23.0000
 us-13417,Maroan Sannadi,2001,S,FW,13417,1054934,3000000.0000,10000000.0000,2029-06-30,right,192.0000,https://img.a.transfermarkt.technology/portrait/header/1054934-1736857054.jpg?lm=1,Morocco,25.0000
 us-10325,Juan Carlos Arana,2003,F S,FW,10325,1280914,,,,,,https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1,Ecuador,23.0000
@@ -412,7 +413,6 @@ us-14500,Andrés Antañón,2007,F,FW,14500,1293040,,,2027-06-30,right,183.0000,h
 us-12864,Pelayo Fernández,2003,D S,DF,12864,692208,,,2028-06-30,right,193.0000,https://img.a.transfermarkt.technology/portrait/header/default.jpg?lm=1,Spain,23.0000
 us-13770,Paco Cortés,2007,M S,MF,13770,1232057,1500000.0000,1500000.0000,2028-06-30,right,178.0000,https://img.a.transfermarkt.technology/portrait/header/1232057-1761232668.jpg?lm=1,Spain,19.0000
 us-10101,Carlos Martín,2002,M,MF,10101,618813,1500000.0000,4000000.0000,2029-06-30,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/618813-1707924109.jpg?lm=1,Spain,24.0000
-us-1040,Angelino,1997,D,DF,1040,277179,4500000.0000,35000000.0000,2028-06-30,left,171.0000,https://img.a.transfermarkt.technology/portrait/header/277179-1706626191.jpg?lm=1,Spain,29.0000
 us-14733,Eneko Jauregi,,F S,FW,14733,,,,,,,,,
 us-4175,Pere Milla,1992,S,FW,4175,225593,1000000.0000,3000000.0000,2027-06-30,left,180.0000,https://img.a.transfermarkt.technology/portrait/header/225593-1541151194.jpg?lm=1,Spain,34.0000
 us-9809,José Ángel Carmona,2002,S,FW,9809,711625,12000000.0000,12000000.0000,2028-06-30,right,184.0000,https://img.a.transfermarkt.technology/portrait/header/711625-1696862897.jpg?lm=1,Spain,24.0000
