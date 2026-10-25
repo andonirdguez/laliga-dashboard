@@ -11918,3 +11918,36 @@ temporada,partido_id,fecha_id,us_shot_id,equipo_id,rival_id,es_local,jugador_id,
 2026-27,20261019_getafe_rayo-vallecano,20261019,700127,rayo vallecano,getafe,0,us-14059,,87,76-90,0.1176,0.9060,0.6030,95.1300,41.0000,12.1000,Jugada,Pie izquierdo,Bloqueado,0,0,0
 2026-27,20261019_getafe_rayo-vallecano,20261019,700128,rayo vallecano,getafe,0,us-7174,,91,90+,0.0257,0.7770,0.6070,81.5800,41.2800,24.5000,Jugada,Pie izquierdo,Fuera,0,0,0
 2026-27,20261019_getafe_rayo-vallecano,20261019,700129,getafe,rayo vallecano,1,us-13392,,93,90+,0.0444,0.8130,0.5000,85.3700,34.0000,19.6000,Balón parado,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261021_levante_athletic,20261021,700727,athletic,levante,0,us-12189,us-9755,5,0-15,0.0598,0.8560,0.3560,89.8800,24.2100,18.0000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261021_levante_athletic,20261021,700728,athletic,levante,0,us-12189,us-2229,5,0-15,0.0775,0.9310,0.3990,97.7500,27.1300,10.0000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261021_levante_athletic,20261021,700729,athletic,levante,0,us-5091,us-8765,8,0-15,0.0257,0.7560,0.4990,79.3800,33.9300,25.6000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261021_levante_athletic,20261021,700730,athletic,levante,0,us-10352,,9,0-15,0.0301,0.9640,0.6540,101.2200,44.4700,11.1000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700731,levante,athletic,1,us-9275,us-7605,12,0-15,0.0202,0.8800,0.5790,92.4000,39.3700,13.7000,Jugada,Cabeza u otra,Parado,0,0,1
+2026-27,20261021_levante_athletic,20261021,700732,athletic,levante,0,us-12263,us-12189,15,0-15,0.0314,0.8180,0.4540,85.8900,30.8700,19.4000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700734,athletic,levante,0,us-8765,us-2229,15,0-15,0.0331,0.8190,0.6440,86.0000,43.7900,21.4000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261021_levante_athletic,20261021,700733,athletic,levante,0,us-2229,,15,0-15,0.0175,0.7470,0.5050,78.4300,34.3400,26.6000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700735,levante,athletic,1,us-13767,us-13035,19,16-30,0.0870,0.8980,0.6070,94.2900,41.2800,12.9000,Jugada,Pie izquierdo,Gol,1,0,1
+2026-27,20261021_levante_athletic,20261021,700737,levante,athletic,1,us-13767,,21,16-30,0.5267,0.9180,0.4950,96.3900,33.6600,8.6000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261021_levante_athletic,20261021,700736,levante,athletic,1,us-14393,us-9275,21,16-30,0.0982,0.8680,0.6090,91.1400,41.4100,15.7000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261021_levante_athletic,20261021,700738,athletic,levante,0,us-9755,us-12189,23,16-30,0.0566,0.8740,0.4320,91.7700,29.3800,14.0000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700739,athletic,levante,0,us-5091,us-12189,26,16-30,0.0549,0.8590,0.3480,90.2000,23.6600,18.1000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261021_levante_athletic,20261021,700740,levante,athletic,1,us-9466,,32,31-45,0.0210,0.7750,0.6710,81.3800,45.6300,26.3000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700741,levante,athletic,1,us-257,us-14393,34,31-45,0.0601,0.8550,0.3640,89.7800,24.7500,17.8000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700743,athletic,levante,0,us-9755,us-8765,41,31-45,0.0281,0.7960,0.6320,83.5800,42.9800,23.2000,Córner,Pie izquierdo,Parado,0,0,1
+2026-27,20261021_levante_athletic,20261021,700742,athletic,levante,0,us-2229,,41,31-45,0.0223,0.7690,0.5340,80.7500,36.3100,24.4000,Córner,Pie derecho,Bloqueado,0,0,0
+2026-27,20261021_levante_athletic,20261021,700744,athletic,levante,0,us-12263,,42,31-45,0.0161,0.7710,0.2950,80.9500,20.0600,27.8000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700745,levante,athletic,1,us-13035,us-14393,43,31-45,0.0495,0.7750,0.4810,81.3800,32.7100,23.7000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261021_levante_athletic,20261021,700746,athletic,levante,0,us-13417,us-8765,46,46-60,0.0896,0.9680,0.5870,101.6400,39.9200,6.8000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700747,athletic,levante,0,us-13417,us-12189,46,46-60,0.0574,0.9060,0.4870,95.1300,33.1200,9.9000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700748,athletic,levante,0,us-13417,us-12189,51,46-60,0.0545,0.8690,0.5130,91.2500,34.8800,13.8000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261021_levante_athletic,20261021,700749,athletic,levante,0,us-5091,,66,61-75,0.7433,0.8850,0.5000,92.9200,34.0000,12.1000,Penalti,Pie derecho,Gol,1,0,1
+2026-27,20261021_levante_athletic,20261021,700750,levante,athletic,1,us-9275,us-9466,68,61-75,0.0649,0.9270,0.5830,97.3300,39.6400,9.5000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261021_levante_athletic,20261021,700751,levante,athletic,1,us-7605,us-8500,78,76-90,0.0320,0.9060,0.6930,95.1300,47.1200,16.4000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261021_levante_athletic,20261021,700752,athletic,levante,0,us-9211,us-5062,82,76-90,0.0647,0.8950,0.5460,93.9800,37.1300,11.5000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700753,athletic,levante,0,us-2229,,86,76-90,0.0579,0.9000,0.6540,94.5000,44.4700,14.8000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700754,athletic,levante,0,us-5091,,87,76-90,0.0238,0.8130,0.2950,85.3700,20.0600,24.1000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700755,levante,athletic,1,us-13770,us-7605,88,76-90,0.0282,0.7900,0.7140,82.9500,48.5500,26.4000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700756,athletic,levante,0,us-5091,us-13123,90,76-90,0.0437,0.8620,0.3050,90.5100,20.7400,19.6000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700757,athletic,levante,0,us-5062,us-9211,92,90+,0.1284,0.9680,0.5570,101.6400,37.8800,5.1000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261021_levante_athletic,20261021,700758,levante,athletic,1,us-13035,us-9466,97,90+,0.4505,0.8870,0.4770,93.1300,32.4400,12.0000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261021_levante_athletic,20261021,700759,levante,athletic,1,us-10930,,97,90+,0.8306,0.9680,0.5030,101.6400,34.2000,3.4000,Jugada,Pie derecho,Gol,1,0,1
