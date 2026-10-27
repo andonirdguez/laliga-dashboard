@@ -11951,3 +11951,282 @@ temporada,partido_id,fecha_id,us_shot_id,equipo_id,rival_id,es_local,jugador_id,
 2026-27,20261021_levante_athletic,20261021,700757,athletic,levante,0,us-5062,us-9211,92,90+,0.1284,0.9680,0.5570,101.6400,37.8800,5.1000,Córner,Cabeza u otra,Fuera,0,0,0
 2026-27,20261021_levante_athletic,20261021,700758,levante,athletic,1,us-13035,us-9466,97,90+,0.4505,0.8870,0.4770,93.1300,32.4400,12.0000,Jugada,Pie derecho,Parado,0,0,1
 2026-27,20261021_levante_athletic,20261021,700759,levante,athletic,1,us-10930,,97,90+,0.8306,0.9680,0.5030,101.6400,34.2000,3.4000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261023_alaves_malaga,20261023,700304,alaves,malaga,1,us-10364,us-5058,1,0-15,0.0692,0.9650,0.4240,101.3200,28.8300,6.3000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700305,alaves,malaga,1,us-10364,us-14392,8,0-15,0.0247,0.8060,0.2830,84.6300,19.2400,25.2000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700306,malaga,alaves,0,us-14728,us-14731,15,0-15,0.0275,0.7630,0.5260,80.1200,35.7700,24.9000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700307,alaves,malaga,1,us-9280,us-1189,28,16-30,0.0210,0.7490,0.4800,78.6500,32.6400,26.4000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700308,alaves,malaga,1,us-10857,us-1189,28,16-30,0.0366,0.8000,0.3620,84.0000,24.6200,23.0000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700309,alaves,malaga,1,us-10364,us-5058,30,16-30,0.0450,0.9080,0.6220,95.3400,42.3000,12.7000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700310,alaves,malaga,1,us-14392,us-5058,38,31-45,0.0652,0.8600,0.4300,90.3000,29.2400,15.5000,Balón parado,Pie derecho,Bloqueado,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700311,malaga,alaves,0,us-11540,us-12115,39,31-45,0.0824,0.9390,0.3560,98.6000,24.2100,11.7000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700312,malaga,alaves,0,us-12115,us-14734,43,31-45,0.3309,0.9040,0.6140,94.9200,41.7500,12.7000,Jugada,Pie izquierdo,Gol,1,0,1
+2026-27,20261023_alaves_malaga,20261023,700313,alaves,malaga,1,us-14392,us-5110,57,46-60,0.0230,0.7940,0.2990,83.3700,20.3300,25.6000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700314,alaves,malaga,1,us-13278,,63,61-75,0.0123,0.7140,0.5430,74.9700,36.9200,30.2000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700315,malaga,alaves,0,us-8902,us-14730,68,61-75,0.0631,0.8450,0.6470,88.7200,44.0000,19.1000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261023_alaves_malaga,20261023,700316,alaves,malaga,1,us-6400,us-9293,70,61-75,0.0602,0.8750,0.5420,91.8800,36.8600,13.4000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700317,malaga,alaves,0,us-11540,us-14730,70,61-75,0.1422,0.9310,0.4240,97.7500,28.8300,8.9000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700318,alaves,malaga,1,us-6400,us-14392,72,61-75,0.1420,0.9710,0.4580,101.9500,31.1400,4.2000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261023_alaves_malaga,20261023,700319,alaves,malaga,1,us-10857,,73,61-75,0.0238,0.9300,0.4070,97.6500,27.6800,9.7000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700320,alaves,malaga,1,us-1189,,80,76-90,0.0810,0.8480,0.4920,89.0400,33.4600,16.0000,Jugada,Pie derecho,Poste,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700321,malaga,alaves,0,us-14732,us-14735,81,76-90,0.0525,0.8150,0.6750,85.5700,45.9000,22.8000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261023_alaves_malaga,20261023,700322,alaves,malaga,1,us-9293,us-2308,82,76-90,0.0189,0.7940,0.3460,83.3700,23.5300,24.0000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700323,malaga,alaves,0,us-10301,us-14732,87,76-90,0.1070,0.9200,0.4270,96.6000,29.0400,9.8000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700325,alaves,malaga,1,us-14222,,88,76-90,0.9701,0.9900,0.5080,103.9500,34.5400,1.2000,Jugada,Pie izquierdo,Gol,1,0,1
+2026-27,20261023_alaves_malaga,20261023,700324,alaves,malaga,1,us-6400,us-14392,88,76-90,0.0252,0.8740,0.4860,91.7700,33.0500,13.3000,Jugada,Cabeza u otra,Parado,0,0,1
+2026-27,20261023_alaves_malaga,20261023,700326,alaves,malaga,1,us-1189,,91,90+,0.0905,0.8430,0.3350,88.5200,22.7800,19.9000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700327,alaves,malaga,1,us-14519,us-2308,93,90+,0.0935,0.9190,0.5470,96.5000,37.2000,9.1000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261023_alaves_malaga,20261023,700328,alaves,malaga,1,us-14222,us-9293,94,90+,0.0265,0.8590,0.5350,90.2000,36.3800,15.0000,Balón parado,Cabeza u otra,Parado,0,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700944,deportivo,atletico madrid,0,us-14708,us-2278,5,0-15,0.0704,0.9030,0.4130,94.8200,28.0800,11.8000,Córner,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700945,deportivo,atletico madrid,0,us-14714,,5,0-15,0.0344,0.9150,0.3850,96.0800,26.1800,11.9000,Córner,Cabeza u otra,Parado,0,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700946,deportivo,atletico madrid,0,us-14708,,8,0-15,0.0628,0.9130,0.4920,95.8700,33.4600,9.2000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700947,atletico madrid,deportivo,1,us-10846,us-8417,13,0-15,0.0377,0.7810,0.5230,82.0000,35.5600,23.0000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700948,deportivo,atletico madrid,0,us-14712,us-14924,14,0-15,0.0208,0.7380,0.5810,77.4900,39.5100,28.1000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700949,atletico madrid,deportivo,1,us-10494,us-10846,16,16-30,0.0424,0.8040,0.3960,84.4200,26.9300,21.8000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700950,atletico madrid,deportivo,1,us-11866,,19,16-30,0.0380,0.7870,0.5150,82.6300,35.0200,22.4000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700951,deportivo,atletico madrid,0,us-14924,,26,16-30,0.0546,0.8750,0.8440,91.8800,57.3900,26.8000,Falta directa,Pie derecho,Parado,0,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700952,deportivo,atletico madrid,0,us-11282,,27,16-30,0.7365,0.9710,0.5360,101.9500,36.4500,3.9000,Balón parado,Pie derecho,Parado,0,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700953,atletico madrid,deportivo,1,us-7313,us-10494,36,31-45,0.0608,0.9500,0.3190,99.7500,21.6900,13.4000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700954,atletico madrid,deportivo,1,us-7313,us-10189,37,31-45,0.0257,0.8000,0.3070,84.0000,20.8800,24.8000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700955,deportivo,atletico madrid,0,us-14712,us-10940,41,31-45,0.3453,0.9120,0.5280,95.7600,35.9000,9.4000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700956,atletico madrid,deportivo,1,us-10494,,43,31-45,0.0358,0.8070,0.6340,84.7300,43.1100,22.2000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700957,atletico madrid,deportivo,1,us-10903,,44,31-45,0.0555,0.8230,0.4420,86.4200,30.0600,19.0000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700958,atletico madrid,deportivo,1,us-10846,us-11866,47,46-60,0.7785,0.9640,0.4800,101.2200,32.6400,4.0000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700960,atletico madrid,deportivo,1,us-8417,us-10846,53,46-60,0.0401,0.7760,0.5770,81.4800,39.2400,24.1000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700959,deportivo,atletico madrid,0,us-14708,us-9247,53,46-60,0.0601,0.8060,0.3030,84.6300,20.6000,24.4000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700963,atletico madrid,deportivo,1,us-7086,,56,46-60,0.0292,0.7640,0.5400,80.2200,36.7200,24.9000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700961,atletico madrid,deportivo,1,us-7313,us-8417,56,46-60,0.0462,0.8240,0.3320,86.5200,22.5800,21.7000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700962,atletico madrid,deportivo,1,us-8417,us-9796,56,46-60,0.0775,0.8160,0.5320,85.6800,36.1800,19.4000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700964,atletico madrid,deportivo,1,us-9796,us-10846,58,46-60,0.0581,0.8120,0.3890,85.2600,26.4500,21.1000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700965,deportivo,atletico madrid,0,us-14708,us-10940,60,46-60,0.0813,0.8700,0.5910,91.3500,40.1900,15.0000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700966,atletico madrid,deportivo,1,us-10846,us-8417,70,61-75,0.3921,0.9540,0.6170,100.1700,41.9600,9.3000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700967,atletico madrid,deportivo,1,us-6531,us-7086,76,76-90,0.0494,0.9070,0.7440,95.2300,50.5900,19.3000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700968,atletico madrid,deportivo,1,us-9796,us-10846,81,76-90,0.3249,0.9050,0.4810,95.0200,32.7100,10.1000,Jugada,Cabeza u otra,Parado,0,0,1
+2026-27,20261024_atletico-madrid_deportivo,20261024,700969,atletico madrid,deportivo,1,us-6531,us-10846,82,76-90,0.0332,0.7570,0.5190,79.4800,35.2900,25.5000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700970,atletico madrid,deportivo,1,us-10189,us-8417,82,76-90,0.0282,0.9090,0.5440,95.4500,36.9900,10.0000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700971,atletico madrid,deportivo,1,us-11216,,82,76-90,0.0359,0.7720,0.4770,81.0600,32.4400,24.0000,Córner,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700972,deportivo,atletico madrid,0,us-9247,us-14924,87,76-90,0.0228,0.7940,0.6710,83.3700,45.6300,24.6000,Balón parado,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700973,deportivo,atletico madrid,0,us-10163,us-12620,88,76-90,0.0840,0.8600,0.5620,90.3000,38.2200,15.3000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700974,deportivo,atletico madrid,0,us-9247,us-11834,88,76-90,0.0740,0.8420,0.5260,88.4100,35.7700,16.7000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700975,deportivo,atletico madrid,0,us-14711,us-900,90,76-90,0.0668,0.8680,0.5280,91.1400,35.9000,14.0000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700976,atletico madrid,deportivo,1,us-10846,us-9796,91,90+,0.0327,0.7590,0.5190,79.7000,35.2900,25.3000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700977,deportivo,atletico madrid,0,us-12620,us-10163,92,90+,0.0247,0.7910,0.6600,83.0500,44.8800,24.5000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_atletico-madrid_deportivo,20261024,700978,deportivo,atletico madrid,0,us-14711,us-900,94,90+,0.5394,0.9650,0.5550,101.3200,37.7400,5.2000,Córner,Pie derecho,Parado,0,0,1
+2026-27,20261024_racing_espanyol,20261024,700693,espanyol,racing,0,us-10143,us-14700,1,0-15,0.0303,0.8630,0.7320,90.6200,49.7800,21.3000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700695,racing,espanyol,1,us-9814,us-14687,7,0-15,0.1359,0.9540,0.4170,100.1700,28.3600,7.4000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700694,racing,espanyol,1,us-14687,us-8921,7,0-15,0.0543,0.8690,0.6520,91.2500,44.3400,17.2000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700696,espanyol,racing,0,us-6168,us-5081,15,0-15,0.0109,0.8620,0.4870,90.5100,33.1200,14.5000,Balón parado,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700698,racing,espanyol,1,us-14687,us-2571,30,16-30,0.1097,0.9480,0.4270,99.5400,29.0400,7.4000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700697,racing,espanyol,1,us-2571,us-9814,30,16-30,0.3926,0.9060,0.6140,95.1300,41.7500,12.6000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_racing_espanyol,20261024,700699,racing,espanyol,1,us-14459,us-14687,30,16-30,0.3330,0.9550,0.5680,100.2800,38.6200,6.6000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700700,espanyol,racing,0,us-14700,us-13350,32,31-45,0.0174,0.7450,0.5140,78.2200,34.9500,26.8000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700701,espanyol,racing,0,us-14700,,35,31-45,0.0540,0.8300,0.3690,87.1500,25.0900,19.9000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700702,espanyol,racing,0,us-14700,us-5081,37,31-45,0.0596,0.8620,0.3100,90.5100,21.0800,19.4000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700703,espanyol,racing,0,us-13727,,37,31-45,0.0188,0.7730,0.6400,81.1700,43.5200,25.7000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700704,espanyol,racing,0,us-6168,us-14074,44,31-45,0.0440,0.9070,0.4030,95.2300,27.4000,11.8000,Balón parado,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700705,racing,espanyol,1,us-14459,us-8921,45,31-45,0.0294,0.7800,0.6020,81.9000,40.9400,24.1000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700706,racing,espanyol,1,us-2571,,47,46-60,0.0234,0.7710,0.5940,80.9500,40.3900,24.9000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700707,racing,espanyol,1,us-9814,,48,46-60,0.1464,0.9700,0.3870,101.8500,26.3200,8.3000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700708,racing,espanyol,1,us-8921,us-14687,52,46-60,0.0565,0.9140,0.6770,95.9700,46.0400,15.0000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700709,racing,espanyol,1,us-10300,us-8921,52,46-60,0.1380,0.9610,0.5360,100.9000,36.4500,4.8000,Córner,Cabeza u otra,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700710,racing,espanyol,1,us-14687,us-2571,60,46-60,0.0549,0.9430,0.3950,99.0200,26.8600,9.3000,Córner,Cabeza u otra,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700711,racing,espanyol,1,us-9477,,60,46-60,0.0790,0.8930,0.4240,93.7700,28.8300,12.4000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700713,espanyol,racing,0,us-5081,us-14074,61,61-75,0.0984,0.8620,0.4820,90.5100,32.7800,14.5000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261024_racing_espanyol,20261024,700712,racing,espanyol,1,us-8921,us-7529,61,61-75,0.0320,0.9080,0.7460,95.3400,50.7300,19.3000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_racing_espanyol,20261024,700714,racing,espanyol,1,us-9814,us-14459,65,61-75,0.1003,0.8740,0.4770,91.7700,32.4400,13.3000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_racing_espanyol,20261024,700715,racing,espanyol,1,us-10300,us-2571,68,61-75,0.0206,0.7550,0.6460,79.2800,43.9300,27.6000,Jugada,Pie izquierdo,Gol,1,0,1
+2026-27,20261024_racing_espanyol,20261024,700717,racing,espanyol,1,us-14687,,76,76-90,0.0792,0.8990,0.3780,94.4000,25.7000,13.5000,Balón parado,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_racing_espanyol,20261024,700716,racing,espanyol,1,us-13376,,76,76-90,0.0479,0.8530,0.3640,89.5700,24.7500,18.0000,Balón parado,Pie derecho,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700719,espanyol,racing,0,us-13829,us-10875,77,76-90,0.1360,0.9530,0.5770,100.0700,39.2400,7.2000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700718,racing,espanyol,1,us-14459,us-14687,77,76-90,0.1211,0.9480,0.5140,99.5400,34.9500,5.5000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_racing_espanyol,20261024,700720,racing,espanyol,1,us-13376,us-2571,79,76-90,0.0247,0.7680,0.6360,80.6400,43.2500,26.1000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700721,racing,espanyol,1,us-14122,us-14686,83,76-90,0.0895,0.9110,0.4560,95.6500,31.0100,9.8000,Córner,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700723,racing,espanyol,1,us-14459,us-14686,83,76-90,0.6259,0.9630,0.5000,101.1200,34.0000,3.9000,Córner,Pie izquierdo,Gol,1,0,1
+2026-27,20261024_racing_espanyol,20261024,700722,racing,espanyol,1,us-14686,us-14122,83,76-90,0.1429,0.9430,0.5190,99.0200,35.2900,6.1000,Córner,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700724,racing,espanyol,1,us-11057,us-13376,93,90+,0.0497,0.8040,0.3470,84.4200,23.6000,23.1000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_racing_espanyol,20261024,700725,espanyol,racing,0,us-6168,us-5081,94,90+,0.0200,0.9260,0.4090,97.2300,27.8100,9.9000,Córner,Cabeza u otra,Bloqueado,0,0,0
+2026-27,20261024_racing_espanyol,20261024,700726,espanyol,racing,0,us-6168,us-5081,95,90+,0.0911,0.9340,0.4260,98.0700,28.9700,8.6000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700413,rayo vallecano,elche,1,us-7174,us-4091,0,0-15,0.0354,0.9110,0.7440,95.6500,50.5900,19.0000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700412,rayo vallecano,elche,1,us-4091,,0,0-15,0.0489,0.8550,0.6660,89.7800,45.2900,19.0000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700415,rayo vallecano,elche,1,us-6749,us-7071,10,0-15,0.0175,0.8890,0.5230,93.3500,35.5600,11.8000,Balón parado,Cabeza u otra,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700414,rayo vallecano,elche,1,us-7071,,10,0-15,0.0108,0.7590,0.6300,79.7000,42.8400,26.8000,Balón parado,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700416,rayo vallecano,elche,1,us-7528,us-7174,16,16-30,0.0925,0.8510,0.5130,89.3500,34.8800,15.7000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700417,elche,rayo vallecano,0,us-14400,us-6750,17,16-30,0.0444,0.7870,0.3460,82.6300,23.5300,24.7000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700418,elche,rayo vallecano,0,us-6750,us-3425,19,16-30,0.0699,0.8370,0.5280,87.8800,35.9000,17.2000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700419,elche,rayo vallecano,0,us-13841,,23,16-30,0.7433,0.8850,0.5000,92.9200,34.0000,12.1000,Penalti,Pie derecho,Gol,1,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700421,elche,rayo vallecano,0,us-8271,us-6750,28,16-30,0.1483,0.9320,0.4490,97.8600,30.5300,7.9000,Jugada,Pie derecho,Poste,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700420,elche,rayo vallecano,0,us-14400,,28,16-30,0.1116,0.8660,0.3800,90.9300,25.8400,16.3000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700422,rayo vallecano,elche,1,us-12863,,31,31-45,0.0341,0.8380,0.3390,87.9900,23.0500,20.2000,Balón parado,Pie derecho,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700423,elche,rayo vallecano,0,us-8271,,35,31-45,0.7433,0.8850,0.5000,92.9200,34.0000,12.1000,Penalti,Pie derecho,Gol,1,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700424,rayo vallecano,elche,1,us-9815,,38,31-45,0.7433,0.8850,0.5000,92.9200,34.0000,12.1000,Penalti,Pie derecho,Poste,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700425,elche,rayo vallecano,0,us-8230,us-14400,43,31-45,0.0197,0.7390,0.3660,77.6000,24.8900,28.9000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700426,elche,rayo vallecano,0,us-14555,us-14400,46,46-60,0.0634,0.8100,0.4430,85.0500,30.1200,20.3000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700427,elche,rayo vallecano,0,us-15066,us-3425,47,46-60,0.0330,0.9020,0.4520,94.7100,30.7400,10.8000,Balón parado,Cabeza u otra,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700429,rayo vallecano,elche,1,us-5073,,47,46-60,0.0337,0.6760,0.4260,70.9800,28.9700,34.4000,Falta directa,Pie derecho,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700430,rayo vallecano,elche,1,us-13809,us-9815,48,46-60,0.0255,0.8850,0.2560,92.9200,17.4100,20.5000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700431,rayo vallecano,elche,1,us-13809,us-9815,49,46-60,0.0154,0.8120,0.2970,85.2600,20.2000,24.1000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700432,rayo vallecano,elche,1,us-12863,,50,46-60,0.0189,0.7520,0.4920,78.9600,33.4600,26.0000,Córner,Pie derecho,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700428,elche,rayo vallecano,0,us-14400,us-9793,51,46-60,0.0604,0.8060,0.7450,84.6300,50.6600,26.3000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700433,rayo vallecano,elche,1,us-12863,us-5073,51,46-60,0.0752,0.8800,0.3610,92.4000,24.5500,15.8000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700434,elche,rayo vallecano,0,us-8271,us-14555,56,46-60,0.0777,0.8860,0.3250,93.0300,22.1000,16.9000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700435,elche,rayo vallecano,0,us-3425,us-14400,56,46-60,0.0384,0.7780,0.4640,81.6900,31.5500,23.4000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700436,rayo vallecano,elche,1,us-5073,us-4091,66,61-75,0.0106,0.6930,0.3990,72.7700,27.1300,33.0000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700437,elche,rayo vallecano,0,us-8230,us-11362,67,61-75,0.1508,0.8920,0.6320,93.6600,42.9800,14.5000,Jugada,Pie izquierdo,Gol,1,0,1
+2026-27,20261024_rayo-vallecano_elche,20261024,700438,elche,rayo vallecano,0,us-13840,us-15066,73,61-75,0.0443,0.7950,0.6390,83.4800,43.4500,23.5000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700439,elche,rayo vallecano,0,us-8895,,73,61-75,0.0196,0.7700,0.3860,80.8500,26.2500,25.4000,Córner,Pie derecho,Poste,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700440,elche,rayo vallecano,0,us-8895,,73,61-75,0.0342,0.7680,0.4810,80.6400,32.7100,24.4000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700442,rayo vallecano,elche,1,us-13809,,80,76-90,0.0072,0.7260,0.2770,76.2300,18.8400,32.5000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700441,rayo vallecano,elche,1,us-15028,us-7071,80,76-90,0.0168,0.7360,0.4780,77.2800,32.5000,27.8000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700443,rayo vallecano,elche,1,us-15028,us-4091,82,76-90,0.0195,0.7520,0.4120,78.9600,28.0200,26.7000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700444,rayo vallecano,elche,1,us-4091,us-7071,86,76-90,0.0099,0.7960,0.8140,83.5800,55.3500,30.2000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_rayo-vallecano_elche,20261024,700445,rayo vallecano,elche,1,us-5073,,92,90+,0.0182,0.7570,0.5080,79.4800,34.5400,25.5000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_valencia_villarreal,20261024,700871,villarreal,valencia,0,us-8696,us-10121,8,0-15,0.0142,0.6880,0.3970,72.2400,27.0000,33.5000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700872,villarreal,valencia,0,us-12322,us-2120,17,16-30,0.0631,0.8130,0.6090,85.3700,41.4100,21.0000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_valencia_villarreal,20261024,700875,villarreal,valencia,0,us-14221,us-770,24,16-30,0.0513,0.8180,0.5260,85.8900,35.7700,19.2000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700873,villarreal,valencia,0,us-8696,us-14396,24,16-30,0.1038,0.8670,0.5380,91.0300,36.5800,14.2000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700874,villarreal,valencia,0,us-8696,,24,16-30,0.0984,0.8710,0.5210,91.4500,35.4300,13.6000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700876,villarreal,valencia,0,us-8696,us-12322,27,16-30,0.0248,0.7530,0.4550,79.0700,30.9400,26.1000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700877,villarreal,valencia,0,us-10121,us-12322,28,16-30,0.0342,0.8540,0.2950,89.6700,20.0600,20.7000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700878,villarreal,valencia,0,us-8696,us-10121,29,16-30,0.0351,0.7810,0.4540,82.0000,30.8700,23.2000,Córner,Pie derecho,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700879,valencia,villarreal,1,us-2551,,37,31-45,0.7433,0.8850,0.5000,92.9200,34.0000,12.1000,Penalti,Pie derecho,Gol,1,0,1
+2026-27,20261024_valencia_villarreal,20261024,700880,villarreal,valencia,0,us-770,us-12322,44,31-45,0.0950,0.9680,0.5850,101.6400,39.7800,6.7000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700882,villarreal,valencia,0,us-2120,us-12322,49,46-60,0.1004,0.9150,0.4790,96.0800,32.5700,9.0000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700881,villarreal,valencia,0,us-8696,us-14221,49,46-60,0.0565,0.8160,0.4870,85.6800,33.1200,19.3000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700883,valencia,villarreal,1,us-2505,,52,46-60,0.0757,0.9460,0.6750,99.3300,45.9000,13.2000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_valencia_villarreal,20261024,700884,valencia,villarreal,1,us-10107,us-10322,53,46-60,0.0597,0.8960,0.4590,94.0800,31.2100,11.3000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700885,valencia,villarreal,1,us-10107,us-10322,54,46-60,0.0251,0.9020,0.4710,94.7100,32.0300,10.5000,Córner,Cabeza u otra,Parado,0,0,1
+2026-27,20261024_valencia_villarreal,20261024,700886,villarreal,valencia,0,us-12322,us-14396,55,46-60,0.0297,0.8730,0.7440,91.6700,50.5900,21.3000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700887,villarreal,valencia,0,us-10121,,56,46-60,0.0616,0.9270,0.3490,97.3300,23.7300,12.8000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700888,valencia,villarreal,1,us-8066,us-7870,57,46-60,0.0534,0.8790,0.3170,92.3000,21.5600,17.8000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261024_valencia_villarreal,20261024,700889,valencia,villarreal,1,us-8066,,58,46-60,0.0488,0.8270,0.4740,86.8300,32.2300,18.3000,Córner,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700890,villarreal,valencia,0,us-12322,us-8696,60,46-60,0.0254,0.8570,0.7470,89.9800,50.8000,22.5000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700891,villarreal,valencia,0,us-12322,us-8696,63,61-75,0.0284,0.7810,0.6140,82.0000,41.7500,24.3000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700892,villarreal,valencia,0,us-12160,us-8187,65,61-75,0.0247,0.7930,0.6170,83.2700,41.9600,23.1000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700893,villarreal,valencia,0,us-14396,us-11744,68,61-75,0.3030,0.9120,0.4580,95.7600,31.1400,9.7000,Jugada,Cabeza u otra,Gol,1,0,1
+2026-27,20261024_valencia_villarreal,20261024,700894,villarreal,valencia,0,us-12160,us-2120,73,61-75,0.1104,0.8840,0.3640,92.8200,24.7500,15.3000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700895,valencia,villarreal,1,us-10107,us-7546,84,76-90,0.0931,0.9110,0.5180,95.6500,35.2200,9.4000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700896,valencia,villarreal,1,us-6637,us-7870,87,76-90,0.0440,0.9080,0.5520,95.3400,37.5400,10.3000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261024_valencia_villarreal,20261024,700897,valencia,villarreal,1,us-13761,us-2505,91,90+,0.0293,0.8020,0.6700,84.2100,45.5600,23.8000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261024_valencia_villarreal,20261024,700898,villarreal,valencia,0,us-8187,us-12160,95,90+,0.2661,0.8790,0.6450,92.3000,43.8600,16.1000,Jugada,Pie izquierdo,Gol,1,0,1
+2026-27,20261025_athletic_getafe,20261025,701095,getafe,athletic,0,us-10947,us-6242,4,0-15,0.1182,0.8480,0.5480,89.0400,37.2600,16.3000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261025_athletic_getafe,20261025,701096,athletic,getafe,1,us-9211,us-2229,9,0-15,0.0338,0.8660,0.7150,90.9300,48.6200,20.3000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701097,getafe,athletic,0,us-7888,us-5043,14,0-15,0.0149,0.8760,0.4690,91.9800,31.8900,13.2000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701098,athletic,getafe,1,us-5091,,16,16-30,0.0519,0.9090,0.8710,95.4500,59.2300,27.0000,Falta directa,Pie derecho,Gol,1,0,1
+2026-27,20261025_athletic_getafe,20261025,701099,athletic,getafe,1,us-9211,us-5091,23,16-30,0.0606,0.8750,0.3230,91.8800,21.9600,17.8000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701100,athletic,getafe,1,us-2399,us-8948,25,16-30,0.0580,0.8850,0.7080,92.9200,48.1400,18.6000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701101,athletic,getafe,1,us-2399,us-2229,27,16-30,0.0530,0.7780,0.6170,81.6900,41.9600,24.6000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701102,athletic,getafe,1,us-2399,us-5091,34,31-45,0.2265,0.8410,0.3980,88.3000,27.0600,18.1000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261025_athletic_getafe,20261025,701104,getafe,athletic,0,us-13560,us-13392,46,46-60,0.0125,0.9520,0.6670,99.9600,45.3600,12.4000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701103,getafe,athletic,0,us-7888,,46,46-60,0.0356,0.7790,0.8380,81.8000,56.9800,32.7000,Falta directa,Pie derecho,Fuera,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701105,athletic,getafe,1,us-5091,us-9211,51,46-60,0.0876,0.9250,0.7320,97.1200,49.7800,17.6000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701106,getafe,athletic,0,us-7888,us-11349,53,46-60,0.0152,0.7320,0.5540,76.8600,37.6700,28.4000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701107,athletic,getafe,1,us-13123,us-14777,57,46-60,0.0360,0.8100,0.3200,85.0500,21.7600,23.4000,Balón parado,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701108,getafe,athletic,0,us-9001,us-10947,64,61-75,0.0948,0.9030,0.6030,94.8200,41.0000,12.4000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701109,athletic,getafe,1,us-8948,us-5091,69,61-75,0.0528,0.9310,0.5510,97.7500,37.4700,8.0000,Córner,Cabeza u otra,Gol,1,0,1
+2026-27,20261025_athletic_getafe,20261025,701110,getafe,athletic,0,us-6219,,72,61-75,0.0583,0.7450,0.6310,78.2200,42.9100,28.2000,Falta directa,Pie derecho,Fuera,0,0,0
+2026-27,20261025_athletic_getafe,20261025,701111,athletic,getafe,1,us-2229,us-5091,87,76-90,0.0187,0.7610,0.3180,79.9000,21.6200,28.0000,Balón parado,Pie izquierdo,Gol,1,0,1
+2026-27,20261025_athletic_getafe,20261025,701112,athletic,getafe,1,us-6766,,90,76-90,0.0212,0.8090,0.3290,84.9500,22.3700,23.2000,Balón parado,Pie derecho,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701656,madrid,barcelona,0,us-12190,,4,0-15,0.0713,0.8930,0.3480,93.7700,23.6600,15.3000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701657,barcelona,madrid,1,us-8150,us-2379,6,0-15,0.0293,0.8720,0.7540,91.5600,51.2700,21.9000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261025_barcelona_madrid,20261025,701658,barcelona,madrid,1,us-8150,us-2379,14,0-15,0.0208,0.7680,0.7370,80.6400,50.1200,29.2000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261025_barcelona_madrid,20261025,701659,madrid,barcelona,0,us-12190,us-6560,17,16-30,0.0240,0.8130,0.2640,85.3700,17.9500,25.4000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261025_barcelona_madrid,20261025,701660,barcelona,madrid,1,us-8026,us-8935,21,16-30,0.0768,0.8430,0.5120,88.5200,34.8200,16.5000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701661,barcelona,madrid,1,us-11822,us-8026,22,16-30,0.0289,0.8110,0.3210,85.1500,21.8300,23.3000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701662,barcelona,madrid,1,us-8026,us-8150,23,16-30,0.0574,0.8120,0.5130,85.2600,34.8800,19.8000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701663,madrid,barcelona,0,us-12190,us-3423,25,16-30,0.0216,0.7930,0.2700,83.2700,18.3600,26.8000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701664,barcelona,madrid,1,us-8026,us-2379,32,31-45,0.0193,0.7470,0.3190,78.4300,21.6900,29.3000,Balón parado,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701665,madrid,barcelona,0,us-3423,us-12190,32,31-45,0.2742,0.8770,0.4750,92.0800,32.3000,13.0000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701666,barcelona,madrid,1,us-8150,us-8026,33,31-45,0.0462,0.9180,0.6890,96.3900,46.8500,15.5000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261025_barcelona_madrid,20261025,701667,madrid,barcelona,0,us-3423,,40,31-45,0.5233,0.9270,0.5420,97.3300,36.8600,8.2000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261025_barcelona_madrid,20261025,701668,barcelona,madrid,1,us-11527,us-11822,43,31-45,0.3818,0.9170,0.3780,96.2800,25.7000,12.0000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701669,barcelona,madrid,1,us-2496,us-8935,44,31-45,0.0477,0.8130,0.5660,85.3700,38.4900,20.1000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261025_barcelona_madrid,20261025,701670,madrid,barcelona,0,us-13561,us-12190,46,46-60,0.2878,0.8840,0.6790,92.8200,46.1700,17.2000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701671,barcelona,madrid,1,us-8026,us-11822,54,46-60,0.0933,0.8580,0.3820,90.0900,25.9800,16.9000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701672,barcelona,madrid,1,us-8026,us-8935,60,46-60,0.0551,0.9120,0.3560,95.7600,24.2100,13.5000,Córner,Pie izquierdo,Gol,1,0,1
+2026-27,20261025_barcelona_madrid,20261025,701673,madrid,barcelona,0,us-12190,us-9840,62,61-75,0.0195,0.8370,0.1880,87.8800,12.7800,27.3000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261025_barcelona_madrid,20261025,701674,barcelona,madrid,1,us-8026,us-8150,64,61-75,0.0630,0.8800,0.6750,92.4000,45.9000,17.3000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701675,barcelona,madrid,1,us-12821,us-2379,65,61-75,0.3347,0.9240,0.5410,97.0200,36.7900,8.5000,Córner,Cabeza u otra,Parado,0,0,1
+2026-27,20261025_barcelona_madrid,20261025,701676,madrid,barcelona,0,us-12190,us-3423,70,61-75,0.0291,0.8270,0.2970,86.8300,20.2000,22.8000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261025_barcelona_madrid,20261025,701677,barcelona,madrid,1,us-11527,us-8935,73,61-75,0.0642,0.8490,0.3830,89.1500,26.0400,17.7000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701679,barcelona,madrid,1,us-11527,us-2496,77,76-90,0.0485,0.7890,0.5270,82.8500,35.8400,22.2000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701678,madrid,barcelona,0,us-8824,,77,76-90,0.0800,0.8960,0.5790,94.0800,39.3700,12.2000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701680,barcelona,madrid,1,us-7781,us-9805,78,76-90,0.0969,0.8590,0.4480,90.2000,30.4600,15.2000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701681,barcelona,madrid,1,us-11527,us-8150,80,76-90,0.0619,0.8150,0.5300,85.5700,36.0400,19.5000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701682,barcelona,madrid,1,us-11527,us-8150,82,76-90,0.1151,0.9120,0.6710,95.7600,45.6300,14.9000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_barcelona_madrid,20261025,701683,madrid,barcelona,0,us-3423,us-7359,86,76-90,0.6185,0.9160,0.4880,96.1800,33.1800,8.9000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261025_celta_betis,20261025,701349,celta,betis,1,us-9243,us-10078,3,0-15,0.0159,0.7090,0.4840,74.4500,32.9100,30.6000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_celta_betis,20261025,701350,betis,celta,0,us-14001,us-2163,6,0-15,0.0156,0.4920,0.5020,51.6600,34.1400,53.3000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701351,celta,betis,1,us-10082,us-12643,7,0-15,0.0321,0.8990,0.2700,94.4000,18.3600,18.9000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261025_celta_betis,20261025,701352,celta,betis,1,us-10082,us-7385,9,0-15,0.0467,0.9000,0.5130,94.5000,34.8800,10.5000,Jugada,Cabeza u otra,Parado,0,0,1
+2026-27,20261025_celta_betis,20261025,701353,celta,betis,1,us-1621,us-10082,13,0-15,0.0604,0.9180,0.5830,96.3900,39.6400,10.3000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_celta_betis,20261025,701354,celta,betis,1,us-12642,us-10082,13,0-15,0.0449,0.9120,0.5160,95.7600,35.0900,9.3000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701355,celta,betis,1,us-11154,us-9243,15,0-15,0.0221,0.7270,0.4360,76.3300,29.6500,29.0000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701356,betis,celta,0,us-10095,us-5086,20,16-30,0.0580,0.9780,0.6700,102.6900,45.5600,11.8000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261025_celta_betis,20261025,701357,betis,celta,0,us-11890,us-2255,21,16-30,0.1187,0.9520,0.5690,99.9600,38.6900,6.9000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701359,celta,betis,1,us-10082,us-12180,22,16-30,0.0434,0.8570,0.3040,89.9800,20.6700,20.1000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261025_celta_betis,20261025,701358,celta,betis,1,us-11154,us-7385,22,16-30,0.3251,0.9080,0.6500,95.3400,44.2000,14.0000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261025_celta_betis,20261025,701360,betis,celta,0,us-13374,us-2255,32,31-45,0.0190,0.8700,0.2680,91.3500,18.2200,20.9000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701361,celta,betis,1,us-12643,us-10082,34,31-45,0.0426,0.9010,0.3680,94.6000,25.0200,13.7000,Córner,Pie derecho,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701362,betis,celta,0,us-14001,us-11094,36,31-45,0.0196,0.7780,0.3100,81.6900,21.0800,26.7000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701363,betis,celta,0,us-5086,,42,31-45,0.0699,0.8490,0.4650,89.1500,31.6200,16.0000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_celta_betis,20261025,701364,betis,celta,0,us-14001,us-10095,52,46-60,0.1210,0.8850,0.5940,92.9200,40.3900,13.7000,Jugada,Pie izquierdo,Poste,0,0,0
+2026-27,20261025_celta_betis,20261025,701365,betis,celta,0,us-11094,us-10095,54,46-60,0.0243,0.7800,0.6410,81.9000,43.5900,25.0000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261025_celta_betis,20261025,701366,betis,celta,0,us-10095,,55,46-60,0.0722,0.8560,0.5140,89.8800,34.9500,15.1000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701367,betis,celta,0,us-10095,us-2335,70,61-75,0.0205,0.7730,0.6880,81.1700,46.7800,27.0000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701368,betis,celta,0,us-11890,us-2453,74,61-75,0.0947,0.8980,0.4640,94.2900,31.5500,11.0000,Córner,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701369,betis,celta,0,us-2335,us-5086,81,76-90,0.0211,0.7430,0.5940,78.0200,40.3900,27.7000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_celta_betis,20261025,701370,betis,celta,0,us-2335,us-5681,83,76-90,0.0167,0.7250,0.4580,76.1200,31.1400,29.0000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_celta_betis,20261025,701371,celta,betis,1,us-2290,us-10870,85,76-90,0.0725,0.9170,0.3010,96.2800,20.4700,16.1000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261025_celta_betis,20261025,701372,celta,betis,1,us-1621,us-7385,86,76-90,0.0473,0.9310,0.4410,97.7500,29.9900,8.3000,Córner,Cabeza u otra,Bloqueado,0,0,0
+2026-27,20261025_celta_betis,20261025,701373,betis,celta,0,us-8145,us-5681,86,76-90,0.0375,0.8010,0.4380,84.1000,29.7800,21.3000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701374,celta,betis,1,us-14362,us-10870,91,90+,0.0509,0.7980,0.5130,83.7900,34.8800,21.2000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_celta_betis,20261025,701375,betis,celta,0,us-8145,us-5681,92,90+,0.3642,0.9000,0.3990,94.5000,27.1300,12.5000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701602,sociedad,levante,1,us-13048,us-12171,5,0-15,0.4446,0.9200,0.5280,96.6000,35.9000,8.6000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701603,sociedad,levante,1,us-13048,,5,0-15,0.5461,0.9240,0.5170,97.0200,35.1600,8.1000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261025_sociedad_levante,20261025,701604,levante,sociedad,0,us-13772,us-14393,22,16-30,0.2645,0.9800,0.4010,102.9000,27.2700,7.1000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261025_sociedad_levante,20261025,701605,sociedad,levante,1,us-12171,us-13936,23,16-30,0.0662,0.9030,0.3130,94.8200,21.2800,16.3000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701606,sociedad,levante,1,us-13048,us-9465,24,16-30,0.0880,0.9370,0.4210,98.3800,28.6300,8.5000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701607,levante,sociedad,0,us-14393,us-9275,25,16-30,0.1271,0.8770,0.5320,92.0800,36.1800,13.1000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701609,sociedad,levante,1,us-9465,us-5682,26,16-30,0.0776,0.8620,0.5750,90.5100,39.1000,15.4000,Jugada,Pie izquierdo,Gol,1,0,1
+2026-27,20261025_sociedad_levante,20261025,701608,sociedad,levante,1,us-5682,,26,16-30,0.0630,0.8810,0.6440,92.5000,43.7900,15.9000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701610,sociedad,levante,1,us-13048,us-5682,28,16-30,0.3760,0.8990,0.3890,94.4000,26.4500,13.0000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701611,sociedad,levante,1,us-13048,,29,16-30,0.0822,0.9150,0.3360,96.0800,22.8500,14.3000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701612,sociedad,levante,1,us-5682,us-12171,30,16-30,0.0905,0.8620,0.6060,90.5100,41.2100,16.2000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701613,sociedad,levante,1,us-13048,us-2234,32,31-45,0.0829,0.8620,0.3740,90.5100,25.4300,16.8000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701614,sociedad,levante,1,us-12862,us-5682,36,31-45,0.0732,0.8110,0.5010,85.1500,34.0700,19.8000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261025_sociedad_levante,20261025,701615,levante,sociedad,0,us-9275,us-14393,39,31-45,0.0550,0.8160,0.5580,85.6800,37.9400,19.7000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261025_sociedad_levante,20261025,701616,levante,sociedad,0,us-9466,,41,31-45,0.0200,0.8520,0.7580,89.4600,51.5400,23.4000,Córner,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701617,sociedad,levante,1,us-5682,us-12862,47,46-60,0.3447,0.9180,0.3660,96.3900,24.8900,12.5000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701618,levante,sociedad,0,us-13035,us-9275,49,46-60,0.0516,0.8080,0.4660,84.8400,31.6900,20.3000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701619,levante,sociedad,0,us-10930,us-8500,63,61-75,0.2362,0.8810,0.5210,92.5000,35.4300,12.6000,Balón parado,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701620,sociedad,levante,1,us-13048,us-7308,64,61-75,0.0666,0.8160,0.6320,85.6800,42.9800,21.3000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701621,sociedad,levante,1,us-5682,us-7308,66,61-75,0.3761,0.9230,0.5520,96.9200,37.5400,8.8000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701622,sociedad,levante,1,us-12182,us-5682,66,61-75,0.0910,0.9640,0.3520,101.2200,23.9400,10.8000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701623,sociedad,levante,1,us-2234,us-7308,78,76-90,0.0223,0.7680,0.2750,80.6400,18.7000,28.8000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261025_sociedad_levante,20261025,701624,sociedad,levante,1,us-8760,us-14364,89,76-90,0.0719,0.8550,0.6360,89.7800,43.2500,17.8000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701709,osasuna,sevilla,0,us-1235,,3,0-15,0.1107,0.9420,0.6360,98.9100,43.2500,11.1000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701710,osasuna,sevilla,0,us-12893,us-2183,3,0-15,0.3218,0.9210,0.4700,96.7000,31.9600,8.5000,Córner,Cabeza u otra,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701712,sevilla,osasuna,1,us-9444,us-9218,6,0-15,0.0782,0.9210,0.6170,96.7000,41.9600,11.5000,Jugada,Pie izquierdo,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701711,sevilla,osasuna,1,us-12305,,6,0-15,0.0338,0.7850,0.4420,82.4200,30.0600,22.9000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701713,osasuna,sevilla,0,us-2198,,14,0-15,0.0349,0.7910,0.5750,83.0500,39.1000,22.5000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701714,osasuna,sevilla,0,us-1235,us-2198,16,16-30,0.0400,0.8720,0.4010,91.5600,27.2700,15.0000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701715,sevilla,osasuna,1,us-13600,,19,16-30,0.0114,0.7190,0.3950,75.5000,26.8600,30.4000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701717,sevilla,osasuna,1,us-12305,us-6945,23,16-30,0.0313,0.7900,0.5990,82.9500,40.7300,23.1000,Jugada,Pie izquierdo,Gol,1,0,1
+2026-27,20261026_sevilla_osasuna,20261026,701716,sevilla,osasuna,1,us-10334,,23,16-30,0.0129,0.7270,0.4120,76.3300,28.0200,29.3000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261026_sevilla_osasuna,20261026,701718,sevilla,osasuna,1,us-9444,us-12305,31,31-45,0.0231,0.7400,0.6260,77.7000,42.5700,28.6000,Jugada,Pie derecho,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701719,sevilla,osasuna,1,us-13600,us-8694,38,31-45,0.0701,0.9090,0.3990,95.4500,27.1300,11.8000,Córner,Pie derecho,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701720,sevilla,osasuna,1,us-8694,us-13057,40,31-45,0.0425,0.8500,0.2700,89.2500,18.3600,22.2000,Jugada,Pie derecho,Parado,0,0,1
+2026-27,20261026_sevilla_osasuna,20261026,701721,sevilla,osasuna,1,us-8694,,46,46-60,0.0687,0.8610,0.5090,90.4000,34.6100,14.6000,Balón parado,Pie derecho,Bloqueado,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701722,sevilla,osasuna,1,us-13057,us-10334,47,46-60,0.0597,0.9110,0.5730,95.6500,38.9600,10.6000,Jugada,Cabeza u otra,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701723,osasuna,sevilla,0,us-7050,,51,46-60,0.0485,0.8130,0.4990,85.3700,33.9300,19.6000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701724,osasuna,sevilla,0,us-14915,,59,46-60,0.0299,0.8150,0.6750,85.5700,45.9000,22.8000,Jugada,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701725,sevilla,osasuna,1,us-6945,,68,61-75,0.0308,0.6730,0.6340,70.6700,43.1100,35.5000,Falta directa,Pie derecho,Parado,0,0,1
+2026-27,20261026_sevilla_osasuna,20261026,701726,sevilla,osasuna,1,us-9218,us-9444,69,61-75,0.0612,0.8930,0.5090,93.7700,34.6100,11.3000,Córner,Pie derecho,Poste,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701727,sevilla,osasuna,1,us-14683,,69,61-75,0.0786,0.9520,0.6420,99.9600,43.6600,10.9000,Córner,Pie izquierdo,Bloqueado,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701728,sevilla,osasuna,1,us-10334,us-7810,73,61-75,0.1129,0.9260,0.5340,97.2300,36.3100,8.1000,Córner,Cabeza u otra,Parado,0,0,1
+2026-27,20261026_sevilla_osasuna,20261026,701729,sevilla,osasuna,1,us-11266,us-7810,76,76-90,0.0260,0.7870,0.3010,82.6300,20.4700,26.1000,Jugada,Pie izquierdo,Parado,0,0,1
+2026-27,20261026_sevilla_osasuna,20261026,701730,sevilla,osasuna,1,us-11343,,80,76-90,0.0316,0.8150,0.6200,85.5700,42.1600,21.1000,Córner,Pie izquierdo,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701731,sevilla,osasuna,1,us-9444,us-6945,81,76-90,0.1055,0.8760,0.6320,91.9800,42.9800,15.8000,Jugada,Pie derecho,Gol,1,0,1
+2026-27,20261026_sevilla_osasuna,20261026,701732,osasuna,sevilla,0,us-8042,,87,76-90,0.0206,0.7470,0.4250,78.4300,28.9000,27.1000,Jugada,Pie derecho,Bloqueado,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701734,osasuna,sevilla,0,us-1235,us-8584,88,76-90,0.0273,0.8590,0.4970,90.2000,33.8000,14.8000,Jugada,Cabeza u otra,Parado,0,0,1
+2026-27,20261026_sevilla_osasuna,20261026,701733,osasuna,sevilla,0,us-8042,us-8584,88,76-90,0.0894,0.9270,0.4460,97.3300,30.3300,8.5000,Córner,Pie derecho,Fuera,0,0,0
+2026-27,20261026_sevilla_osasuna,20261026,701735,osasuna,sevilla,0,us-7604,us-1235,90,76-90,0.0345,0.8710,0.4380,91.4500,29.7800,14.2000,Jugada,Cabeza u otra,Parado,0,0,1
